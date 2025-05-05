@@ -75,6 +75,54 @@
   --sidebar-ring: oklch(0.439 0 0);
 }
 
+/* Custom typography styles */
+.text-shadow-lg {
+  text-shadow: 0px 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.text-shadow-xl {
+  text-shadow: 0px 8px 24px rgba(0, 0, 0, 0.3);
+}
+
+.text-shadow-glow {
+  text-shadow: 0px 0px 15px rgba(59, 130, 246, 0.5), 0px 0px 5px rgba(59, 130, 246, 0.25);
+}
+
+/* Gradient animation for text */
+@keyframes gradient-shift {
+  0%, 100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+.animate-gradient-shift {
+  background-size: 200% auto;
+  animation: gradient-shift 3s ease infinite;
+}
+
+.font-playfair h2 {
+  letter-spacing: -0.03em;
+}
+
+/* Extra animations for headlines */
+@keyframes headline-reveal {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.headline-reveal {
+  animation: headline-reveal 0.8s ease forwards;
+}
+
 .theme-login-one {
   --primary: #ce2a2d;
   --primary-foreground: #fff;
@@ -196,4 +244,121 @@
   body {
     @apply bg-background text-foreground;
   }
+
+  /* Adjust for responsive typography */
+  html {
+    font-size: 15px;
+  }
+
+  @media (max-width: 640px) {
+    html {
+      font-size: 14px;
+    }
+  }
+
+  @media (min-width: 1400px) {
+    html {
+      font-size: 16px;
+    }
+  }
+
+  /* Make container responsive */
+  .container {
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  @media (min-width: 640px) {
+    .container {
+      max-width: 640px;
+    }
+  }
+
+  @media (min-width: 768px) {
+    .container {
+      max-width: 768px;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .container {
+      max-width: 1024px;
+    }
+  }
+
+  @media (min-width: 1280px) {
+    .container {
+      max-width: 1280px;
+    }
+  }
+
+  @media (min-width: 1536px) {
+    .container {
+      max-width: 1536px;
+    }
+  }
+
+  /* Responsive layout helpers */
+  .hide-scrollbar {
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+  }
+  
+  .hide-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  
+  /* Ensure touchable areas are large enough on mobile */
+  @media (max-width: 640px) {
+    button, 
+    [role="button"],
+    a {
+      min-height: 44px;
+      min-width: 44px;
+    }
+  }
+}
+
+/* Responsive images */
+.responsive-image {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+
+/* Responsive grid fixes */
+@media (max-width: 640px) {
+  .grid {
+    grid-gap: 1rem;
+  }
+  
+  /* Adjust spacing on mobile */
+  section {
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+  }
+  
+  /* Make long text more readable on small devices */
+  p {
+    word-break: break-word;
+  }
+}
+
+/* Custom animation for logo/brand elements */
+@keyframes pulse-glow {
+  0%, 100% {
+    opacity: 0.8;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.05);
+  }
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 3s ease-in-out infinite;
 }

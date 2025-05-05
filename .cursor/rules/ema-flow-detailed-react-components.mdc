@@ -1,0 +1,108 @@
+---
+description: 
+globs: 
+alwaysApply: true
+---
+<LandingPage>
+├─ <HeroSection>
+│   // 📄 İÇERİK (Türkçe)
+│   //   • Sol kolon (≈%60):
+│   //       – H1 Tagline (çok büyük): "Konuşun, EMA sizi anlasın."
+│   //       – Alt başlık: "Mağazada sorular canlı, cevaplar da öyle olsun."
+│   //       – Ana CTA butonu: "Pilot Kuruluma Başvur"
+│   //   • Sağ kolon (≈%40): EMA logo görseli (tagline yüksekliğinin ~%80'i)
+│   //   • Arka plan: #0e0f1a→#1a2333 degrade.
+│   // ⚙️ KOD PROPS
+│   //   tagline, subheading, logoSrc, primaryCTA
+│
+├─ <ProblemSection>
+│   // 📄 İÇERİK
+│   //   • Başlık: "Müşteriler arıyor, dokunmatik ekranlar yetmiyor."
+│   //   • Sorun listesi (❗ ikonlu):
+│   //        - "Yazmakla uğraşmak istemeyen müşteriler…"
+│   //        - "Kalabalıkta sesini duyuramayan satış ekibi…"
+│   //        - "Farklı diller, sınırlı zaman…"
+│   //   • Empati alıntısı: “Teknoloji konuştuğumu anlayamıyorsa, kimin için var?” (italik, merkez)
+│   // ⚙️ PROPS
+│   //   headline, problems, empathyQuote
+│
+├─ <GuideSection>
+│   // 📄 İÇERİK
+│   //   • Başlık: "Konuşan, dinleyen, anlayan asistan."
+│   //   • 3 Özellik kartı:
+│   //        1) 5 Dil – "Türkçe, İngilizce, Arapça, Rusça, Almanca"
+│   //        2) Doğal Konuşma – "Yazma yok, dokunma yok"
+│   //        3) Bağlamsal Zekâ – "Tutarlı cevaplar, öneriler"
+│   //   • Alt empati satırı: "Sizi ve müşterinizi anlıyoruz."
+│   // ⚙️ PROPS
+│   //   headline, features, empathyLine
+│
+├─ <PlanSection>
+│   // 📄 İÇERİK
+│   //   • Başlık: "3 Kolay Adım"
+│   //   • Adımlar:
+│   //        1. EMA’yı Kurun – "Dakikalar içinde aktif."
+│   //        2. Müşteriniz Konuşsun – “Merhaba, kırmızı mont var mı?”
+│   //        3. Bilgiler Ekrana Gelsin – "Stok, fiyat, yön tarifleri anında."
+│   //   • Güven notu: "Sade kurulum, eğitim gerekmez."
+│   // ⚙️ PROPS
+│   //   steps, trustNote
+│
+├─ <CTASection variant="primary">
+│   // 📄 İÇERİK
+│   //   • Başlık: "Harekete Geçin"
+│   //   • PitchLine: "Müşteriniz konuşacak. EMA anlayacak. Siz kazanacaksınız."
+│   //   • CTA buton: "Pilot Kuruluma Başvur"
+│   //   • secondaryLink: "Standımıza Uğrayın, Canlı Görün"
+│   // ⚙️ PROPS
+│   //   headline, pitchLine, cta, secondaryLink?
+│
+├─ <LossSection>
+│   // 📄 İÇERİK
+│   //   • Başlık: "Olmazsa Ne Olur?"
+│   //   • Kayıp listesi (❌ ikonlu):
+│   //        - "Müşteri ürünü bulamadan mağazayı terk eder."
+│   //        - "Yabancı müşteriyle iletişim kopar."
+│   //        - "Satış potansiyeli boşa gider."
+│   //   • Uyarı: "Her kaybedilen soru, kaybedilen ciro demektir."
+│   // ⚙️ PROPS
+│   //   headline, losses, warningLine
+│
+├─ <SuccessSection>
+│   // 📄 İÇERİK
+│   //   • Başlık: "Olursa Ne Kazanırsınız?"
+│   //   • Kazanç kartları (🎉 ikonlu):
+│   //        - "Müşteri memnun, mağaza verimli."
+│   //        - "Çalışan huzurlu, sorular azalır."
+│   //        - "Her konuşma içgörüye dönüşür."
+│   //        - "Satış artışı somutlaşır."
+│   //   • Özet cümle: "Teknoloji artık gerçekten yardımcı."
+│   // ⚙️ PROPS
+│   //   headline, gains, summaryLine
+│
+├─ <SocialProofSection>
+│   // 📄 İÇERİK
+│   //   • Başlık: "Onlar Ne Diyor?"
+│   //   • Testimonials:
+│   //        1) “EMA sayesinde yabancı müşterilerle %30 daha fazla satış yaptık.” — GiyimMarket, İstanbul
+│   //        2) “Ekrana dokunmak yerine konuşmak, özellikle yaşlı müşterilerimizi rahatlattı.” — Teknoshop, Ankara
+│   //        3) “Kurulum 20 dakika sürdü, ilk gün 120 ürün sorgusu aldık.” — Outlet 44, İzmir
+│   // ⚙️ PROPS
+│   //   headline, testimonials
+│
+├─ <CTASection variant="final">
+│   // 📄 İÇERİK
+│   //   • Başlık: "Fırsatı Kaçırmayın"
+│   //   • CTA buton: "Pilot Kuruluma Başvur"
+│   //   • FinePrint: "İlk 50 mağazaya özel lansman indirimi."
+│   // ⚙️ PROPS
+│   //   headline, cta, finePrint
+│
+└─ <FooterSection>
+    // 📄 İÇERİK
+    //   • Sol: EMA logo + slogan "Teknolojiyi Konuşma Kolaylığında Sunuyoruz."
+    //   • Orta: Yasal linkler – "KVKK", "Gizlilik Politikası", "Çerez Politikası"
+    //   • Sağ: İletişim – info@ema.ai | +90 212 000 00 00 + LinkedIn / Instagram / YouTube ikonları
+    //   • Alt: © 2025 EMA
+    // ⚙️ PROPS
+    //   logoSrc, slogan, legalLinks, contact, socials

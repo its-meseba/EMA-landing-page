@@ -1,0 +1,7 @@
+---
+description: 
+globs: 
+alwaysApply: true
+---
+- always use pnpm instead of npm
+- create / update a changelod.mdc and update it after every change
