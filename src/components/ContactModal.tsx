@@ -181,7 +181,7 @@ export function ContactModal({ open, onOpenChange }: ContactModalProps) {
                                 {/* EMA Logo */}
                                 <div className='mb-6 h-20 w-20 overflow-hidden rounded-2xl bg-white p-2'>
                                     <Image
-                                        src='/branding/logo_big.png'
+                                        src='/branding/logo.png'
                                         alt='EMA Logo'
                                         width={80}
                                         height={80}
@@ -280,7 +280,7 @@ export function ContactModal({ open, onOpenChange }: ContactModalProps) {
                             {/* EMA Logo */}
                             <div className='mb-5 h-16 w-16 overflow-hidden rounded-xl bg-white p-2'>
                                 <Image
-                                    src='/branding/logo_big.png'
+                                    src='/branding/logo.png'
                                     alt='EMA Logo'
                                     width={64}
                                     height={64}
