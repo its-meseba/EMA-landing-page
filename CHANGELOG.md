@@ -66,4 +66,30 @@ All notable changes to the EMA Landing Page project will be documented in this f
 ### Added
 - Created new Navbar component with EMA logo and "Uygulamayı Kullan" button
 - Added persistent navigation bar that redirects to app.ema.solace.com.tr
-- Integrated navbar into the main application layout 
+- Integrated navbar into the main application layout
+
+## 2023-10-14
+
+### Enhanced Hero Section
+- Completely reimagined the language bubble background for a smoother UI experience
+- Reduced the number of language bubbles to 5 strategically placed ones (3 on mobile)
+- Added subtle floating animations that respond to user interaction
+- Implemented mouse proximity effect where bubbles respond to cursor movement
+- Added subtle particle background effects for visual depth
+- Improved accessibility with properly labeled decorative elements
+- Enhanced performance by optimizing animations
+- Added subtle light effects to create depth in the hero background 
+
+## 2023-10-15
+
+### Redesigned Language Bubbles Demo Scene
+- Completely rebuilt the language demonstration experience with a modern interface
+- Created strategically positioned language bubbles in a circular arrangement
+- Added visual connection lines to show EMA's language processing capabilities
+- Implemented mouse interaction effects with subtle scale and hover states
+- Added language flags and identifiers for better visual understanding
+- Created satisfying selection and recognition animations
+- Added a success state overlay with completion message
+- Improved progress indication with animated counters
+- Enhanced the scene with ambient lighting effects and depth
+- Added translations to demonstrate EMA's language capabilities 
