@@ -93,3 +93,31 @@ All notable changes to the EMA Landing Page project will be documented in this f
 - Improved progress indication with animated counters
 - Enhanced the scene with ambient lighting effects and depth
 - Added translations to demonstrate EMA's language capabilities 
+
+## [0.2.0] - 2023-09-28
+
+### Added
+- Contact Modal component for pilot program signup
+  - Responsive design with desktop dialog and mobile bottom drawer
+  - Form validation for name and email fields
+  - Integration placeholder for Mailchimp API
+  - Success/error handling with toast notifications
+- useMediaQuery hook for responsive component rendering
+- Connected all CTA buttons to the contact modal
+- Added toast notifications using sonner
+
+### Changed
+- Updated Navbar to use the contact modal instead of linking to a contact page
+- Enhanced user experience with proper form state management
+
+## [0.1.0] - 2023-09-15
+
+### Added
+- Initial landing page with responsive design
+- Hero section with animated elements
+- Problem and solution sections
+- Feature showcase components
+- Testimonials section
+- Integration timeline
+- Comparison table
+- FAQ section 

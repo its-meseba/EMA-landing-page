@@ -1,13 +1,14 @@
 import type { ReactNode } from 'react';
 
 import type { Metadata } from 'next';
+import { Inter, Montserrat, Playfair_Display } from 'next/font/google';
 import localFont from 'next/font/local';
-import { Playfair_Display, Inter, Montserrat } from 'next/font/google';
 
 import { ThemeProvider } from 'next-themes';
 
-import Navbar from '@/components/Navbar';
 import '@/app/globals.css';
+import Navbar from '@/components/Navbar';
+import { ToastProvider } from '@/providers/toast-provider';
 import { Toaster } from '@/registry/new-york-v4/ui/sonner';
 import '@/styles/animations.css';
 
@@ -41,7 +42,8 @@ const geistMono = localFont({
 
 export const metadata: Metadata = {
     title: 'EMA | Konuşun, EMA sizi anlasın',
-    description: 'Mağazada sorular canlı, cevaplar da öyle olsun. Sesi ve dili anlayan, insan gibi yanıt veren asistanınız.',
+    description:
+        'Mağazada sorular canlı, cevaplar da öyle olsun. Sesi ve dili anlayan, insan gibi yanıt veren asistanınız.',
     keywords: 'EMA, yapay zeka, mağaza asistanı, konuşma tanıma, çoklu dil desteği'
 };
 
@@ -55,7 +57,7 @@ const Layout = ({ children }: Readonly<{ children: ReactNode }>) => {
                 <ThemeProvider attribute='class'>
                     <Navbar />
                     {children}
-                    <Toaster />
+                    <Toaster position='top-center' richColors closeButton />
                 </ThemeProvider>
             </body>
         </html>

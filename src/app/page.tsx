@@ -8,6 +8,7 @@ import Link from 'next/link';
 import AnimatedFAQ from '@/components/AnimatedFAQ';
 import AnimatedMetrics from '@/components/AnimatedMetrics';
 import ComparisonTable from '@/components/ComparisonTable';
+import { ContactModal } from '@/components/ContactModal';
 import FeatureShowcase from '@/components/FeatureShowcase';
 import IntegrationTimeline from '@/components/IntegrationTimeline';
 import InteractiveDemo from '@/components/InteractiveDemo';
@@ -256,6 +257,7 @@ export default function LandingPage() {
     const heroSectionRef = useRef<HTMLElement>(null);
     const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
     const [particles, setParticles] = useState<Particle[]>([]);
+    const [contactModalOpen, setContactModalOpen] = useState(false);
 
     useEffect(() => {
         // Create background particles
@@ -350,6 +352,9 @@ export default function LandingPage() {
 
     return (
         <main className='flex flex-col items-center'>
+            {/* ContactModal - available globally for all CTA buttons */}
+            <ContactModal open={contactModalOpen} onOpenChange={setContactModalOpen} />
+
             {/* Hero Section */}
             <section
                 ref={heroSectionRef}
@@ -422,6 +427,7 @@ export default function LandingPage() {
                         <motion.div className='pt-4' variants={itemVariants}>
                             <Button
                                 size='lg'
+                                onClick={() => setContactModalOpen(true)}
                                 className='font-montserrat w-full rounded-full bg-blue-500 px-6 py-5 text-base text-white shadow-lg shadow-blue-500/30 transition-all hover:translate-y-[-2px] hover:bg-blue-600 hover:shadow-blue-500/50 sm:w-auto sm:px-8 sm:py-6 sm:text-lg'>
                                 Pilot Kuruluma Başvur
                             </Button>
@@ -874,7 +880,7 @@ export default function LandingPage() {
                 </div>
             </section>
 
-            {/* CTA Section (Final) */}
+            {/* CTA Section (Primary) */}
             <section className='flex min-h-screen w-full items-center justify-center bg-gradient-to-br from-[#1a2333] to-[#0e0f1a] py-16 text-white md:py-24'>
                 <div className='container px-5 md:px-8'>
                     <div className='mx-auto max-w-3xl text-center'>
@@ -891,6 +897,7 @@ export default function LandingPage() {
 
                         <Button
                             size='lg'
+                            onClick={() => setContactModalOpen(true)}
                             className='font-montserrat w-full rounded-full bg-gradient-to-r from-amber-500 to-amber-600 px-8 py-6 text-lg text-white shadow-lg shadow-amber-500/30 transition-all hover:translate-y-[-2px] hover:from-amber-600 hover:to-amber-700 hover:shadow-amber-500/50 sm:w-auto sm:px-12 sm:py-8 sm:text-xl'>
                             Pilot Kuruluma Başvur
                         </Button>
