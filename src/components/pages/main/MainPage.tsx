@@ -258,53 +258,68 @@ export default function LandingPage() {
     const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
     const [particles, setParticles] = useState<Particle[]>([]);
     const [contactModalOpen, setContactModalOpen] = useState(false);
+    const [isMobile, setIsMobile] = useState(false);
 
     useEffect(() => {
-        // Create background particles
-        const isMobile = typeof window !== 'undefined' && window.innerWidth < 768;
-        setParticles(createParticles(isMobile ? 15 : 30));
-
-        // Disable mouse movement effects - we're not removing the code but making it inactive
-        const handleMouseMove = (event: MouseEvent) => {
-            // Keep the function but don't update state based on mouse position
-            return;
+        // Check if the device is mobile
+        const checkMobile = () => {
+            setIsMobile(window.innerWidth < 768);
         };
 
-        const handleMouseLeave = () => {
-            // Keep the function but don't update state
-            return;
-        };
+        // Initialize
+        checkMobile();
 
-        // We're not attaching these event listeners anymore
-        // window.addEventListener('mousemove', debouncedHandleMouseMove);
-        // document.documentElement.addEventListener('mouseleave', handleMouseLeave);
+        // Create background particles - none for mobile
+        setParticles(createParticles(isMobile ? 0 : 30));
 
-        return () => {
-            // window.removeEventListener('mousemove', debouncedHandleMouseMove);
-            // document.documentElement.removeEventListener('mouseleave', handleMouseLeave);
-        };
-    }, []);
+        // Handle resize events
+        window.addEventListener('resize', checkMobile);
+        return () => window.removeEventListener('resize', checkMobile);
+    }, [isMobile]);
 
     // Generate bubbles (memoized to avoid re-creation on each render)
     const [bubbles, setBubbles] = useState<LanguageBubbleProps[]>([]);
 
     useEffect(() => {
-        setBubbles(createBubbles());
+        // Only create bubbles for desktop
+        setBubbles(isMobile ? [] : createBubbles());
 
         // Regenerate bubbles when window is resized
         const handleResize = () => {
-            setBubbles(createBubbles());
+            const isCurrentlyMobile = window.innerWidth < 768;
+            setBubbles(isCurrentlyMobile ? [] : createBubbles());
         };
 
         window.addEventListener('resize', handleResize);
         return () => window.removeEventListener('resize', handleResize);
-    }, []);
+    }, [isMobile]);
 
     // Split the second tagline for character animation
     const tagline2 = 'EMA sizi anlasın.';
     const taglineChars = tagline2.split('');
 
-    // Replace the InteractiveBubble with a static version
+    // More performant simple bubble for mobile
+    const SimpleBubble = ({ bubble }: { bubble: LanguageBubbleProps }) => {
+        return (
+            <div
+                className='absolute flex items-center justify-center rounded-full font-medium text-white shadow-lg'
+                style={{
+                    width: bubble.size,
+                    height: bubble.size,
+                    backgroundColor: bubble.color,
+                    left: bubble.x,
+                    top: bubble.y,
+                    fontSize: bubble.size * 0.33,
+                    textAlign: 'center',
+                    opacity: 0.8
+                }}
+                aria-hidden='true'>
+                {bubble.text}
+            </div>
+        );
+    };
+
+    // Interactive bubble component for desktop
     const InteractiveBubble = ({ bubble }: { bubble: LanguageBubbleProps }) => {
         const prefersReducedMotion = useReducedMotion();
 
@@ -355,107 +370,134 @@ export default function LandingPage() {
             {/* ContactModal - available globally for all CTA buttons */}
             <ContactModal open={contactModalOpen} onOpenChange={setContactModalOpen} />
 
-            {/* Hero Section */}
+            {/* Hero Section - Mobile-optimized with cleaner background */}
             <section
                 ref={heroSectionRef}
                 className='relative flex min-h-screen w-full items-center justify-center overflow-hidden bg-gradient-to-br from-[#0e0f1a] to-[#1a2333] py-12 text-white md:py-0'>
-                {/* Background particles for added depth */}
-                <div className='pointer-events-none absolute inset-0 z-0 overflow-hidden'>
-                    {particles.map((particle) => (
-                        <Particle key={particle.id} particle={particle} />
-                    ))}
-                </div>
+                {/* Background elements - only show on desktop */}
+                {!isMobile && (
+                    <>
+                        {/* Background particles for desktop */}
+                        <div className='pointer-events-none absolute inset-0 z-0 overflow-hidden'>
+                            {particles.map((particle) => (
+                                <Particle key={particle.id} particle={particle} />
+                            ))}
+                        </div>
 
-                {/* Language Bubbles Background - refined with interactive effects */}
-                <div className='absolute inset-0 z-1 overflow-hidden'>
-                    {bubbles.map((bubble) => (
-                        <InteractiveBubble key={bubble.id} bubble={bubble} />
-                    ))}
-                </div>
+                        {/* Language Bubbles for desktop */}
+                        <div className='absolute inset-0 z-1 overflow-hidden'>
+                            {bubbles.map((bubble) => (
+                                <InteractiveBubble key={bubble.id} bubble={bubble} />
+                            ))}
+                        </div>
 
-                {/* Animated gradient overlay for depth */}
-                <motion.div
-                    className='bg-gradient-radial absolute inset-0 z-0 from-blue-900/0 to-[#0e0f1a]/30'
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    transition={{ duration: 2 }}
-                />
+                        {/* Gradient overlay for desktop */}
+                        <div className='bg-gradient-radial absolute inset-0 z-0 from-blue-900/0 to-[#0e0f1a]/30' />
 
-                {/* Subtle light effect for depth */}
-                <div className='absolute inset-0 z-0 overflow-hidden'>
-                    <div className='absolute -top-[100px] -left-[100px] h-[600px] w-[600px] rounded-full bg-blue-500/5 blur-3xl'></div>
-                    <div className='absolute -right-[100px] -bottom-[100px] h-[500px] w-[500px] rounded-full bg-blue-500/5 blur-3xl'></div>
-                </div>
+                        {/* Subtle light effect for desktop */}
+                        <div className='absolute inset-0 z-0 overflow-hidden'>
+                            <div className='absolute -top-[100px] -left-[100px] h-[600px] w-[600px] rounded-full bg-blue-500/5 blur-3xl'></div>
+                            <div className='absolute -right-[100px] -bottom-[100px] h-[500px] w-[500px] rounded-full bg-blue-500/5 blur-3xl'></div>
+                        </div>
+                    </>
+                )}
 
-                <motion.div
-                    className='relative z-30 container grid grid-cols-1 gap-8 px-5 py-12 md:gap-12 md:px-8 md:py-16 lg:grid-cols-5'
-                    variants={containerVariants}
-                    initial='hidden'
-                    animate='visible'>
-                    <motion.div
-                        className='relative z-30 flex flex-col justify-center space-y-6 md:space-y-8 lg:col-span-3'
-                        variants={itemVariants}>
-                        <motion.h1
-                            className='font-playfair mb-4 text-5xl leading-[0.9] font-bold tracking-tighter sm:text-6xl md:mb-6 md:text-8xl lg:text-9xl'
-                            variants={taglineVariants}>
-                            <motion.span className='block text-shadow-lg' variants={characterVariants}>
-                                Konuşun,
-                            </motion.span>
+                {/* Mobile-specific background with language bubbles */}
+                {isMobile && (
+                    <div className='absolute inset-0 z-0'>
+                        {/* Static language bubbles that match the shown design - REMOVED */}
+                    </div>
+                )}
 
-                            <motion.span
-                                className='animate-gradient-shift mt-2 block bg-gradient-to-r from-blue-400 via-cyan-300 to-blue-400 bg-clip-text text-transparent'
-                                variants={taglineVariants}
-                                whileHover={{ scale: 1.02, transition: { duration: 0.2 } }}>
-                                {taglineChars.map((char, index) => (
-                                    <motion.span
-                                        key={`${char}-${index}`}
-                                        variants={characterVariants}
-                                        className='inline-block'>
-                                        {char === ' ' ? '\u00A0' : char}
-                                    </motion.span>
-                                ))}
-                            </motion.span>
-                        </motion.h1>
-
-                        <motion.p
-                            className='font-inter max-w-2xl text-xl leading-relaxed font-light text-slate-300 sm:text-2xl md:text-3xl'
-                            variants={itemVariants}>
-                            Mağazada sorular canlı, cevaplar da öyle olsun. Sesi ve dili anlayan, insan gibi yanıt veren
-                            asistanınız.
-                        </motion.p>
-
-                        <motion.div className='pt-4' variants={itemVariants}>
-                            <Button
-                                size='lg'
-                                onClick={() => setContactModalOpen(true)}
-                                className='font-montserrat w-full rounded-full bg-blue-500 px-6 py-5 text-base text-white shadow-lg shadow-blue-500/30 transition-all hover:translate-y-[-2px] hover:bg-blue-600 hover:shadow-blue-500/50 sm:w-auto sm:px-8 sm:py-6 sm:text-lg'>
-                                Pilot Kuruluma Başvur
-                            </Button>
-                        </motion.div>
-                    </motion.div>
-                    {/* Simplified Logo Section - Removed Parallax Container */}
-                    <motion.div
-                        className='relative z-20 mt-8 flex items-center justify-center lg:col-span-2 lg:mt-0' // Added relative and z-20
-                        variants={itemVariants}>
-                        <div className='relative h-[250px] w-full max-w-md sm:h-[300px] md:h-[350px] lg:h-[450px]'>
-                            {/* Background blur effect (optional, keep if desired) */}
-                            <div className='absolute inset-0 rounded-full bg-blue-500/10 blur-3xl'></div>
-                            {/* Main container for the logo image */}
-                            <div className='absolute inset-0 flex items-center justify-center'>
-                                <div className='animate-pulse-glow bg-gradient-radial flex h-56 w-56 items-center justify-center rounded-full from-blue-600/20 via-blue-600/5 to-transparent p-4 sm:h-64 sm:w-64 md:h-72 md:w-72 lg:h-96 lg:w-96'>
+                {/* Content container */}
+                <div className='relative z-30 container mt-16 flex flex-col px-5 py-12 md:py-16'>
+                    {isMobile ? (
+                        // Mobile-specific clean layout matching screenshot
+                        <div className='flex flex-col items-center'>
+                            {/* EMA Logo now at the top */}
+                            <div className='relative mb-8 flex items-center justify-center'>
+                                <div className='absolute h-64 w-64 rounded-full bg-blue-900/40'></div>
+                                <div className='relative z-10 h-48 w-48'>
                                     <Image
                                         src='/branding/logo_big.png'
                                         alt='EMA Logo'
-                                        fill // Use fill to cover the container
-                                        sizes='(max-width: 640px) 224px, (max-width: 768px) 256px, (max-width: 1024px) 288px, 384px' // Provide sizes for optimization
-                                        className='object-contain' // Ensure image scales correctly
+                                        fill
+                                        className='object-contain'
                                         priority
                                     />
                                 </div>
                             </div>
+
+                            {/* Title */}
+                            <div className='font-playfair mb-6 text-center text-4xl leading-tight font-bold tracking-tighter'>
+                                <div className='mb-1'>
+                                    <div className='text-white'>Konuşun,</div>
+                                </div>
+                                <div className='text-blue-400'>EMA sizi anlasın.</div>
+                            </div>
+
+                            {/* Description text */}
+                            <p className='mb-8 max-w-xl text-center text-lg text-slate-300'>
+                                Mağazada sorular canlı, cevaplar da öyle olsun. Sesi ve dili anlayan, insan gibi yanıt
+                                veren asistanınız.
+                            </p>
+
+                            {/* CTA button */}
+                            <Button
+                                size='lg'
+                                onClick={() => setContactModalOpen(true)}
+                                className='w-full rounded-full bg-blue-500 py-6 text-base font-medium'>
+                                Pilot Kuruluma Başvur
+                            </Button>
                         </div>
-                    </motion.div>
-                </motion.div>
+                    ) : (
+                        // Desktop layout - with higher logo position
+                        <div className='grid grid-cols-1 items-center gap-8 md:grid-cols-12'>
+                            {/* Text content on left side */}
+                            <div className='order-1 md:col-span-7'>
+                                <h1 className='font-playfair mb-6 text-4xl leading-[1.1] font-bold tracking-tighter md:mb-6 md:text-7xl lg:text-8xl'>
+                                    <span className='block text-shadow-lg'>Konuşun,</span>
+                                    <span className='animate-gradient-shift mt-2 block bg-gradient-to-r from-blue-400 via-cyan-300 to-blue-400 bg-clip-text text-transparent'>
+                                        EMA sizi anlasın.
+                                    </span>
+                                </h1>
+
+                                <p className='font-inter max-w-2xl text-xl leading-relaxed font-light text-slate-300 md:text-2xl'>
+                                    Mağazada sorular canlı, cevaplar da öyle olsun. Sesi ve dili anlayan, insan gibi
+                                    yanıt veren asistanınız.
+                                </p>
+
+                                <div className='mt-8'>
+                                    <Button
+                                        size='lg'
+                                        onClick={() => setContactModalOpen(true)}
+                                        className='font-montserrat rounded-full bg-blue-500 px-6 py-5 text-base text-white shadow-lg shadow-blue-500/30 transition-all hover:bg-blue-600 hover:shadow-blue-500/50 sm:px-8 sm:py-6 sm:text-lg'>
+                                        Pilot Kuruluma Başvur
+                                    </Button>
+                                </div>
+                            </div>
+
+                            {/* Logo positioned higher on right side (eye level) */}
+                            <div className='order-2 flex justify-center md:col-span-5 md:justify-end'>
+                                <div className='relative -mt-12 h-[300px] w-[300px] md:-mt-24 lg:-mt-32'>
+                                    <div className='absolute inset-0 rounded-full bg-blue-500/10 blur-3xl'></div>
+                                    <div className='absolute inset-0 flex items-center justify-center'>
+                                        <div className='flex h-72 w-72 items-center justify-center rounded-full bg-blue-600/20 p-4'>
+                                            <Image
+                                                src='/branding/logo_big.png'
+                                                alt='EMA Logo'
+                                                fill
+                                                sizes='(max-width: 640px) 224px, (max-width: 768px) 256px, (max-width: 1024px) 288px, 384px'
+                                                className='object-contain'
+                                                priority
+                                            />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    )}
+                </div>
             </section>
 
             {/* Problem Section */}

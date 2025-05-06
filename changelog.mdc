@@ -22,3 +22,33 @@
 
 ### Changed
 - Disabled ESLint checks during builds by adding `eslint: { ignoreDuringBuilds: true }` to Next.js configuration 
+- Optimized Hero Section for mobile experience with:
+  - Reordered elements for title-first approach on mobile
+  - Added responsive layout with proper order for mobile and desktop views
+  - Replaced heavy animations with static elements on mobile for better performance
+  - Created simplified bubbles and particles for mobile devices
+  - Reduced number of animations and effects on mobile to improve loading speed
+  - Implemented mobile-first design approach with desktop enhancements
+- Refined hero section based on design feedback:
+  - Positioned logo higher for desktop view to meet user eye level
+  - Implemented 12-column grid layout with text on the left, logo on the right
+  - Removed redundant custom navbar in favor of existing Navbar component
+  - Replaced emoji placeholder with actual EMA logo on mobile
+  - Added authentic language bubbles that match the design mockup
+  - Improved spacing and sizing for better visual hierarchy
+- Further improved mobile layout:
+  - Removed all background language bubbles for cleaner mobile experience
+  - Repositioned EMA logo to top of content for better visual hierarchy
+  - Simplified layout with logo first, then title, description and CTA button
+  - Removed "Merhaba" overlay text for cleaner appearance
+
+### Added
+- Complete mobile UI redesign for hero section:
+  - Added mobile-specific simplified layout based on design mockup
+  - Implemented lightweight static background elements for mobile
+  - Created proper emoji-based logo display for mobile
+  - Added non-interactive subtle language bubbles for background context
+  - Implemented full-width CTA button for better mobile UX
+  - Added a simple top navigation bar with app launch button for mobile
+  - Created separate rendering paths for mobile and desktop experiences
+  - Optimized all animations and effects for better mobile performance 
