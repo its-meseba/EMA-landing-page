@@ -36,6 +36,10 @@ function DialogOverlay({ className, ...props }: React.ComponentProps<typeof Dial
     );
 }
 
+// DialogContent requires a DialogTitle child for accessibility.
+// If you need to hide the title visually, wrap it with VisuallyHidden.
+// For more information on accessibility, see:
+// https://radix-ui.com/primitives/docs/components/dialog
 function DialogContent({ className, children, ...props }: React.ComponentProps<typeof DialogPrimitive.Content>) {
     return (
         <DialogPortal data-slot='dialog-portal'>

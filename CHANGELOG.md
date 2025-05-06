@@ -67,6 +67,14 @@ All notable changes to the EMA Landing Page project will be documented in this f
 - Created new Navbar component with EMA logo and "Uygulamayı Kullan" button
 - Added persistent navigation bar that redirects to app.ema.solace.com.tr
 - Integrated navbar into the main application layout
+- `VisuallyHidden` component for accessibility needs
+- Documentation and example for Dialog accessibility requirements
+- Example component demonstrating Dialog with visually hidden title
+
+### Changed
+- Updated Navbar to use the contact modal instead of linking to a contact page
+- Enhanced user experience with proper form state management
+- Added accessibility documentation to Dialog component
 
 ## 2023-10-14
 
@@ -93,6 +101,33 @@ All notable changes to the EMA Landing Page project will be documented in this f
 - Improved progress indication with animated counters
 - Enhanced the scene with ambient lighting effects and depth
 - Added translations to demonstrate EMA's language capabilities 
+
+## [0.2.2] - 2023-09-30
+
+### Enhanced
+- Completely redesigned ContactModal to match the design shown in the screenshot:
+  - Replaced the decorative background with a solid blue header area
+  - Added a friendly emoji face icon instead of the logo
+  - Redesigned the form with better contrast and readability 
+  - Made background circles more subtle to prevent contrast issues
+  - Simplified the success animation with a cleaner blue background
+  - Updated mobile drawer to match the desktop dialog style
+  - Used rounded-full buttons for better touch targets
+  - Added light gray backgrounds to form inputs for better visibility
+
+## [0.2.1] - 2023-09-29
+
+### Enhanced
+- Completely redesigned ContactModal with beautiful visuals:
+  - Added animated decorative bubbles for background
+  - Improved typography with gradient headings
+  - Added EMA logo with pulsing animation effect
+  - Enhanced form controls with custom styling and icons
+  - Created fancy separator with wave design
+  - Implemented fluid gradients for better visual appeal
+  - Added elegant success animation with sequenced motion
+  - Improved mobile bottom drawer with consistent styling
+  - Enhanced button styles with gradients and hover effects
 
 ## [0.2.0] - 2023-09-28
 

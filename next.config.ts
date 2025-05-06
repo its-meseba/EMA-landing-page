@@ -28,13 +28,8 @@ const nextConfig: NextConfig = {
     // Disable ESLint
     eslint: {
         ignoreDuringBuilds: true
-    },
-    // Add error handling
-    experimental: {
-        // Continue on error
-        fallbackNodePolyfills: false,
-        esmExternals: 'loose'
     }
+    // Add error handling
 };
 
 export default withBundleAnalyzer(nextConfig);

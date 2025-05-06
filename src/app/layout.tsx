@@ -39,12 +39,18 @@ const geistMono = localFont({
     variable: '--font-geist-mono',
     weight: '100 900'
 });
-
 export const metadata: Metadata = {
     title: 'EMA | Konuşun, EMA sizi anlasın',
     description:
         'Mağazada sorular canlı, cevaplar da öyle olsun. Sesi ve dili anlayan, insan gibi yanıt veren asistanınız.',
-    keywords: 'EMA, yapay zeka, mağaza asistanı, konuşma tanıma, çoklu dil desteği'
+    keywords: 'EMA, yapay zeka, mağaza asistanı, konuşma tanıma, çoklu dil desteği',
+    openGraph: {
+        images: '/branding/logo_big.png'
+    },
+    twitter: {
+        card: 'summary_large_image',
+        images: '/branding/logo_big.png'
+    }
 };
 
 const Layout = ({ children }: Readonly<{ children: ReactNode }>) => {
