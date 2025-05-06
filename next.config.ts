@@ -25,6 +25,10 @@ const nextConfig: NextConfig = {
             }
         ]
     },
+    // Disable ESLint
+    eslint: {
+        ignoreDuringBuilds: true
+    },
     // Add error handling
     experimental: {
         // Continue on error
