@@ -30,13 +30,13 @@ const Navbar = () => {
                             className='hidden bg-blue-600 text-white hover:bg-blue-700 sm:block'>
                             Pilot Programı İçin Başvurun
                         </Button>
-                        <a href='https://app.ema.solace.com.tr' target='_blank' rel='noopener noreferrer'>
+                        {/* <a href='https://app.ema.solace.com.tr' target='_blank' rel='noopener noreferrer'>
                             <Button
                                 variant='outline'
                                 className='border-blue-600 text-blue-600 hover:bg-blue-50 dark:hover:bg-blue-950'>
                                 Uygulamayı Kullan
                             </Button>
-                        </a>
+                        </a> */}
                     </div>
                 </div>
             </nav>
