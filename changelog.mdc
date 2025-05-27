@@ -3,6 +3,60 @@
 ## [0.1.0] - 2023-11-08
 
 ### Added
+# EMA Landing Page Changelog
+
+## [2025-01-27] - Major Content Update & Feature Enhancement
+
+### Added
+- **New Hero Tagline**: "Tüm ürünlerin tüm detaylarını bilen satış elemanınız"
+- **Enhanced 3-Step Process**: File Upload → QR Code → Voice Interface
+- **New Features Section**: Comprehensive feature showcase with icons and animations
+- **Interactive Demo Section**: Live QR code simulator and voice interface preview
+- **Language Demo**: "Hangi Dilde Konuşursan O Dilde Cevap Verir" with 5-language support
+- **Extended Problem List**: Added stock management and product detail issues
+- **Extended Success Benefits**: Added 24/7 virtual assistant and multilingual support benefits
+- **Additional Testimonial**: New customer proof from DigitalStore, Bursa
+- **File Upload Integration**: Emphasized file upload system in final CTA
+
+### Updated
+- **EMA Information Document**: Comprehensive rewrite with detailed feature descriptions
+- **React Components Structure**: Enhanced with new sections and interactive elements
+- **Main Flow**: Updated content flow with 12 sections instead of 10
+- **Visual Description**: Detailed animations and interactive element descriptions
+- **StoryBrand Framework**: Updated with new EMA capabilities and user journey
+
+### Enhanced Visual Elements
+- **Icons & Animations**: File upload, QR code, microphone, language flags, stock counter
+- **Interactive Components**: Language selector, QR simulator, voice interface preview
+- **Color Scheme**: Updated gradients and accent colors for different sections
+- **User Journey**: Extended 12-step flow with interactive demo experience
+
+### Technical Improvements
+- Comprehensive props structure for all components
+- Detailed animation specifications
+- Interactive element behavior definitions
+- Enhanced accessibility considerations with voice interface focus
+
+---
+
+## [2025-01-26] - Initial Documentation Setup
+
+### Added
+- Basic EMA information structure
+- Initial component framework
+- StoryBrand 7 framework foundation
+- Main content flow outline
+- Visual design guidelines
+
+### Established
+- Project structure for EMA landing page
+- Content strategy and messaging framework
+- Component hierarchy and organization
+- Documentation standards and format
+
+## [0.1.0] - 2023-11-08
+
+### Added
 - Created initial landing page structure with all required sections based on the design guidelines
 - Implemented metadata for SEO optimization
 - Added responsive design for different screen sizes
@@ -41,6 +95,8 @@
   - Repositioned EMA logo to top of content for better visual hierarchy
   - Simplified layout with logo first, then title, description and CTA button
   - Removed "Merhaba" overlay text for cleaner appearance
+- Replaced custom video player with responsive Vimeo embed in hero section for both mobile and desktop
+- Added a new section after the hero video displaying three brand logos (afex, greyder, integral) with no text, styled responsively
 
 ### Added
 - Complete mobile UI redesign for hero section:

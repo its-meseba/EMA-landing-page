@@ -160,7 +160,7 @@ export function ContactModal({ open, onOpenChange }: ContactModalProps) {
         </motion.div>
     );
 
-    if (isDesktop) {
+    if (isDesktop || true) {
         return (
             <Dialog
                 open={open}
