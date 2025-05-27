@@ -60,36 +60,35 @@ export function ContactModal({ open, onOpenChange }: ContactModalProps) {
         setIsLoading(true);
 
         try {
-            // Check if Mailchimp API keys are configured
-            const mailchimpEnabled = process.env.NEXT_PUBLIC_MAILCHIMP_ENABLED === 'true';
+            const res = await fetch('/api/mailchimp', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ name, email })
+            });
 
-            if (!mailchimpEnabled) {
-                // Fallback if Mailchimp isn't configured
-                setTimeout(() => {
-                    toast.info('Pilot program başvuruları henüz aktif değil. Çok yakında!');
-                    setIsLoading(false);
-                }, 1000);
+            const data = await res.json();
+
+            if (!res.ok) {
+                // Handle specific error messages from the API
+                toast.error(data.error || 'Bir hata oluştu. Lütfen daha sonra tekrar deneyin.');
+                setIsLoading(false);
                 return;
             }
 
-            // Here we would implement actual Mailchimp integration
-            // For now, simulate a successful API call
-            setTimeout(() => {
-                setIsLoading(false);
-                setIsSuccess(true);
-                toast.success('Başvurunuz alındı. Teşekkürler!');
+            setIsLoading(false);
+            setIsSuccess(true);
+            toast.success('Başvurunuz alındı. Teşekkürler!');
 
-                // Reset form after success
-                setTimeout(() => {
-                    setName('');
-                    setEmail('');
-                    setIsSuccess(false);
-                    onOpenChange(false);
-                }, 2000);
-            }, 1500);
+            // Reset form after success
+            setTimeout(() => {
+                setName('');
+                setEmail('');
+                setIsSuccess(false);
+                onOpenChange(false);
+            }, 2000);
         } catch (error) {
             setIsLoading(false);
-            toast.error('Bir hata oluştu. Lütfen daha sonra tekrar deneyin.');
+            toast.error('Bağlantı hatası. Lütfen internet bağlantınızı kontrol edin.');
         }
     };
 

@@ -1,0 +1,212 @@
+---
+description:
+globs:
+alwaysApply: false
+---
+# EMA Landing Page Akışı – Güncellenmiş Bölüm Bölüm, Bileşen Bileşen Canlı Betimleme
+
+## 1. HERO – "İlk Bakış"
+
+**Sahne:** Ekranın solunda derin lacivert‑gece fon üzerinde iri, parlak beyaz harflerle yeni ana mesaj:
+**"Tüm ürünlerin tüm detaylarını bilen satış elemanınız"**
+Harflerin etrafında hafif bir sis ışığı titriyor; sanki cümle nefes alıyor.
+
+**Karşı Denge:** Sağda, kristal netliğinde EMA logosu + **5 dil bayrağı** dönen animasyon; 
+Logo altında "Hangi Dilde Konuşursan O Dilde Cevap Verir" metni yanıp sönüyor.
+
+**Alt Başlık:** "Müşteriniz ihtiyacını istediği dilde söylesin, ürünlerinizden en uygun olanları EMA göstersin." – ince, zarif gri metin.
+
+**İki CTA Buton:**
+- **"Pilot Kuruluma Başvur"** – gök mavisi ana düğme, hover'da dalga efekti
+- **"Sistemi Deneyin"** – şeffaf kenarlı demo butonu, mikrofonla ses dalgası animasyonu
+
+Ziyaretçi gözlerini yeni ana mesaja kilitlerken, dil bayrıkları yavaşça döner…
+
+---
+
+## 2. PROBLEM – "Sizi Neler Zorluyor?"
+
+**Fon:** Koyu kömür grisi; ince kayan bulanık vitrin fotoğrafları – mağaza kalabalığını hissettiriyor.
+
+**Başlık:** "Müşteriler arıyor, dokunmatik ekranlar yetmiyor." – keskin, sol üst köşede.
+
+**Genişletilmiş Sorun Listesi** (5 madde):
+- "Yazmakla uğraşmak istemeyen müşteriler…"
+- "Kalabalıkta sesini duyuramayan satış ekibi…"
+- "Farklı diller, sınırlı zaman…"
+- **YENİ:** "Stok bilgisi güncel değil…"
+- **YENİ:** "Ürün detayları eksik kalıyor…"
+
+Her madde başında solgun kırmızı ❗ ikon, liste okunurken sırayla yanıp söner.
+
+**Empati Alıntısı:** Merkez kısımda italik dev alıntı balonu:
+"Teknoloji konuştuğumu anlayamıyorsa, kimin için var?"
+
+---
+
+## 3. REHBER – "Sistemi Kullanmak Konuşma Kolaylığında"
+
+**Arka Plan:** Gün doğumu turuncusu → berrak beyaza degrade; umut duygusu.
+
+**Başlık:** "Sistemi Kullanmak Konuşma Kolaylığında" – sıcak turuncu, geniş satır aralığı.
+
+**4 Özellik Kartı** (artık 4 adet):
+1. **"Hiç Sıkılmayan"** – 24/7 clock ikonu döner; "7/24 müsait, sabrı bitmeyen"
+2. **"Tüm Ürünleri Bilen"** – database ikonu data akışı animasyonu; "Kapsamlı ürün bilgisi ve stok durumu"
+3. **"Çok Dilli Destek"** – 5 dil bayrağı carousel; "Türkçe, İngilizce, Arapça, Rusça, Almanca"
+4. **"Anlık Cevap"** – mikrofon + ses dalgaları; "Konuşma arayüzü ile doğal etkileşim"
+
+**Empati Satırı:** Alt kısımda büyük bold yazı: "Hangi Dilde Konuşursan O Dilde Cevap Verir"
+
+---
+
+## 4. PLAN – "3 Adımda Kullan"
+
+**Fon:** Işık gri mermer dokusu, berrak ve güvenli.
+
+**Yatay 3 Adım Zaman Çizgisi:** Aralarında ışık hüzmeleri olan üç büyük durak:
+
+1. **📁 Ürün Yükleme** – Animasyonlu dosya upload simgesi; "FILE UPLOAD ARAYÜZÜ ile ürünlerinizi yükleyin"
+2. **📱 QR Kod Okutma** – QR kod tarama animasyonu; "Müşteriler QR'ı okutup sisteme bağlansın"
+3. **🎤 Konuşma Başlasın** – mikrofondan çıkan ses dalgaları; "KONUŞMA ARAYÜZÜ ile ihtiyaç anlatsın"
+
+**Güven Notu:** Çizgi bitiminde onay damgası: "Sade kurulum, eğitim gerekmez."
+
+---
+
+## 5. ÖZELLİKLER – "Öne Çıkan Özellikler" *(YENİ BÖLÜM)*
+
+**Fon:** Soft mor-mavi degrade; teknoloji hissi veren ince grid pattern.
+
+**İki Kategori Kart:**
+
+**Kapsamlı Bilgi Sistemi Kartı:**
+- **Çok dilde destek** – 5 dil simgesi
+- **Stok bilgisi** – Gerçek zamanlı counter animasyonu
+- **Fiyat bilgisi** – Dinamik fiyat tag'leri
+- **Ürün detayları** – Genişleyen info kartları
+- **Veri analizi** – Chart/grafik animasyonları
+
+**Kullanım Kolaylığı Kartı:**
+- "Dokunmatik ekran gerektirmez" – ❌ touch ikonu
+- "Yazma gerektirmez" – ❌ keyboard ikonu
+- "Sezgisel konuşma arayüzü" – ✅ mikrofonlu konuşma balonu
+
+---
+
+## 6. ÇAĞRI – "Harekete Geçin"
+
+**Sahne:** Tam sayfa açık mavi; ortada spotlight dairesel ışıma.
+
+**Ana CTA:** Kocaman mavi oval "Pilot Kuruluma Başvur" – üzerine gelince mikrofon belirir, titreşir.
+
+**Destek Cümlesi:** Altında kalın italik:
+"Müşteriniz konuşacak. EMA anlayacak. Siz kazanacaksınız."
+
+**İkincil Link:** "Standımıza Uğrayın, Canlı Görün" + konum pin animasyonu.
+
+---
+
+## 7. KAYIPLAR – "Olmazsa Ne Olur?"
+
+**Arka Plan:** Şarap kırmızısı; yukarıdan aşağı ince duman süzülüyor.
+
+**Genişletilmiş Kara Liste** (5 madde turuncu ❌ ile):
+- Müşteri ürünü bulamadan mağazayı terk eder.
+- Yabancı müşteriyle iletişim kopar.
+- Satış potansiyeli boşa gider.
+- **YENİ:** Stok bilgisi güncel olmaz.
+- **YENİ:** Müşteri deneyimi olumsuz etkilenir.
+
+**Uyarı Şeridi:** Alt kenarda parlak sarı: "Her kaybedilen soru, kaybedilen ciro demektir."
+
+---
+
+## 8. BAŞARILAR – "Olursa Ne Kazanırsınız?"
+
+**Fon:** Tatlı nane yeşili; havai fişek saçılan beyaz çizgiler.
+
+**Genişletilmiş Kazanç Kartları** (6 kart, hover'da yükselir):
+- 🎉 Müşteri memnun, mağaza verimli
+- 🎉 Çalışan huzurlu, sorular azalır
+- 🎉 Her konuşma içgörüye dönüşür
+- 🎉 Satış artışı somutlaşır
+- **YENİ:** 🎉 7/24 müsait sanal satış elemanı
+- **YENİ:** 🎉 Çok dilli müşteri desteği
+
+**Onay Metni:** "Teknoloji artık gerçekten yardımcı." – koyu yeşil şerit.
+
+---
+
+## 9. SOSYAL KANIT – "Onlar Ne Diyor?"
+
+**Arka Plan:** Yumuşak krem; silik mağaza rafları background.
+
+**4 Testimonial Balonu** (genişletilmiş):
+1. "EMA sayesinde yabancı müşterilerle %30 daha fazla satış yaptık." — GiyimMarket, İstanbul
+2. "Ekrana dokunmak yerine konuşmak, özellikle yaşlı müşterilerimizi rahatlattı." — Teknoshop, Ankara
+3. "Kurulum 20 dakika sürdü, ilk gün 120 ürün sorgusu aldık." — Outlet 44, İzmir
+4. **YENİ:** "QR kod okutup konuşmak çok pratik, müşteriler çok memnun." — DigitalStore, Bursa
+
+Balonlar carousel şeklinde yavaş döner; hover'da büyür.
+
+---
+
+## 10. DEMO – "Sistemi Deneyin" *(YENİ BÖLÜM)*
+
+**Fon:** Teknolojik koyu mavi; parlayan noktalar ve çizgiler ağı.
+
+**Canlı Demo Merkezi:**
+- **QR Kod Simülatörü** – Büyük QR kod, hover'da scan animasyonu
+- **Dil Seçici** – 5 bayrak tıklanabilir carousel
+- **Konuşma Interface Preview** – Mikrofonlu chat bubble simülasyonu
+- **Örnek Diyalog** – "Kırmızı mont var mı?" → "Evet, 3 adet stokta. 299 TL." anlık görünür
+
+**Demo CTA:** "Canlı Demo Deneyin" – yeşil parlak buton.
+
+---
+
+## 11. SON CTA – "Fırsatı Kaçırmayın"
+
+**Fon:** Buz beyazı, odak ışığı CTA'yi çerçeveliyor.
+
+**Ana CTA (tekrar):** "Pilot Kuruluma Başvur" + altın "ilk 50 mağaza" rozeti.
+
+**Alt Metinler:**
+- "İlk 50 mağazaya özel lansman indirimi."
+- **YENİ:** "File upload sistemi ile hemen başlayın"
+
+---
+
+## 12. FOOTER – "Güven ve İletişim"
+
+**Düzen:** Üç sütun koyu lacivert blok.
+
+**Sol:** EMA Logo + **Güncellenmiş Slogan**: "Teknolojiyi Konuşma Kolaylığında Sunuyoruz."
+
+**Orta:** Yasal linkler carousel: KVKV, Gizlilik, Çerez Politikası
+
+**Sağ:** İletişim + sosyal ikonlar (LinkedIn | Instagram | YouTube) titreşim efekti
+
+**Alt Banner:** © 2025 EMA - **"Tüm ürünlerin tüm detaylarını bilen satış elemanınız"**
+
+---
+
+## Akışı Nasıl Hissettirir? (Güncellenmiş)
+
+Ziyaretçi artık daha kapsamlı bir yolculuk yaşar:
+
+1. **Merakla başlar** (güçlü yeni tagline + dil demo),
+2. **Daha detaylı sorunu hisseder** (5 sorun),
+3. **4 özellikle çözümle tanışır**,
+4. **Görsel 3 adım planı kavrar** (Upload-QR-Voice),
+5. **Detaylı özellikleri görür** (yeni bölüm),
+6. **İlk eyleme çağrılır**,
+7. **Genişletilmiş kayıp korkusunu hisseder** (5 kayıp),
+8. **Daha büyük kazanç hayal eder** (6 kazanç),
+9. **4 gerçek müşteri kanıtıyla ikna olur**,
+10. **Canlı demo ile test eder** (yeni interaktif bölüm),
+11. **Son eyleme geçer** (file upload vurgusu ile),
+12. **Güvenle sayfayı terk eder** (güncellenmiş tagline ile).
+
+Bu güncellenmiş akış, **3 adımlı kullanım sürecini** (file upload, QR kod, konuşma), **genişletilmiş özellik setini** ve **interaktif demo deneyimini** başarıyla ziyaretçiye aktarır. EMA'nın teknik yetenekleri ve kullanım kolaylığı, sahne sahne, görsel ve etkileşimli elementlerle hissettirilir.

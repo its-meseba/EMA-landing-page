@@ -1,0 +1,185 @@
+---
+description:
+globs:
+alwaysApply: false
+---
+# EMA Landing Page - Detailed React Components Structure
+
+<LandingPage>
+├─ <HeroSection>
+│   // 📄 İÇERİK (Türkçe)
+│   //   • Sol kolon (≈%60):
+│   //       – H1 Tagline (çok büyük): "Tüm ürünlerin tüm detaylarını bilen satış elemanınız"
+│   //       – Alt başlık: "Müşteriniz ihtiyacını istediği dilde söylesin, ürünlerinizden en uygun olanları EMA göstersin"
+│   //       – Ana CTA butonu: "Pilot Kuruluma Başvur"
+│   //       – Demo link: "Sistemi Deneyin"
+│   //   • Sağ kolon (≈%40): EMA logo görseli + "Hangi Dilde Konuşursan O Dilde Cevap Verir" demo
+│   //   • Arka plan: #0e0f1a→#1a2333 degrade.
+│   // ⚙️ KOD PROPS
+│   //   tagline, subheading, logoSrc, primaryCTA, demoLink
+│
+├─ <ProblemSection>
+│   // 📄 İÇERİK
+│   //   • Başlık: "Müşteriler arıyor, dokunmatik ekranlar yetmiyor."
+│   //   • Sorun listesi (❗ ikonlu):
+│   //        - "Yazmakla uğraşmak istemeyen müşteriler…"
+│   //        - "Kalabalıkta sesini duyuramayan satış ekibi…"
+│   //        - "Farklı diller, sınırlı zaman…"
+│   //        - "Stok bilgisi güncel değil…"
+│   //        - "Ürün detayları eksik kalıyor…"
+│   //   • Empati alıntısı: "Teknoloji konuştuğumu anlayamıyorsa, kimin için var?" (italik, merkez)
+│   // ⚙️ PROPS
+│   //   headline, problems, empathyQuote
+│
+├─ <GuideSection>
+│   // 📄 İÇERİK
+│   //   • Başlık: "Sistemi Kullanmak Konuşma Kolaylığında"
+│   //   • 4 Özellik kartı:
+│   //        1) Hiç Sıkılmayan – "7/24 müsait, sabrı bitmeyen"
+│   //        2) Tüm Ürünleri Bilen – "Kapsamlı ürün bilgisi ve stok durumu"
+│   //        3) Çok Dilli Destek – "Türkçe, İngilizce, Arapça, Rusça, Almanca"
+│   //        4) Anlık Cevap – "Konuşma arayüzü ile doğal etkileşim"
+│   //   • Alt empati satırı: "Hangi Dilde Konuşursan O Dilde Cevap Verir"
+│   // ⚙️ PROPS
+│   //   headline, features, empathyLine, languageDemo
+│
+├─ <PlanSection>
+│   // 📄 İÇERİK
+│   //   • Başlık: "3 Adımda Kullan"
+│   //   • Adımlar:
+│   //        1. Ürün Yükleme – "Ürünlerinizi ve bilgilerini sisteme yükleyin (FILE UPLOAD ARAYÜZÜ)"
+│   //        2. QR Kod Okutma – "Müşterileriniz QR'ı okutsun (QR KOD)"
+│   //        3. Konuşma Başlasın – "İhtiyacını anlatsın (KONUŞMA ARAYÜZÜ)"
+│   //   • Güven notu: "Sade kurulum, eğitim gerekmez."
+│   //   • Visual: File upload icon, QR code icon, microphone icon
+│   // ⚙️ PROPS
+│   //   steps, trustNote, stepIcons
+│
+├─ <FeaturesSection>
+│   // 📄 İÇERİK - ÖNE ÇIKAN ÖZELLİKLER
+│   //   • Başlık: "Öne Çıkan Özellikler"
+│   //   • Özellik kartları:
+│   //        - Çok dilde destek (5 farklı dil)
+│   //        - Stok bilgisi (Gerçek zamanlı stok durumu)
+│   //        - Fiyat bilgisi (Güncel fiyat listesi)
+│   //        - Ürün detayları (Teknik özellikler ve açıklamalar)
+│   //        - Veri analizi (Müşteri etkileşim raporları)
+│   //   • Kullanım kolaylığı: "Dokunmatik ekran gerektirmez, yazma gerektirmez"
+│   // ⚙️ PROPS
+│   //   headline, features, usabilityNote
+│
+├─ <CTASection variant="primary">
+│   // 📄 İÇERİK
+│   //   • Başlık: "Harekete Geçin"
+│   //   • PitchLine: "Müşteriniz konuşacak. EMA anlayacak. Siz kazanacaksınız."
+│   //   • CTA buton: "Pilot Kuruluma Başvur"
+│   //   • secondaryLink: "Standımıza Uğrayın, Canlı Görün"
+│   // ⚙️ PROPS
+│   //   headline, pitchLine, cta, secondaryLink?
+│
+├─ <LossSection>
+│   // 📄 İÇERİK
+│   //   • Başlık: "Olmazsa Ne Olur?"
+│   //   • Kayıp listesi (❌ ikonlu):
+│   //        - "Müşteri ürünü bulamadan mağazayı terk eder."
+│   //        - "Yabancı müşteriyle iletişim kopar."
+│   //        - "Satış potansiyeli boşa gider."
+│   //        - "Stok bilgisi güncel olmaz."
+│   //        - "Müşteri deneyimi olumsuz etkilenir."
+│   //   • Uyarı: "Her kaybedilen soru, kaybedilen ciro demektir."
+│   // ⚙️ PROPS
+│   //   headline, losses, warningLine
+│
+├─ <SuccessSection>
+│   // 📄 İÇERİK
+│   //   • Başlık: "Olursa Ne Kazanırsınız?"
+│   //   • Kazanç kartları (🎉 ikonlu):
+│   //        - "Müşteri memnun, mağaza verimli."
+│   //        - "Çalışan huzurlu, sorular azalır."
+│   //        - "Her konuşma içgörüye dönüşür."
+│   //        - "Satış artışı somutlaşır."
+│   //        - "7/24 müsait sanal satış elemanı."
+│   //        - "Çok dilli müşteri desteği."
+│   //   • Özet cümle: "Teknoloji artık gerçekten yardımcı."
+│   // ⚙️ PROPS
+│   //   headline, gains, summaryLine
+│
+├─ <SocialProofSection>
+│   // 📄 İÇERİK
+│   //   • Başlık: "Onlar Ne Diyor?"
+│   //   • Testimonials:
+│   //        1) "EMA sayesinde yabancı müşterilerle %30 daha fazla satış yaptık." — GiyimMarket, İstanbul
+│   //        2) "Ekrana dokunmak yerine konuşmak, özellikle yaşlı müşterilerimizi rahatlattı." — Teknoshop, Ankara
+│   //        3) "Kurulum 20 dakika sürdü, ilk gün 120 ürün sorgusu aldık." — Outlet 44, İzmir
+│   //        4) "QR kod okutup konuşmak çok pratik, müşteriler çok memnun." — DigitalStore, Bursa
+│   // ⚙️ PROPS
+│   //   headline, testimonials
+│
+├─ <DemoSection>
+│   // 📄 İÇERİK - YENİ BÖLÜM
+│   //   • Başlık: "Sistemi Deneyin"
+│   //   • Canlı demo arayüzü:
+│   //        - QR kod görsel
+│   //        - Konuşma simülasyonu
+│   //        - Dil seçimi (5 dil)
+│   //        - Örnek sorular ve cevaplar
+│   //   • Demo CTA: "Canlı Demo Deneyin"
+│   // ⚙️ PROPS
+│   //   headline, demoInterface, languages, sampleQuestions
+│
+├─ <CTASection variant="final">
+│   // 📄 İÇERİK
+│   //   • Başlık: "Fırsatı Kaçırmayın"
+│   //   • CTA buton: "Pilot Kuruluma Başvur"
+│   //   • FinePrint: "İlk 50 mağazaya özel lansman indirimi."
+│   //   • Additional: "File upload sistemi ile hemen başlayın"
+│   // ⚙️ PROPS
+│   //   headline, cta, finePrint, additionalInfo
+│
+└─ <FooterSection>
+    // 📄 İÇERİK
+    //   • Sol: EMA logo + slogan "Teknolojiyi Konuşma Kolaylığında Sunuyoruz."
+    //   • Orta: Yasal linkler – "KVKK", "Gizlilik Politikası", "Çerez Politikası"
+    //   • Sağ: İletişim – info@ema.ai | +90 212 000 00 00 + LinkedIn / Instagram / YouTube ikonları
+    //   • Alt: © 2025 EMA - "Tüm ürünlerin tüm detaylarını bilen satış elemanınız"
+    // ⚙️ PROPS
+    //   logoSrc, slogan, legalLinks, contact, socials, tagline
+
+## 🎨 **Visual Design Elements**
+
+### Icons & Animations
+- **File Upload Icon**: Dosya yükleme animasyonu
+- **QR Code Icon**: QR kod okuma simulasyonu  
+- **Microphone Icon**: Konuşma dalgaları animasyonu
+- **Language Flags**: 5 dil bayrağı rotate animasyonu
+- **Stock Icon**: Gerçek zamanlı stok güncelleme
+- **Price Tag Icon**: Dinamik fiyat gösterimi
+
+### Color Scheme Updates
+- **Primary**: #0e0f1a→#1a2333 (Hero gradient)
+- **Accent**: Konuşma arayüzü için mavi tonları
+- **Success**: Özellikler için yeşil tonları
+- **Warning**: Kayıplar için kırmızı tonları
+
+### Interactive Elements
+- **Language Demo**: Tıklanabilir dil seçimi
+- **QR Code Simulator**: Hover efekti ile QR kod animasyonu
+- **Voice Interface Preview**: Konuşma arayüzü ön izleme
+- **File Upload Preview**: Drag & drop simulasyonu
+
+---
+
+### Component Flow Summary
+1. **Hero** (Updated tagline + demo) → 
+2. **Problem** (Extended problems) → 
+3. **Guide** (4 features instead of 3) → 
+4. **Plan** (3 steps with icons) → 
+5. **Features** (New detailed features section) →
+6. **CTA** (Primary action) → 
+7. **Loss** (Extended losses) → 
+8. **Success** (Extended gains) → 
+9. **Social Proof** (4 testimonials) → 
+10. **Demo** (New interactive demo) →
+11. **Final CTA** (With file upload mention) → 
+12. **Footer** (Updated with tagline)
+</rewritten_file>

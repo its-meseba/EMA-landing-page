@@ -18,9 +18,11 @@ import TestimonialCarousel from '@/components/TestimonialCarousel';
 import VideoShowcase from '@/components/VideoShowcase';
 import { Button } from '@/registry/new-york-v4/ui/button';
 import { Card, CardContent } from '@/registry/new-york-v4/ui/card';
+import { Dialog, DialogContent } from '@/registry/new-york-v4/ui/dialog';
 import { Separator } from '@/registry/new-york-v4/ui/separator';
 
 import { AnimatePresence, Variants, motion, useReducedMotion } from 'framer-motion';
+import { Play } from 'lucide-react';
 import { ArrowRight, Sparkles, XCircle } from 'lucide-react';
 
 // Create a Badge component since it's not available
@@ -259,6 +261,7 @@ export default function LandingPage() {
     const [particles, setParticles] = useState<Particle[]>([]);
     const [contactModalOpen, setContactModalOpen] = useState(false);
     const [isMobile, setIsMobile] = useState(false);
+    const [videoDialogOpen, setVideoDialogOpen] = useState(false);
 
     useEffect(() => {
         // Check if the device is mobile
@@ -294,8 +297,8 @@ export default function LandingPage() {
         return () => window.removeEventListener('resize', handleResize);
     }, [isMobile]);
 
-    // Split the second tagline for character animation
-    const tagline2 = 'EMA sizi anlasın.';
+    // Split the second tagline for character animation (unused currently)
+    const tagline2 = 'tüm detaylarını bilen satış elemanınız.';
     const taglineChars = tagline2.split('');
 
     // More performant simple bubble for mobile
@@ -431,15 +434,15 @@ export default function LandingPage() {
                             {/* Title */}
                             <div className='font-playfair mb-6 text-center text-4xl leading-tight font-bold tracking-tighter'>
                                 <div className='mb-1'>
-                                    <div className='text-white'>Konuşun,</div>
+                                    <div className='text-white'>Tüm ürünlerin</div>
                                 </div>
-                                <div className='text-blue-400'>EMA sizi anlasın.</div>
+                                <div className='text-blue-400'>tüm detaylarını bilen satış elemanınız.</div>
                             </div>
 
                             {/* Description text */}
                             <p className='mb-8 max-w-xl text-center text-lg text-slate-300'>
-                                Mağazada sorular canlı, cevaplar da öyle olsun. Sesi ve dili anlayan, insan gibi yanıt
-                                veren asistanınız.
+                                Müşteriniz ihtiyacını istediği dilde söylesin, ürünlerinizden en uygun olanları EMA
+                                göstersin.
                             </p>
 
                             {/* CTA button */}
@@ -449,54 +452,164 @@ export default function LandingPage() {
                                 className='w-full rounded-full bg-blue-500 py-6 text-base font-medium'>
                                 Pilot Kuruluma Başvur
                             </Button>
+
+                            {/* Mobile Video Thumbnail */}
+                            <div className='mt-12 w-full'>
+                                <div className='relative w-full' style={{ paddingTop: '58.23%' }}>
+                                    <iframe
+                                        src='https://player.vimeo.com/video/1088087618?h=056b598bef&badge=0&autopause=0&player_id=0&app_id=58479'
+                                        frameBorder='0'
+                                        allow='autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media'
+                                        style={{
+                                            position: 'absolute',
+                                            top: 0,
+                                            left: 0,
+                                            width: '100%',
+                                            height: '100%',
+                                            borderRadius: '1rem'
+                                        }}
+                                        title='EMA Tanıtım Videosu'
+                                    />
+                                </div>
+                            </div>
                         </div>
                     ) : (
                         // Desktop layout - with higher logo position
-                        <div className='grid grid-cols-1 items-center gap-8 md:grid-cols-12'>
-                            {/* Text content on left side */}
-                            <div className='order-1 md:col-span-7'>
-                                <h1 className='font-playfair mb-6 text-4xl leading-[1.1] font-bold tracking-tighter md:mb-6 md:text-7xl lg:text-8xl'>
-                                    <span className='block text-shadow-lg'>Konuşun,</span>
-                                    <span className='animate-gradient-shift mt-2 block bg-gradient-to-r from-blue-400 via-cyan-300 to-blue-400 bg-clip-text text-transparent'>
-                                        EMA sizi anlasın.
-                                    </span>
-                                </h1>
+                        <div className='space-y-16'>
+                            <div className='grid grid-cols-1 items-center gap-8 md:grid-cols-12'>
+                                {/* Text content on left side */}
+                                <div className='order-1 md:col-span-7'>
+                                    <h1 className='font-playfair mb-6 text-4xl leading-[1.1] font-bold tracking-tighter md:mb-6 md:text-7xl lg:text-8xl'>
+                                        <span className='block text-shadow-lg'>Tüm ürünlerin</span>
+                                        <span className='animate-gradient-shift mt-2 block bg-gradient-to-r from-blue-400 via-cyan-300 to-blue-400 bg-clip-text text-transparent'>
+                                            tüm detaylarını bilen satış elemanınız.
+                                        </span>
+                                    </h1>
 
-                                <p className='font-inter max-w-2xl text-xl leading-relaxed font-light text-slate-300 md:text-2xl'>
-                                    Mağazada sorular canlı, cevaplar da öyle olsun. Sesi ve dili anlayan, insan gibi
-                                    yanıt veren asistanınız.
-                                </p>
+                                    <p className='font-inter max-w-2xl text-xl leading-relaxed font-light text-slate-300 md:text-2xl'>
+                                        Müşteriniz ihtiyacını istediği dilde söylesin, ürünlerinizden en uygun olanları
+                                        EMA göstersin.
+                                    </p>
 
-                                <div className='mt-8'>
-                                    <Button
-                                        size='lg'
-                                        onClick={() => setContactModalOpen(true)}
-                                        className='font-montserrat rounded-full bg-blue-500 px-6 py-5 text-base text-white shadow-lg shadow-blue-500/30 transition-all hover:bg-blue-600 hover:shadow-blue-500/50 sm:px-8 sm:py-6 sm:text-lg'>
-                                        Pilot Kuruluma Başvur
-                                    </Button>
+                                    <div className='mt-8'>
+                                        <Button
+                                            size='lg'
+                                            onClick={() => setContactModalOpen(true)}
+                                            className='font-montserrat rounded-full bg-blue-500 px-6 py-5 text-base text-white shadow-lg shadow-blue-500/30 transition-all hover:bg-blue-600 hover:shadow-blue-500/50 sm:px-8 sm:py-6 sm:text-lg'>
+                                            Pilot Kuruluma Başvur
+                                        </Button>
+                                    </div>
                                 </div>
-                            </div>
 
-                            {/* Logo positioned higher on right side (eye level) */}
-                            <div className='order-2 flex justify-center md:col-span-5 md:justify-end'>
-                                <div className='relative -mt-12 h-[300px] w-[300px] md:-mt-24 lg:-mt-32'>
-                                    <div className='absolute inset-0 rounded-full bg-blue-500/10 blur-3xl'></div>
-                                    <div className='absolute inset-0 flex items-center justify-center'>
-                                        <div className='flex h-72 w-72 items-center justify-center rounded-full bg-blue-600/20 p-4'>
-                                            <Image
-                                                src='/branding/logo_big.png'
-                                                alt='EMA Logo'
-                                                fill
-                                                sizes='(max-width: 640px) 224px, (max-width: 768px) 256px, (max-width: 1024px) 288px, 384px'
-                                                className='object-contain'
-                                                priority
-                                            />
+                                {/* Logo positioned higher on right side (eye level) */}
+                                <div className='order-2 flex justify-center md:col-span-5 md:justify-end'>
+                                    <div className='relative -mt-12 h-[300px] w-[300px] md:-mt-24 lg:-mt-32'>
+                                        <div className='absolute inset-0 rounded-full bg-blue-500/10 blur-3xl'></div>
+                                        <div className='absolute inset-0 flex items-center justify-center'>
+                                            <div className='flex h-72 w-72 items-center justify-center rounded-full bg-blue-600/20 p-4'>
+                                                <Image
+                                                    src='/branding/logo_big.png'
+                                                    alt='EMA Logo'
+                                                    fill
+                                                    sizes='(max-width: 640px) 224px, (max-width: 768px) 256px, (max-width: 1024px) 288px, 384px'
+                                                    className='object-contain'
+                                                    priority
+                                                />
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
+
+                            {/* Desktop Video Section - Integrated into Hero */}
+                            <div className='mx-auto mt-16 max-w-4xl'>
+                                <div className='relative w-full' style={{ paddingTop: '58.23%' }}>
+                                    <iframe
+                                        src='https://player.vimeo.com/video/1088087618?h=056b598bef&badge=0&autopause=0&player_id=0&app_id=58479'
+                                        frameBorder='0'
+                                        allow='autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media'
+                                        style={{
+                                            position: 'absolute',
+                                            top: 0,
+                                            left: 0,
+                                            width: '100%',
+                                            height: '100%',
+                                            borderRadius: '1.5rem'
+                                        }}
+                                        title='EMA Tanıtım Videosu'
+                                    />
+                                </div>
+                            </div>
                         </div>
                     )}
+                </div>
+
+                {/* Video Dialog */}
+                <Dialog open={videoDialogOpen} onOpenChange={setVideoDialogOpen}>
+                    <DialogContent className='flex w-full max-w-3xl items-center justify-center bg-transparent p-0 shadow-none'>
+                        <div className='w-full'>
+                            <VideoShowcase
+                                title='EMA Tanıtım Videosu'
+                                description="EMA'nın mağaza içi deneyimini ve doğal konuşma özelliklerini kısa videoda izleyin."
+                                videoSrc='/videos/ema-demo.mp4'
+                                posterSrc='/videos/ema-poster.jpg'
+                            />
+                        </div>
+                    </DialogContent>
+                </Dialog>
+            </section>
+
+            {/* After the hero section (after the video embed) */}
+            <section className='w-full bg-slate-900 py-10'>
+                <div className='container mx-auto flex flex-row items-center justify-center gap-8 md:gap-16'>
+                    <div className='flex flex-1 justify-center'>
+                        <a
+                            href='https://www.afextr.com/tr'
+                            target='_blank'
+                            rel='noopener noreferrer'
+                            className='group cursor-pointer transition-transform duration-300 hover:scale-110'>
+                            <Image
+                                src='/branding/afex_logo.avif'
+                                alt='Afex Logo'
+                                width={160}
+                                height={80}
+                                className='h-16 w-auto object-contain md:h-20'
+                                style={{ maxWidth: '200px' }}
+                            />
+                        </a>
+                    </div>
+                    <div className='flex flex-1 justify-center'>
+                        <a
+                            href='https://www.greyder.com.tr/'
+                            target='_blank'
+                            rel='noopener noreferrer'
+                            className='group cursor-pointer transition-transform duration-300 hover:scale-110'>
+                            <Image
+                                src='/branding/greyder_logo.webp'
+                                alt='Greyder Logo'
+                                width={160}
+                                height={80}
+                                className='h-16 w-auto object-contain md:h-20'
+                                style={{ maxWidth: '200px' }}
+                            />
+                        </a>
+                    </div>
+                    <div className='flex flex-1 justify-center'>
+                        <a
+                            href='https://tr.integralgroup.com.tr/'
+                            target='_blank'
+                            rel='noopener noreferrer'
+                            className='group cursor-pointer transition-transform duration-300 hover:scale-110'>
+                            <Image
+                                src='/branding/integral_logo.webp'
+                                alt='Integral Logo'
+                                width={160}
+                                height={80}
+                                className='h-16 w-auto object-contain md:h-20'
+                                style={{ maxWidth: '200px' }}
+                            />
+                        </a>
+                    </div>
                 </div>
             </section>
 
@@ -565,33 +678,38 @@ export default function LandingPage() {
                 <div className='container px-5 md:px-8'>
                     <div className='mx-auto mb-10 max-w-5xl text-center md:mb-16'>
                         <h2 className='font-playfair mb-4 text-4xl leading-[1.1] font-bold tracking-tighter sm:mb-6 sm:text-5xl md:text-7xl'>
-                            Konuşan, dinleyen,{' '}
+                            Sistemi Kullanmak,{' '}
                             <span className='bg-gradient-to-r from-blue-400 to-cyan-300 bg-clip-text text-transparent'>
-                                anlayan
+                                Konuşma
                             </span>{' '}
-                            asistan.
+                            Kolaylığında
                         </h2>
                         <p className='font-inter mx-auto max-w-2xl text-lg leading-relaxed text-slate-300 sm:text-xl'>
                             EMA, her müşterinin ihtiyacını doğal bir diyalogla karşılar.
                         </p>
                     </div>
 
-                    <div className='mb-10 grid grid-cols-1 gap-6 sm:grid-cols-2 sm:gap-8 md:mb-12 md:grid-cols-3'>
+                    <div className='mb-10 grid grid-cols-1 gap-6 sm:grid-cols-2 sm:gap-8 md:mb-12 md:grid-cols-4'>
                         {[
                             {
-                                title: '5 Dil',
-                                description: 'Türkçe, İngilizce, Arapça, Rusça, Almanca',
-                                icon: '🌐'
+                                title: 'Hiç Sıkılmayan',
+                                description: '7/24 müsait, yorulmaz.',
+                                icon: '⏰'
                             },
                             {
-                                title: 'Doğal Konuşma',
-                                description: 'Yazma yok, dokunma yok. Sadece konuşun.',
-                                icon: '🗣️'
+                                title: 'Sabrı Bitmeyen',
+                                description: 'Her soruya sabırla cevap verir.',
+                                icon: '🤗'
                             },
                             {
-                                title: 'Bağlamsal Zekâ',
-                                description: 'Tutarlı cevaplar, akıllı öneriler, öğrenen sistem.',
-                                icon: '🧠'
+                                title: 'Tüm Ürünleri Bilen',
+                                description: 'Kapsamlı ürün bilgisi, stok ve fiyat.',
+                                icon: '📦'
+                            },
+                            {
+                                title: 'Tüm Detaylara Hakim',
+                                description: 'Teknik özelliklere kadar hakim.',
+                                icon: '🔍'
                             }
                         ].map((feature, index) => (
                             <Card
@@ -634,18 +752,18 @@ export default function LandingPage() {
                             {[
                                 {
                                     step: '1',
-                                    title: "EMA'yı Kurun",
-                                    description: 'Dakikalar içinde aktif.'
+                                    title: 'Ürünleri Yükleyin',
+                                    description: 'Ürünlerinizi ve bilgilerini sisteme yükleyin (FILE UPLOAD ARAYÜZÜ)'
                                 },
                                 {
                                     step: '2',
-                                    title: 'Müşteriniz Konuşsun',
-                                    description: '"Merhaba, kırmızı mont var mı?"'
+                                    title: 'QR Kod Okutun',
+                                    description: "Müşterileriniz QR'ı okutsun (QR KOD)"
                                 },
                                 {
                                     step: '3',
-                                    title: 'Bilgiler Ekrana Gelsin',
-                                    description: 'Stok, fiyat, yön tarifleri anında.'
+                                    title: 'İhtiyacını Anlatsın',
+                                    description: 'Doğal konuşma arayüzünde ihtiyacını anlatsın (KONUŞMA ARAYÜZÜ)'
                                 }
                             ].map((step, index) => (
                                 <div
@@ -700,7 +818,7 @@ export default function LandingPage() {
             </section>
 
             {/* NEW SECTION: Video Showcase */}
-            <section className='w-full bg-gradient-to-b from-slate-100 to-white py-14 sm:py-20'>
+            {/* <section className='w-full bg-gradient-to-b from-slate-100 to-white py-14 sm:py-20'>
                 <div className='container mx-auto px-5 md:px-8'>
                     <div className='mb-8 text-center sm:mb-12'>
                         <h2 className='font-playfair mb-3 text-3xl leading-[1.1] font-bold tracking-tighter text-slate-900 sm:mb-4 sm:text-4xl md:text-6xl'>
@@ -719,7 +837,7 @@ export default function LandingPage() {
                         posterSrc='/videos/ema-poster.jpg'
                     />
                 </div>
-            </section>
+            </section> */}
 
             {/* Add animated metrics section */}
             <section className='w-full bg-white py-12 sm:py-16'>
