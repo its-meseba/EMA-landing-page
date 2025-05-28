@@ -46,6 +46,57 @@ interface LanguageBubbleProps {
     delay: number;
 }
 
+// Rotating Words Component
+const RotatingWords = ({ words, baseColor, gradientColors = false }: {
+    words: string[],
+    baseColor: string,
+    gradientColors?: boolean
+}) => {
+    const [currentIndex, setCurrentIndex] = useState(0);
+    const [direction, setDirection] = useState('down');
+    const [isAnimating, setIsAnimating] = useState(false);
+
+    useEffect(() => {
+        const interval = setInterval(() => {
+            setDirection('up');
+            setIsAnimating(true);
+
+            setTimeout(() => {
+                setCurrentIndex((prevIndex) => (prevIndex + 1) % words.length);
+                setDirection('down');
+
+                // Small delay before starting the entrance animation
+                setTimeout(() => {
+                    setIsAnimating(false);
+                }, 50);
+            }, 400); // Slightly shorter exit animation
+
+        }, 2500); // Change word every 2.5 seconds for a more dynamic feel
+
+        return () => clearInterval(interval);
+    }, [words.length]);
+
+    const animationClasses = isAnimating
+        ? direction === 'up'
+            ? 'transform -translate-y-3 opacity-0'
+            : 'transform translate-y-3 opacity-0'
+        : 'transform translate-y-0 opacity-100';
+
+    return (
+        <span className="relative inline-block overflow-hidden">
+            <span
+                className={`inline-block transition-all duration-400 ease-in-out ${animationClasses} ${gradientColors
+                    ? 'bg-gradient-to-r from-blue-400 via-cyan-300 to-blue-400 bg-clip-text text-transparent'
+                    : baseColor
+                    }`}
+            >
+                {words[currentIndex]}
+            </span>
+            <span className="invisible">{words.reduce((a, b) => a.length > b.length ? a : b)}</span> {/* Use longest word as spacer */}
+        </span>
+    );
+};
+
 // Language Bubble Component - Refined for better performance and aesthetics
 const LanguageBubble = ({ bubble }: { bubble: LanguageBubbleProps }) => {
     const prefersReducedMotion = useReducedMotion();
@@ -285,12 +336,12 @@ export default function LandingPage() {
 
     useEffect(() => {
         // Only create bubbles for desktop
-        setBubbles(isMobile ? [] : createBubbles());
+        // setBubbles(isMobile ? [] : createBubbles());
 
         // Regenerate bubbles when window is resized
         const handleResize = () => {
             const isCurrentlyMobile = window.innerWidth < 768;
-            setBubbles(isCurrentlyMobile ? [] : createBubbles());
+            // setBubbles(isCurrentlyMobile ? [] : createBubbles());
         };
 
         window.addEventListener('resize', handleResize);
@@ -351,9 +402,7 @@ export default function LandingPage() {
                     y: {
                         duration: prefersReducedMotion ? 0 : 6,
                         repeat: Infinity,
-                        repeatType: 'reverse',
-                        ease: 'easeInOut',
-                        delay: bubble.delay + 1
+                        repeatType: 'reverse', setBubbles
                     }
                 }}
                 whileHover={{
@@ -434,9 +483,15 @@ export default function LandingPage() {
                             {/* Title */}
                             <div className='font-playfair mb-6 text-center text-4xl leading-tight font-bold tracking-tighter'>
                                 <div className='mb-1'>
-                                    <div className='text-white'>Tüm ürünlerin</div>
+                                    <div className='text-white'>Müşteriniz konuşsun,</div>
                                 </div>
-                                <div className='text-blue-400'>tüm detaylarını bilen satış elemanınız.</div>
+                                <div className='text-blue-400'>
+                                    EMA{' '}
+                                    <RotatingWords
+                                        words={['anlasın', 'satsın', 'sunsun', 'çözsün', 'analiz etsin']}
+                                        baseColor="text-blue-400"
+                                    />
+                                </div>
                             </div>
 
                             {/* Description text */}
@@ -480,9 +535,14 @@ export default function LandingPage() {
                                 {/* Text content on left side */}
                                 <div className='order-1 md:col-span-7'>
                                     <h1 className='font-playfair mb-6 text-4xl leading-[1.1] font-bold tracking-tighter md:mb-6 md:text-7xl lg:text-8xl'>
-                                        <span className='block text-shadow-lg'>Tüm ürünlerin</span>
-                                        <span className='animate-gradient-shift mt-2 block bg-gradient-to-r from-blue-400 via-cyan-300 to-blue-400 bg-clip-text text-transparent'>
-                                            tüm detaylarını bilen satış elemanınız.
+                                        <span className='block text-shadow-lg'>Müşteriniz konuşsun,</span>
+                                        <span className='animate-gradient-shift mt-2 flex items-baseline bg-gradient-to-r from-blue-400 via-cyan-300 to-blue-400 bg-clip-text text-transparent'>
+                                            <span className="mr-1 md:mr-2 lg:mr-3">EMA</span>
+                                            <RotatingWords
+                                                words={['anlasın', 'satsın', 'sunsun', 'çözsün', 'analiz etsin']}
+                                                baseColor=""
+                                                gradientColors={true}
+                                            />
                                         </span>
                                     </h1>
 
@@ -496,7 +556,7 @@ export default function LandingPage() {
                                             size='lg'
                                             onClick={() => setContactModalOpen(true)}
                                             className='font-montserrat rounded-full bg-blue-500 px-6 py-5 text-base text-white shadow-lg shadow-blue-500/30 transition-all hover:bg-blue-600 hover:shadow-blue-500/50 sm:px-8 sm:py-6 sm:text-lg'>
-                                            Pilot Kuruluma Başvur
+                                            Pilot Kurulumu İçin Başvurun
                                         </Button>
                                     </div>
                                 </div>
@@ -562,53 +622,56 @@ export default function LandingPage() {
             {/* After the hero section (after the video embed) */}
             <section className='w-full bg-slate-900 py-10'>
                 <div className='container mx-auto flex flex-row items-center justify-center gap-8 md:gap-16'>
-                    <div className='flex flex-1 justify-center'>
+                    <div className='flex flex-1 flex-col items-center justify-center'>
                         <a
                             href='https://www.afextr.com/tr'
                             target='_blank'
                             rel='noopener noreferrer'
-                            className='group cursor-pointer transition-transform duration-300 hover:scale-110'>
+                            className='group cursor-pointer rounded-lg transition-transform duration-300 hover:scale-110'>
                             <Image
                                 src='/branding/afex_logo.avif'
                                 alt='Afex Logo'
-                                width={160}
-                                height={80}
-                                className='h-16 w-auto object-contain md:h-20'
-                                style={{ maxWidth: '200px' }}
+                                width={240}
+                                height={120}
+                                className='h-20 w-auto object-contain md:h-28 lg:h-32 rounded-lg'
+                                style={{ maxWidth: '300px' }}
                             />
                         </a>
+                        <span className='mt-3 font-medium text-slate-300 text-base tracking-wide'>AFEX İstanbul</span>
                     </div>
-                    <div className='flex flex-1 justify-center'>
+                    <div className='flex flex-1 flex-col items-center justify-center'>
                         <a
                             href='https://www.greyder.com.tr/'
                             target='_blank'
                             rel='noopener noreferrer'
-                            className='group cursor-pointer transition-transform duration-300 hover:scale-110'>
+                            className='group cursor-pointer rounded-lg transition-transform duration-300 hover:scale-110'>
                             <Image
                                 src='/branding/greyder_logo.webp'
                                 alt='Greyder Logo'
-                                width={160}
-                                height={80}
-                                className='h-16 w-auto object-contain md:h-20'
-                                style={{ maxWidth: '200px' }}
+                                width={240}
+                                height={120}
+                                className='h-20 w-auto object-contain md:h-28 lg:h-32 rounded-lg'
+                                style={{ maxWidth: '300px' }}
                             />
                         </a>
+                        <span className='mt-3 font-medium text-slate-300 text-base tracking-wide'>Greyder</span>
                     </div>
-                    <div className='flex flex-1 justify-center'>
+                    <div className='flex flex-1 flex-col items-center justify-center'>
                         <a
                             href='https://tr.integralgroup.com.tr/'
                             target='_blank'
                             rel='noopener noreferrer'
-                            className='group cursor-pointer transition-transform duration-300 hover:scale-110'>
+                            className='group cursor-pointer rounded-lg transition-transform duration-300 hover:scale-110'>
                             <Image
                                 src='/branding/integral_logo.webp'
                                 alt='Integral Logo'
-                                width={160}
-                                height={80}
-                                className='h-16 w-auto object-contain md:h-20'
-                                style={{ maxWidth: '200px' }}
+                                width={240}
+                                height={120}
+                                className='h-20 w-auto object-contain md:h-28 lg:h-32 rounded-lg'
+                                style={{ maxWidth: '300px' }}
                             />
                         </a>
+                        <span className='mt-3 font-medium text-slate-300 text-base tracking-wide'>İntegral Group</span>
                     </div>
                 </div>
             </section>
@@ -618,14 +681,14 @@ export default function LandingPage() {
                 <div className='container px-5 md:px-8'>
                     <div className='mx-auto max-w-4xl'>
                         <h2 className='font-playfair mx-auto mb-10 max-w-4xl text-4xl leading-[1.1] font-bold tracking-tighter sm:text-5xl md:mb-16 md:text-7xl'>
-                            Müşteriler arıyor, <span className='text-red-400'>dokunmatik ekranlar</span> yetmiyor.
+                            Müşteriler konuşuyor, <span className='text-red-400'>anlaşılmak istiyor</span> ama kataloglar yetmiyor.
                         </h2>
 
                         <div className='mb-10 grid grid-cols-1 gap-6 md:mb-16 md:grid-cols-3 md:gap-8'>
                             {[
-                                'Yazmakla uğraşmak istemeyen müşteriler...',
-                                'Kalabalıkta sesini duyuramayan satış ekibi...',
-                                'Farklı diller, sınırlı zaman...'
+                                'İstediğini hızlıca bulmak isteyen müşteriler...',
+                                'Birçok dilde anlatılması gereken ürünler...',
+                                'Yorulmayan satış elemanlarına olan ihtiyaç...'
                             ].map((problem, index) => (
                                 <Card
                                     key={index}
@@ -644,8 +707,10 @@ export default function LandingPage() {
                             <div className='absolute top-1/2 -left-3 -translate-y-1/2 text-4xl text-slate-700 sm:text-5xl'>
                                 "
                             </div>
-                            <p className='font-playfair text-center text-xl text-slate-300 italic sm:text-2xl md:text-3xl'>
-                                Teknoloji konuştuğumu anlayamıyorsa, kimin için var?
+                            <p className='font-playfair text-center text-xl text-slate-300 italic sm:text-2xl md:text-3xl relative z-10 py-2'>
+                                <span className="bg-gradient-to-r from-blue-400 via-slate-300 to-blue-400 bg-clip-text text-transparent font-medium animate-pulse">
+                                    Müşterilerinize değer oluşturmuyorsanız, kimin için varsınız?
+                                </span>
                             </p>
                             <div className='absolute -right-3 bottom-5 text-4xl text-slate-700 sm:text-5xl'>"</div>
                         </div>
@@ -654,7 +719,7 @@ export default function LandingPage() {
             </section>
 
             {/* NEW SECTION: Interactive Language Demo Scene */}
-            <section className='flex min-h-screen w-full items-center justify-center bg-gradient-to-b from-slate-800 to-slate-900 py-16 text-white md:py-24'>
+            {/* <section className='flex min-h-screen w-full items-center justify-center bg-gradient-to-b from-slate-800 to-slate-900 py-16 text-white md:py-24'>
                 <div className='container px-5 md:px-8'>
                     <div className='mx-auto mb-10 max-w-5xl text-center md:mb-16'>
                         <h2 className='font-playfair mb-4 text-4xl leading-[1.1] font-bold tracking-tighter sm:mb-6 sm:text-5xl md:text-7xl'>
@@ -671,7 +736,7 @@ export default function LandingPage() {
 
                     <LanguageBubblesDemoScene />
                 </div>
-            </section>
+            </section> */}
 
             {/* Guide Section */}
             <section className='flex min-h-screen w-full items-center justify-center bg-gradient-to-b from-slate-900 to-slate-800 py-16 text-white md:py-24'>

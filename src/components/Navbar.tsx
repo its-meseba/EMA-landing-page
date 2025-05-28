@@ -28,8 +28,8 @@ const Navbar = () => {
                         <Button
                             onClick={() => setContactModalOpen(true)}
                             className='bg-blue-600 text-white hover:bg-blue-700'>
-                            <span className='hidden sm:inline'>Pilot Programı İçin Başvurun</span>
-                            <span className='sm:hidden'>Başvur</span>
+                            <span className='hidden sm:inline'>Pilot Kurulumu İçin Başvurun</span>
+                            <span className='sm:hidden'>Başvurun</span>
                         </Button>
                         {/* <a href='https://app.ema.solace.com.tr' target='_blank' rel='noopener noreferrer'>
                             <Button
