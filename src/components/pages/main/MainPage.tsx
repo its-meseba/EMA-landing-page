@@ -1292,7 +1292,7 @@ export default function LandingPage() {
                                 top: `${100 + Math.random() * 100}%`,
                             }}
                             animate={{
-                                y: [0, -window.innerHeight - 200],
+                                y: [0, typeof window !== 'undefined' ? -window.innerHeight - 200 : -1000],
                                 x: [0, (Math.random() - 0.5) * 100],
                                 opacity: [0, 1, 0],
                                 scale: [0, Math.random() * 2 + 1, 0],
