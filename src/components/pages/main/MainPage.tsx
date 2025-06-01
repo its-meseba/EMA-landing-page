@@ -2181,7 +2181,10 @@ export default function LandingPage() {
 
                                     <span className='relative z-10 flex items-center gap-3'>
                                         <Sparkles className='h-6 w-6' />
-                                        Pilot Kuruluma Hemen Başvur
+                                        <span className='flex flex-col items-center'>
+                                            <span>Pilot Kuruluma</span>
+                                            <span>Hemen Başvur</span>
+                                        </span>
                                         <ArrowRight className='h-6 w-6 transition-transform group-hover:translate-x-2' />
                                     </span>
                                 </Button>
