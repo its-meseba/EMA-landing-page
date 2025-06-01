@@ -441,7 +441,6 @@ export function LandingPage({ logoSrc }: LandingPageProps) {
             <CTASection variant='primary' secondaryLink='Standımıza Uğrayın, Canlı Görün' />
             <LossSection />
             <SuccessSection />
-            <SocialProofSection />
             <CTASection variant='final' />
             <FooterSection logoSrc={logoSrc} />
         </main>

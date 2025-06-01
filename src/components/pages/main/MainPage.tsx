@@ -627,62 +627,6 @@ export default function LandingPage() {
                 </Dialog>
             </section>
 
-            {/* After the hero section (after the video embed) */}
-            <section className='w-full bg-slate-900 py-10 overflow-x-auto'>
-                <div className='container mx-auto flex flex-row items-center justify-center gap-8 md:gap-16' style={{ minWidth: 'max-content' }}>
-                    <div className='flex flex-1 flex-col items-center justify-center'>
-                        <a
-                            href='https://www.afextr.com/tr'
-                            target='_blank'
-                            rel='noopener noreferrer'
-                            className='group cursor-pointer rounded-lg transition-transform duration-300 hover:scale-110'>
-                            <Image
-                                src='/branding/afex_logo.avif'
-                                alt='Afex Logo'
-                                width={240}
-                                height={120}
-                                className='h-20 w-auto object-contain md:h-28 lg:h-32'
-                                style={{ maxWidth: '300px' }}
-                            />
-                        </a>
-                        <span className='mt-3 font-medium text-slate-300 text-base tracking-wide'>AFEX İstanbul</span>
-                    </div>
-                    <div className='flex flex-1 flex-col items-center justify-center'>
-                        <a
-                            href='https://www.greyder.com.tr/'
-                            target='_blank'
-                            rel='noopener noreferrer'
-                            className='group cursor-pointer rounded-lg transition-transform duration-300 hover:scale-110'>
-                            <Image
-                                src='/branding/greyder_logo.webp'
-                                alt='Greyder Logo'
-                                width={240}
-                                height={120}
-                                className='h-20 w-auto object-contain md:h-28 lg:h-32 rounded-lg'
-                                style={{ maxWidth: '300px' }}
-                            />
-                        </a>
-                        <span className='mt-3 font-medium text-slate-300 text-base tracking-wide'>Greyder</span>
-                    </div>
-                    <div className='flex flex-1 flex-col items-center justify-center'>
-                        <a
-                            href='https://tr.integralgroup.com.tr/'
-                            target='_blank'
-                            rel='noopener noreferrer'
-                            className='group cursor-pointer rounded-lg transition-transform duration-300 hover:scale-110'>
-                            <Image
-                                src='/branding/integral_logo.webp'
-                                alt='Integral Logo'
-                                width={240}
-                                height={120}
-                                className='h-20 w-auto object-contain md:h-28 lg:h-32 rounded-lg'
-                                style={{ maxWidth: '300px' }}
-                            />
-                        </a>
-                        <span className='mt-3 font-medium text-slate-300 text-base tracking-wide'>İntegral Group</span>
-                    </div>
-                </div>
-            </section>
 
             {/* Problem Section */}
             <section className='flex min-h-screen w-full items-center justify-center bg-slate-900 py-16 text-white md:py-24'>
@@ -725,26 +669,6 @@ export default function LandingPage() {
                     </div>
                 </div>
             </section>
-
-            {/* NEW SECTION: Interactive Language Demo Scene */}
-            {/* <section className='flex min-h-screen w-full items-center justify-center bg-gradient-to-b from-slate-800 to-slate-900 py-16 text-white md:py-24'>
-                <div className='container px-5 md:px-8'>
-                    <div className='mx-auto mb-10 max-w-5xl text-center md:mb-16'>
-                        <h2 className='font-playfair mb-4 text-4xl leading-[1.1] font-bold tracking-tighter sm:mb-6 sm:text-5xl md:text-7xl'>
-                            Dillerarası{' '}
-                            <span className='bg-gradient-to-r from-blue-400 to-cyan-300 bg-clip-text text-transparent'>
-                                Etkileşim
-                            </span>{' '}
-                            Deneyimi
-                        </h2>
-                        <p className='font-inter mx-auto max-w-2xl text-lg leading-relaxed text-slate-300 sm:text-xl'>
-                            EMA'nın farklı dillerdeki kelimeleri algılama yeteneğini interaktif olarak keşfedin.
-                        </p>
-                    </div>
-
-                    <LanguageBubblesDemoScene />
-                </div>
-            </section> */}
 
             {/* Guide Section */}
             <section className='flex min-h-screen w-full items-center justify-center bg-gradient-to-b from-slate-900 to-slate-800 py-16 text-white md:py-24'>
@@ -808,8 +732,1049 @@ export default function LandingPage() {
                 </div>
             </section>
 
+
+            {/* Loss Section */}
+            <section className='relative flex min-h-screen w-full items-center justify-center overflow-hidden bg-gradient-to-b from-slate-900 via-red-950/20 to-black py-16 text-white md:py-24'>
+                {/* Animated dark background elements */}
+                <div className='absolute inset-0 opacity-30'>
+                    <div className='absolute -left-20 top-20 h-96 w-96 animate-pulse rounded-full bg-red-900/40 blur-3xl'></div>
+                    <div className='absolute -right-40 bottom-40 h-80 w-80 animate-pulse rounded-full bg-red-800/30 blur-3xl delay-700'></div>
+                </div>
+
+                {/* Glitch effect overlay */}
+                <motion.div
+                    className='absolute inset-0 bg-red-500/5'
+                    animate={{
+                        opacity: [0, 0.1, 0, 0.05, 0],
+                    }}
+                    transition={{
+                        duration: 3,
+                        repeat: Infinity,
+                        repeatDelay: 4,
+                    }}
+                />
+
+                <div className='container relative z-10 px-5 md:px-8'>
+                    <div className='mx-auto max-w-5xl'>
+                        {/* Warning Header */}
+                        <motion.div
+                            initial={{ opacity: 0, y: -20 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true }}
+                            className='mb-8 text-center'>
+                            <motion.div
+                                animate={{
+                                    opacity: [1, 0.5, 1],
+                                }}
+                                transition={{
+                                    duration: 2,
+                                    repeat: Infinity,
+                                }}
+                                className='mb-4 inline-flex items-center gap-2 rounded-full border-2 border-red-500 bg-red-950/90 px-6 py-3 text-sm font-semibold uppercase tracking-wider text-red-300 shadow-lg shadow-red-500/20'>
+                                <span className='h-2 w-2 animate-pulse rounded-full bg-red-400'></span>
+                                UYARI
+                                <span className='h-2 w-2 animate-pulse rounded-full bg-red-400'></span>
+                            </motion.div>
+                        </motion.div>
+
+                        {/* Main Title with Glitch Effect */}
+                        <motion.h2
+                            initial={{ opacity: 0, scale: 0.9 }}
+                            whileInView={{ opacity: 1, scale: 1 }}
+                            viewport={{ once: true }}
+                            className='font-playfair relative mb-16 text-center text-5xl font-bold tracking-tighter sm:text-6xl md:text-8xl'>
+                            <span className='relative text-white drop-shadow-lg'>
+                                EMA Olmazsa{' '}
+                                <motion.span
+                                    className='relative inline-block text-red-400 drop-shadow-[0_0_30px_rgba(239,68,68,0.8)]'
+                                    animate={{
+                                        textShadow: [
+                                            '0 0 0px rgba(239, 68, 68, 0)',
+                                            '0 0 30px rgba(239, 68, 68, 1)',
+                                            '0 0 60px rgba(239, 68, 68, 0.8)',
+                                            '0 0 30px rgba(239, 68, 68, 1)',
+                                            '0 0 0px rgba(239, 68, 68, 0)',
+                                        ],
+                                    }}
+                                    transition={{
+                                        duration: 3,
+                                        repeat: Infinity,
+                                    }}>
+                                    KAOS
+                                </motion.span>
+                                {' '}Başlar
+                            </span>
+                        </motion.h2>
+
+                        {/* Horror Cards Grid */}
+                        <div className='mb-16 space-y-8'>
+                            {[
+                                {
+                                    icon: '😤',
+                                    title: 'Sinirli Müşteri',
+                                    description: 'Ürünü bulamayan müşteri sinirlenip bağırır',
+                                    stats: '3 dakika arama = 1 kayıp müşteri',
+                                    loss: '₺850 kayıp satış',
+                                    color: 'from-red-950 to-slate-900',
+                                    delay: 0.1,
+                                },
+                                {
+                                    icon: '🌍',
+                                    title: 'Dil Bariyeri',
+                                    description: 'Yabancı turistler anlaşılamadığı için vazgeçer',
+                                    stats: '%40 turist müşteri kaybı',
+                                    loss: '₺2,400 günlük kayıp',
+                                    color: 'from-orange-950 to-slate-900',
+                                    delay: 0.2,
+                                },
+                                {
+                                    icon: '😩',
+                                    title: 'Yorgun Personel',
+                                    description: 'Aynı soruları 100 kez cevaplayan çalışan tükenir',
+                                    stats: '%65 personel devir hızı',
+                                    loss: '₺15,000 eğitim maliyeti',
+                                    color: 'from-amber-950 to-slate-900',
+                                    delay: 0.3,
+                                },
+                                {
+                                    icon: '📉',
+                                    title: 'Düşen Satışlar',
+                                    description: 'Müşteri deneyimi kötüleşir, satışlar düşer',
+                                    stats: '%25 ciro kaybı',
+                                    loss: '₺180,000 yıllık kayıp',
+                                    color: 'from-red-950 to-black',
+                                    delay: 0.4,
+                                },
+                            ].map((loss, index) => (
+                                <motion.div
+                                    key={index}
+                                    initial={{ opacity: 0, x: index % 2 === 0 ? -50 : 50 }}
+                                    whileInView={{ opacity: 1, x: 0 }}
+                                    viewport={{ once: true }}
+                                    transition={{ delay: loss.delay, duration: 0.6 }}
+                                    className='group relative overflow-hidden rounded-2xl border-2 border-red-500/30 bg-gradient-to-r p-6 shadow-2xl backdrop-blur-sm transition-all hover:border-red-400/50 hover:shadow-red-500/20 sm:p-8'
+                                    style={{
+                                        backgroundImage: `linear-gradient(135deg, ${loss.color})`,
+                                    }}>
+
+                                    {/* Dark overlay for better contrast */}
+                                    <div className='absolute inset-0 bg-black/40'></div>
+
+                                    {/* Animated Background Pattern */}
+                                    <div className='absolute inset-0 opacity-20'>
+                                        <motion.div
+                                            className='h-full w-full'
+                                            style={{
+                                                backgroundImage: 'repeating-linear-gradient(45deg, transparent, transparent 35px, rgba(255,0,0,0.2) 35px, rgba(255,0,0,0.2) 70px)',
+                                            }}
+                                            animate={{
+                                                x: [0, 35],
+                                            }}
+                                            transition={{
+                                                duration: 3,
+                                                repeat: Infinity,
+                                                ease: 'linear',
+                                            }}
+                                        />
+                                    </div>
+
+                                    <div className='relative z-10 flex items-start gap-6'>
+                                        {/* Icon with Shake Animation */}
+                                        <motion.div
+                                            className='flex h-16 w-16 items-center justify-center rounded-2xl bg-black/50 text-5xl backdrop-blur-sm'
+                                            animate={{
+                                                rotate: [0, -5, 5, -5, 0],
+                                            }}
+                                            transition={{
+                                                duration: 0.5,
+                                                repeat: Infinity,
+                                                repeatDelay: 3,
+                                            }}>
+                                            {loss.icon}
+                                        </motion.div>
+
+                                        <div className='flex-1'>
+                                            <h3 className='mb-2 text-2xl font-bold text-red-300'>
+                                                {loss.title}
+                                            </h3>
+                                            <p className='mb-4 text-lg leading-relaxed text-gray-200'>
+                                                {loss.description}
+                                            </p>
+
+                                            {/* Stats and Loss */}
+                                            <div className='flex flex-wrap gap-4'>
+                                                <div className='rounded-lg border-2 border-red-700/50 bg-red-950/80 px-4 py-2 backdrop-blur-sm'>
+                                                    <p className='text-sm font-semibold text-red-200'>
+                                                        {loss.stats}
+                                                    </p>
+                                                </div>
+                                                <motion.div
+                                                    className='rounded-lg border-2 border-red-500/50 bg-red-900/80 px-4 py-2 backdrop-blur-sm'
+                                                    animate={{
+                                                        scale: [1, 1.05, 1],
+                                                    }}
+                                                    transition={{
+                                                        duration: 2,
+                                                        repeat: Infinity,
+                                                    }}>
+                                                    <p className='text-sm font-bold text-white'>
+                                                        {loss.loss}
+                                                    </p>
+                                                </motion.div>
+                                            </div>
+                                        </div>
+
+                                        {/* Warning Icon */}
+                                        <motion.div
+                                            className='absolute -right-2 -top-2 text-red-400'
+                                            animate={{
+                                                opacity: [0.5, 1, 0.5],
+                                            }}
+                                            transition={{
+                                                duration: 1.5,
+                                                repeat: Infinity,
+                                            }}>
+                                            <XCircle className='h-12 w-12 drop-shadow-lg' />
+                                        </motion.div>
+                                    </div>
+                                </motion.div>
+                            ))}
+                        </div>
+
+                        {/* Final Warning Box */}
+                        <motion.div
+                            initial={{ opacity: 0, scale: 0.9 }}
+                            whileInView={{ opacity: 1, scale: 1 }}
+                            viewport={{ once: true }}
+                            className='relative overflow-hidden rounded-2xl border-2 border-red-400/50 bg-gradient-to-b from-red-950/90 to-black/90 p-8 text-center shadow-2xl backdrop-blur-md'>
+
+                            {/* Pulsing Background */}
+                            <motion.div
+                                className='absolute inset-0 bg-red-500/20'
+                                animate={{
+                                    opacity: [0.2, 0.4, 0.2],
+                                }}
+                                transition={{
+                                    duration: 2,
+                                    repeat: Infinity,
+                                }}
+                            />
+
+                            {/* Alert Icon */}
+                            <motion.div
+                                className='relative z-10 mx-auto mb-4 flex h-20 w-20 items-center justify-center rounded-full border-2 border-red-400/70 bg-red-950/80 backdrop-blur-sm'
+                                animate={{
+                                    scale: [1, 1.1, 1],
+                                    borderColor: ['rgba(248, 113, 113, 0.7)', 'rgba(248, 113, 113, 1)', 'rgba(248, 113, 113, 0.7)'],
+                                }}
+                                transition={{
+                                    duration: 1.5,
+                                    repeat: Infinity,
+                                }}>
+                                <span className='text-4xl'>⚠️</span>
+                            </motion.div>
+
+                            <h3 className='font-montserrat relative z-10 mb-4 text-2xl font-bold uppercase tracking-wider text-red-300'>
+                                Kritik Gerçek
+                            </h3>
+
+                            <motion.div
+                                className='relative z-10 mb-8 mx-auto max-w-2xl'
+                                initial={{ opacity: 0, y: 20 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                viewport={{ once: true }}
+                                transition={{ delay: 0.2, duration: 0.8 }}>
+                                <motion.p
+                                    className='relative text-2xl sm:text-3xl font-bold leading-relaxed text-center text-white'
+                                    animate={{
+                                        filter: [
+                                            'brightness(1) contrast(1)',
+                                            'brightness(1.2) contrast(1.1)',
+                                            'brightness(1) contrast(1)',
+                                        ],
+                                    }}
+                                    transition={{
+                                        duration: 3,
+                                        repeat: Infinity,
+                                        ease: 'easeInOut',
+                                    }}>
+                                    Her{' '}
+                                    <motion.span
+                                        className='inline-block text-red-400 font-black'
+                                        animate={{
+                                            color: ['#f87171', '#ef4444', '#dc2626', '#ef4444', '#f87171'],
+                                        }}
+                                        transition={{
+                                            duration: 2,
+                                            repeat: Infinity,
+                                            ease: 'easeInOut',
+                                        }}>
+                                        kaybedilen soru
+                                    </motion.span>
+                                    ,{' '}
+                                    <br className='sm:hidden' />
+                                    <motion.span
+                                        className='inline-block text-red-400 font-black'
+                                        animate={{
+                                            color: ['#f87171', '#ef4444', '#dc2626', '#ef4444', '#f87171'],
+                                        }}
+                                        transition={{
+                                            duration: 2,
+                                            repeat: Infinity,
+                                            ease: 'easeInOut',
+                                            delay: 0.5,
+                                        }}>
+                                        kaybedilen müşteri
+                                    </motion.span>{' '}
+                                    demektir.
+                                </motion.p>
+                                <motion.div
+                                    className='absolute inset-0 pointer-events-none'
+                                    animate={{
+                                        boxShadow: [
+                                            'inset 0 0 0px rgba(239, 68, 68, 0)',
+                                            'inset 0 0 80px rgba(239, 68, 68, 0.2)',
+                                            'inset 0 0 0px rgba(239, 68, 68, 0)',
+                                        ],
+                                    }}
+                                    transition={{
+                                        duration: 3,
+                                        repeat: Infinity,
+                                        ease: 'easeInOut',
+                                    }}
+                                />
+                            </motion.div>
+
+                            <motion.div
+                                className='relative z-10 mx-auto max-w-lg'
+                                initial={{ opacity: 0, scale: 0.9 }}
+                                whileInView={{ opacity: 1, scale: 1 }}
+                                viewport={{ once: true }}
+                                transition={{ delay: 0.4, duration: 0.6 }}>
+
+                                {/* Financial Loss Box */}
+                                <div className='relative overflow-hidden rounded-2xl bg-gradient-to-b from-black/80 to-red-950/30 p-8 backdrop-blur-md border border-red-500/30'>
+                                    {/* Animated border glow */}
+                                    <motion.div
+                                        className='absolute inset-0 opacity-50'
+                                        animate={{
+                                            background: [
+                                                'radial-gradient(circle at 50% 50%, transparent 30%, rgba(239, 68, 68, 0.3) 70%)',
+                                                'radial-gradient(circle at 50% 50%, transparent 20%, rgba(239, 68, 68, 0.5) 70%)',
+                                                'radial-gradient(circle at 50% 50%, transparent 30%, rgba(239, 68, 68, 0.3) 70%)',
+                                            ],
+                                        }}
+                                        transition={{
+                                            duration: 2,
+                                            repeat: Infinity,
+                                            ease: 'easeInOut',
+                                        }}
+                                    />
+
+                                    <motion.div
+                                        initial={{ opacity: 0 }}
+                                        whileInView={{ opacity: 1 }}
+                                        viewport={{ once: true }}
+                                        transition={{ delay: 0.5 }}
+                                        className='relative space-y-6'>
+
+                                        {/* Daily Loss */}
+                                        <div className='text-center'>
+                                            <p className='font-mono text-sm uppercase tracking-wider text-red-400/80 mb-1'>
+                                                Günlük Kayıp
+                                            </p>
+                                            <p className='font-mono text-xl text-red-200'>
+                                                50 soru × ₺100 = <span className='font-bold text-2xl text-red-300'>₺5,000</span>
+                                            </p>
+                                        </div>
+
+                                        {/* Divider */}
+                                        <div className='flex items-center gap-4'>
+                                            <div className='flex-1 h-px bg-gradient-to-r from-transparent via-red-500/50 to-transparent'></div>
+                                            <motion.div
+                                                animate={{
+                                                    rotate: 360,
+                                                }}
+                                                transition={{
+                                                    duration: 10,
+                                                    repeat: Infinity,
+                                                    ease: 'linear',
+                                                }}>
+                                                <XCircle className='h-5 w-5 text-red-500/50' />
+                                            </motion.div>
+                                            <div className='flex-1 h-px bg-gradient-to-r from-transparent via-red-500/50 to-transparent'></div>
+                                        </div>
+
+                                        {/* Annual Loss - Main Focus */}
+                                        <motion.div
+                                            className='text-center'
+                                            animate={{
+                                                scale: [1, 1.02, 1],
+                                            }}
+                                            transition={{
+                                                duration: 4,
+                                                repeat: Infinity,
+                                                ease: 'easeInOut',
+                                            }}>
+                                            <p className='font-mono text-sm uppercase tracking-wider text-red-400/80 mb-2'>
+                                                Yıllık Toplam Kayıp
+                                            </p>
+                                            <motion.div
+                                                className='relative inline-block'
+                                                whileHover={{ scale: 1.05 }}
+                                                transition={{ duration: 0.2 }}>
+                                                <motion.p
+                                                    className='font-mono text-5xl sm:text-6xl md:text-7xl font-black text-red-500'
+                                                    style={{
+                                                        textShadow: '0 0 40px rgba(239, 68, 68, 0.6), 0 0 80px rgba(239, 68, 68, 0.3)',
+                                                    }}
+                                                    animate={{
+                                                        textShadow: [
+                                                            '0 0 40px rgba(239, 68, 68, 0.6), 0 0 80px rgba(239, 68, 68, 0.3)',
+                                                            '0 0 60px rgba(239, 68, 68, 0.8), 0 0 120px rgba(239, 68, 68, 0.4)',
+                                                            '0 0 40px rgba(239, 68, 68, 0.6), 0 0 80px rgba(239, 68, 68, 0.3)',
+                                                        ],
+                                                    }}
+                                                    transition={{
+                                                        duration: 2,
+                                                        repeat: Infinity,
+                                                        ease: 'easeInOut',
+                                                    }}>
+                                                    ₺1,825,000
+                                                </motion.p>
+                                                {/* Subtle underline effect */}
+                                                <motion.div
+                                                    className='absolute -bottom-2 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-red-500 to-transparent'
+                                                    animate={{
+                                                        scaleX: [0.5, 1, 0.5],
+                                                        opacity: [0.5, 1, 0.5],
+                                                    }}
+                                                    transition={{
+                                                        duration: 3,
+                                                        repeat: Infinity,
+                                                        ease: 'easeInOut',
+                                                    }}
+                                                />
+                                            </motion.div>
+                                        </motion.div>
+                                    </motion.div>
+                                </div>
+                            </motion.div>
+                        </motion.div>
+
+                        {/* Horror Escape CTA - Relief from Nightmare */}
+                        <motion.div
+                            initial={{ opacity: 0, y: 30 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true }}
+                            transition={{ delay: 0.8, duration: 0.8 }}
+                            className='mt-16 text-center'>
+
+                            {/* Relief container with calming gradient */}
+                            <motion.div
+                                className='relative mx-auto max-w-2xl rounded-3xl bg-gradient-to-br from-slate-900/90 via-blue-950/50 to-slate-900/90 p-8 backdrop-blur-md'
+                                animate={{
+                                    boxShadow: [
+                                        '0 0 20px rgba(59, 130, 246, 0.2)',
+                                        '0 0 40px rgba(59, 130, 246, 0.4)',
+                                        '0 0 20px rgba(59, 130, 246, 0.2)',
+                                    ],
+                                }}
+                                transition={{
+                                    duration: 3,
+                                    repeat: Infinity,
+                                    ease: 'easeInOut',
+                                }}>
+
+                                {/* Calming light effect */}
+                                <motion.div
+                                    className='absolute -inset-1 rounded-3xl bg-gradient-to-r from-blue-500/20 via-cyan-500/20 to-blue-500/20 blur-xl'
+                                    animate={{
+                                        opacity: [0.3, 0.6, 0.3],
+                                    }}
+                                    transition={{
+                                        duration: 2,
+                                        repeat: Infinity,
+                                        ease: 'easeInOut',
+                                    }}
+                                />
+
+                                <div className='relative z-10'>
+                                    {/* Relief icon */}
+                                    <motion.div
+                                        className='mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-gradient-to-br from-blue-500/30 to-cyan-500/30 backdrop-blur-sm'
+                                        animate={{
+                                            scale: [1, 1.1, 1],
+                                            rotate: [0, 5, -5, 0],
+                                        }}
+                                        transition={{
+                                            duration: 4,
+                                            repeat: Infinity,
+                                            ease: 'easeInOut',
+                                        }}>
+                                        <span className='text-3xl'>🛡️</span>
+                                    </motion.div>
+
+                                    <p className='mb-6 text-xl font-medium text-gray-200 sm:text-2xl'>
+                                        Bu kabustan kurtulmak için{' '}
+                                        <span className='bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent font-bold'>
+                                            tek bir çözüm var:
+                                        </span>
+                                    </p>
+
+                                    {/* Relief CTA Button */}
+                                    <Button
+                                        size='lg'
+                                        onClick={() => setContactModalOpen(true)}
+                                        className='group relative overflow-hidden rounded-full bg-gradient-to-r from-blue-600 to-cyan-600 px-10 py-7 text-xl font-bold text-white shadow-lg shadow-blue-500/40 transition-all hover:scale-105 hover:shadow-blue-500/60 sm:px-12 sm:py-8 sm:text-2xl'>
+
+                                        {/* Pulse effect on hover */}
+                                        <motion.div
+                                            className='absolute inset-0 rounded-full bg-white/20'
+                                            initial={{ scale: 0, opacity: 0 }}
+                                            whileHover={{ scale: 2, opacity: 0 }}
+                                            transition={{ duration: 0.6 }}
+                                        />
+
+                                        <span className='relative z-10 flex items-center gap-3'>
+                                            <motion.span
+                                                animate={{
+                                                    scale: [1, 1.2, 1],
+                                                }}
+                                                transition={{
+                                                    duration: 2,
+                                                    repeat: Infinity,
+                                                    ease: 'easeInOut',
+                                                }}>
+                                                💡
+                                            </motion.span>
+                                            EMA ile Kurtulun
+                                            <ArrowRight className='h-6 w-6 transition-transform group-hover:translate-x-2' />
+                                        </span>
+
+                                        <motion.div
+                                            className='absolute inset-0 bg-gradient-to-r from-cyan-400 to-blue-400'
+                                            initial={{ x: '-100%' }}
+                                            whileHover={{ x: 0 }}
+                                            transition={{ duration: 0.3 }}
+                                        />
+                                    </Button>
+
+                                    {/* Reassurance text */}
+                                    <p className='mt-4 text-sm text-blue-300/80 sm:text-base'>
+                                        Huzura kavuşun. Teknoloji artık yanınızda.
+                                    </p>
+                                </div>
+                            </motion.div>
+                        </motion.div>
+                    </div>
+                </div>
+            </section>
+
+            {/* Success Section */}
+            <section className='relative flex min-h-screen w-full items-center justify-center overflow-hidden bg-gradient-to-b from-slate-900 via-emerald-950/10 to-slate-800 py-16 text-white md:py-24'>
+                {/* Animated celebratory background elements */}
+                <div className='absolute inset-0'>
+                    {/* Gradient orbs */}
+                    <div className='absolute left-1/4 top-1/4 h-96 w-96 animate-pulse rounded-full bg-emerald-500/20 blur-3xl'></div>
+                    <div className='absolute right-1/3 bottom-1/3 h-80 w-80 animate-pulse rounded-full bg-blue-500/20 blur-3xl delay-700'></div>
+                    <div className='absolute left-1/2 top-1/2 h-64 w-64 animate-pulse rounded-full bg-green-500/20 blur-3xl delay-1000'></div>
+                </div>
+
+                {/* Floating particles */}
+                <div className='absolute inset-0'>
+                    {[...Array(20)].map((_, i) => (
+                        <motion.div
+                            key={i}
+                            className='absolute h-1 w-1 rounded-full bg-emerald-400/50'
+                            style={{
+                                left: `${Math.random() * 100}%`,
+                                top: `${100 + Math.random() * 100}%`,
+                            }}
+                            animate={{
+                                y: [0, -window.innerHeight - 200],
+                                x: [0, (Math.random() - 0.5) * 100],
+                                opacity: [0, 1, 0],
+                                scale: [0, Math.random() * 2 + 1, 0],
+                            }}
+                            transition={{
+                                duration: Math.random() * 10 + 10,
+                                repeat: Infinity,
+                                delay: Math.random() * 10,
+                                ease: 'linear',
+                            }}
+                        />
+                    ))}
+                </div>
+
+                <div className='container relative z-10 px-5 md:px-8'>
+                    <div className='mx-auto max-w-5xl'>
+                        {/* Success Header */}
+                        <motion.div
+                            initial={{ opacity: 0, y: -20 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true }}
+                            className='mb-8 text-center'>
+                            <motion.div
+                                animate={{
+                                    scale: [1, 1.05, 1],
+                                }}
+                                transition={{
+                                    duration: 2,
+                                    repeat: Infinity,
+                                }}
+                                className='mb-4 inline-flex items-center gap-2 rounded-full border-2 border-emerald-400 bg-emerald-950/90 px-6 py-3 text-sm font-semibold uppercase tracking-wider text-emerald-300 shadow-lg shadow-emerald-500/20'>
+                                <motion.span
+                                    className='text-lg'
+                                    animate={{ rotate: [0, 360] }}
+                                    transition={{ duration: 2, repeat: Infinity, ease: 'linear' }}>
+                                    ✨
+                                </motion.span>
+                                BAŞARI GARANTİSİ
+                                <motion.span
+                                    className='text-lg'
+                                    animate={{ rotate: [0, -360] }}
+                                    transition={{ duration: 2, repeat: Infinity, ease: 'linear' }}>
+                                    ✨
+                                </motion.span>
+                            </motion.div>
+                        </motion.div>
+
+                        {/* Main Title with Glow Effect */}
+                        <motion.h2
+                            initial={{ opacity: 0, scale: 0.9 }}
+                            whileInView={{ opacity: 1, scale: 1 }}
+                            viewport={{ once: true }}
+                            className='font-playfair relative mb-16 text-center text-5xl font-bold tracking-tighter sm:text-6xl md:text-8xl'>
+                            <span className='relative text-white drop-shadow-lg'>
+                                EMA ile{' '}
+                                <motion.span
+                                    className='relative inline-block bg-gradient-to-r from-emerald-300 via-green-400 to-emerald-300 bg-clip-text text-transparent drop-shadow-[0_0_40px_rgba(52,211,153,0.9)]'
+                                    animate={{
+                                        backgroundPosition: ['0% 50%', '100% 50%', '0% 50%'],
+                                    }}
+                                    transition={{
+                                        duration: 3,
+                                        repeat: Infinity,
+                                        ease: 'linear',
+                                    }}
+                                    style={{
+                                        backgroundSize: '200% 200%',
+                                        textShadow: '0 0 30px rgba(52,211,153,0.8)'
+                                    }}>
+                                    KAZANIN
+                                </motion.span>
+                            </span>
+                        </motion.h2>
+
+                        {/* Success Cards Grid */}
+                        <div className='mb-16 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:gap-8'>
+                            {[
+                                {
+                                    icon: '🎯',
+                                    title: 'Memnun Müşteri',
+                                    description: 'Her müşteri aradığını bulur, memnun ayrılır',
+                                    benefit: '%95 müşteri memnuniyeti',
+                                    value: '+₺2,500 günlük ek satış',
+                                    animation: 'pulse',
+                                    delay: 0.1,
+                                },
+                                {
+                                    icon: '💪',
+                                    title: 'Mutlu Personel',
+                                    description: 'Çalışanlar rutin sorulardan kurtulur, değer katar',
+                                    benefit: '%80 verimlilik artışı',
+                                    value: '₺20,000 tasarruf/ay',
+                                    animation: 'bounce',
+                                    delay: 0.2,
+                                },
+                                {
+                                    icon: '📊',
+                                    title: 'Artan Satışlar',
+                                    description: 'Her konuşma bir satış fırsatına dönüşür',
+                                    benefit: '%35 satış artışı',
+                                    value: '+₺350,000 yıllık gelir',
+                                    animation: 'scale',
+                                    delay: 0.3,
+                                },
+                                {
+                                    icon: '🏆',
+                                    title: 'Rekabet Avantajı',
+                                    description: 'Rakiplerinizden bir adım önde olun',
+                                    benefit: '5 dilde 7/24 hizmet',
+                                    value: '∞ büyüme potansiyeli',
+                                    animation: 'rotate',
+                                    delay: 0.4,
+                                },
+                            ].map((success, index) => (
+                                <motion.div
+                                    key={index}
+                                    initial={{ opacity: 0, y: 50 }}
+                                    whileInView={{ opacity: 1, y: 0 }}
+                                    viewport={{ once: true }}
+                                    transition={{ delay: success.delay, duration: 0.6 }}
+                                    whileHover={{ scale: 1.05, transition: { duration: 0.2 } }}
+                                    className='group relative overflow-hidden rounded-2xl border-2 border-emerald-500/30 bg-gradient-to-br from-emerald-950/90 to-slate-900/90 p-6 shadow-xl backdrop-blur-sm transition-all hover:border-emerald-400/50 hover:shadow-emerald-500/20 sm:p-8'>
+
+                                    {/* Shimmering overlay */}
+                                    <motion.div
+                                        className='absolute inset-0 bg-gradient-to-r from-transparent via-emerald-400/10 to-transparent'
+                                        animate={{
+                                            x: ['-100%', '100%'],
+                                        }}
+                                        transition={{
+                                            duration: 3,
+                                            repeat: Infinity,
+                                            repeatDelay: 2,
+                                        }}
+                                    />
+
+                                    {/* Success glow */}
+                                    <div className='absolute -right-10 -top-10 h-32 w-32 rounded-full bg-emerald-500/20 blur-3xl transition-all group-hover:bg-emerald-400/30'></div>
+
+                                    <div className='relative z-10'>
+                                        {/* Icon container */}
+                                        <motion.div
+                                            className='mb-4 inline-flex h-16 w-16 items-center justify-center rounded-2xl bg-gradient-to-br from-emerald-500/20 to-green-500/20 backdrop-blur-sm'
+                                            animate={
+                                                success.animation === 'pulse' ? {
+                                                    scale: [1, 1.1, 1],
+                                                } : success.animation === 'bounce' ? {
+                                                    y: [0, -10, 0],
+                                                } : success.animation === 'scale' ? {
+                                                    scale: [0.9, 1.1, 0.9],
+                                                } : {
+                                                    rotate: [0, 5, -5, 0],
+                                                }
+                                            }
+                                            transition={{
+                                                duration: 2,
+                                                repeat: Infinity,
+                                                ease: 'easeInOut',
+                                            }}>
+                                            <span className='text-4xl'>{success.icon}</span>
+                                        </motion.div>
+
+                                        <h3 className='mb-2 text-2xl font-bold text-emerald-300'>
+                                            {success.title}
+                                        </h3>
+                                        <p className='mb-4 text-lg leading-relaxed text-gray-300'>
+                                            {success.description}
+                                        </p>
+
+                                        {/* Benefits */}
+                                        <div className='flex flex-wrap gap-3'>
+                                            <motion.div
+                                                className='rounded-lg border-2 border-emerald-600/50 bg-emerald-950/80 px-4 py-2 backdrop-blur-sm'
+                                                whileHover={{ scale: 1.05 }}
+                                                transition={{ duration: 0.2 }}>
+                                                <p className='text-sm font-semibold text-emerald-200'>
+                                                    {success.benefit}
+                                                </p>
+                                            </motion.div>
+                                            <motion.div
+                                                className='rounded-lg border-2 border-green-500/50 bg-green-950/80 px-4 py-2 backdrop-blur-sm'
+                                                animate={{
+                                                    borderColor: ['rgba(34, 197, 94, 0.5)', 'rgba(34, 197, 94, 0.8)', 'rgba(34, 197, 94, 0.5)'],
+                                                }}
+                                                transition={{
+                                                    duration: 2,
+                                                    repeat: Infinity,
+                                                }}>
+                                                <p className='text-sm font-bold text-white'>
+                                                    {success.value}
+                                                </p>
+                                            </motion.div>
+                                        </div>
+                                    </div>
+                                </motion.div>
+                            ))}
+                        </div>
+
+                        {/* Central Success Summary */}
+                        <motion.div
+                            initial={{ opacity: 0, scale: 0.9 }}
+                            whileInView={{ opacity: 1, scale: 1 }}
+                            viewport={{ once: true }}
+                            className='relative overflow-hidden rounded-2xl border-2 border-emerald-400/50 bg-gradient-to-b from-emerald-950/90 to-slate-900/90 p-8 text-center shadow-2xl backdrop-blur-md'>
+
+                            {/* Animated background pattern */}
+                            <div className='absolute inset-0'>
+                                <motion.div
+                                    className='h-full w-full opacity-10'
+                                    style={{
+                                        backgroundImage: 'radial-gradient(circle at 2px 2px, emerald 1px, transparent 1px)',
+                                        backgroundSize: '40px 40px',
+                                    }}
+                                    animate={{
+                                        backgroundPosition: ['0px 0px', '40px 40px'],
+                                    }}
+                                    transition={{
+                                        duration: 10,
+                                        repeat: Infinity,
+                                        ease: 'linear',
+                                    }}
+                                />
+                            </div>
+
+                            {/* Success Icon */}
+                            <motion.div
+                                className='relative z-10 mx-auto mb-6 flex h-24 w-24 items-center justify-center rounded-full border-2 border-emerald-400/70 bg-emerald-950/80 backdrop-blur-sm'
+                                animate={{
+                                    scale: [1, 1.1, 1],
+                                    rotate: [0, 360],
+                                }}
+                                transition={{
+                                    scale: { duration: 2, repeat: Infinity },
+                                    rotate: { duration: 20, repeat: Infinity, ease: 'linear' },
+                                }}>
+                                <span className='text-5xl'>🚀</span>
+                            </motion.div>
+
+                            <h3 className='font-montserrat relative z-10 mb-4 text-2xl font-bold uppercase tracking-wider text-emerald-300'>
+                                TOPLAM KAZANÇ
+                            </h3>
+
+                            <p className='relative z-10 mb-6 text-xl leading-relaxed text-gray-100'>
+                                Her <span className='font-bold text-emerald-300'>yatırım</span>,{' '}
+                                <span className='font-bold text-emerald-300'>katlanarak döner</span>.
+                            </p>
+
+                            <div className='relative z-10 mx-auto max-w-md space-y-4 rounded-lg bg-black/50 p-6 backdrop-blur-sm'>
+                                <motion.div
+                                    className='relative'
+                                    initial={{ opacity: 0, scale: 0.5 }}
+                                    whileInView={{ opacity: 1, scale: 1 }}
+                                    transition={{ delay: 0.2, duration: 0.6, type: 'spring' }}>
+                                    <motion.div
+                                        className='absolute inset-0 rounded-lg bg-gradient-to-r from-emerald-400/30 via-green-400/30 to-emerald-400/30 blur-xl'
+                                        animate={{
+                                            scale: [1, 1.2, 1],
+                                            opacity: [0.5, 0.8, 0.5],
+                                        }}
+                                        transition={{
+                                            duration: 2,
+                                            repeat: Infinity,
+                                            ease: 'easeInOut',
+                                        }}
+                                    />
+                                    <p className='relative font-mono text-xl text-emerald-100'>
+                                        Yıllık Kazanç:{' '}
+                                        <motion.span
+                                            className='block text-3xl font-black text-transparent bg-gradient-to-r from-emerald-300 via-green-200 to-emerald-300 bg-clip-text sm:text-4xl md:text-5xl mt-2'
+                                            animate={{
+                                                backgroundPosition: ['0% 50%', '100% 50%', '0% 50%'],
+                                            }}
+                                            transition={{
+                                                duration: 3,
+                                                repeat: Infinity,
+                                                ease: 'linear',
+                                            }}
+                                            style={{
+                                                backgroundSize: '200% 200%',
+                                                filter: 'drop-shadow(0 0 20px rgba(52, 211, 153, 0.5))',
+                                            }}>
+                                            ₺2,190,000+
+                                        </motion.span>
+                                    </p>
+                                </motion.div>
+
+                                <motion.p
+                                    className='font-mono text-base text-emerald-300/90'
+                                    initial={{ opacity: 0 }}
+                                    whileInView={{ opacity: 1 }}
+                                    transition={{ delay: 0.4 }}>
+                                    ROI: <span className='font-bold text-green-400'>%380</span> ilk yıl
+                                </motion.p>
+
+                                <motion.div
+                                    className='relative mt-6 pt-6 border-t border-emerald-500/30'
+                                    initial={{ opacity: 0, y: 20 }}
+                                    whileInView={{ opacity: 1, y: 0 }}
+                                    transition={{ delay: 0.6, duration: 0.6 }}>
+                                    <motion.div
+                                        className='absolute -left-2 -top-2'
+                                        animate={{
+                                            rotate: [0, 360],
+                                        }}
+                                        transition={{
+                                            duration: 4,
+                                            repeat: Infinity,
+                                            ease: 'linear',
+                                        }}>
+                                        <span className='text-2xl'>✨</span>
+                                    </motion.div>
+                                    <motion.div
+                                        className='absolute -right-2 -bottom-2'
+                                        animate={{
+                                            rotate: [360, 0],
+                                        }}
+                                        transition={{
+                                            duration: 4,
+                                            repeat: Infinity,
+                                            ease: 'linear',
+                                        }}>
+                                        <span className='text-2xl'>✨</span>
+                                    </motion.div>
+                                    <motion.p
+                                        className='relative text-lg font-medium text-emerald-200 italic text-center px-4'
+                                        animate={{
+                                            scale: [1, 1.02, 1],
+                                        }}
+                                        transition={{
+                                            duration: 3,
+                                            repeat: Infinity,
+                                            ease: 'easeInOut',
+                                        }}>
+                                        <span className='text-3xl text-emerald-400/50 absolute -left-2 -top-2'>"</span>
+                                        <span className='bg-gradient-to-r from-emerald-300 via-white to-emerald-300 bg-clip-text text-transparent font-bold text-xl sm:text-2xl'>
+                                            Teknoloji artık gerçekten yardımcı.
+                                        </span>
+                                        <span className='text-3xl text-emerald-400/50 absolute -right-2 -bottom-2'>"</span>
+                                    </motion.p>
+                                </motion.div>
+                            </div>
+
+                            {/* Action CTA */}
+                            <motion.div
+                                initial={{ opacity: 0, y: 20 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                viewport={{ once: true }}
+                                transition={{ delay: 0.5 }}
+                                className='mt-12 text-center'>
+
+                                {/* Success invitation container */}
+                                <motion.div
+                                    className='relative mx-auto max-w-2xl rounded-3xl bg-gradient-to-br from-emerald-950/50 via-green-950/30 to-emerald-950/50 p-8 backdrop-blur-md'
+                                    animate={{
+                                        boxShadow: [
+                                            '0 0 30px rgba(52, 211, 153, 0.3)',
+                                            '0 0 60px rgba(52, 211, 153, 0.5)',
+                                            '0 0 30px rgba(52, 211, 153, 0.3)',
+                                        ],
+                                    }}
+                                    transition={{
+                                        duration: 3,
+                                        repeat: Infinity,
+                                        ease: 'easeInOut',
+                                    }}>
+
+                                    {/* Success glow effect */}
+                                    <motion.div
+                                        className='absolute -inset-1 rounded-3xl bg-gradient-to-r from-emerald-500/20 via-green-500/30 to-emerald-500/20 blur-xl'
+                                        animate={{
+                                            opacity: [0.4, 0.7, 0.4],
+                                            scale: [0.95, 1.05, 0.95],
+                                        }}
+                                        transition={{
+                                            duration: 3,
+                                            repeat: Infinity,
+                                            ease: 'easeInOut',
+                                        }}
+                                    />
+
+                                    <div className='relative z-10'>
+                                        {/* Success icon */}
+                                        <motion.div
+                                            className='mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-gradient-to-br from-emerald-500/40 to-green-500/40 backdrop-blur-sm'
+                                            animate={{
+                                                scale: [1, 1.15, 1],
+                                                rotate: [0, 360],
+                                            }}
+                                            transition={{
+                                                scale: { duration: 2, repeat: Infinity, ease: 'easeInOut' },
+                                                rotate: { duration: 20, repeat: Infinity, ease: 'linear' },
+                                            }}>
+                                            <span className='text-3xl'>🎯</span>
+                                        </motion.div>
+
+                                        <p className='mb-6 text-xl font-medium text-gray-100 sm:text-2xl'>
+                                            Bu başarıya{' '}
+                                            <span className='bg-gradient-to-r from-emerald-300 via-green-300 to-emerald-300 bg-clip-text text-transparent font-bold'>
+                                                ortak olmak için:
+                                            </span>
+                                        </p>
+
+                                        {/* Success CTA Button */}
+                                        <Button
+                                            size='lg'
+                                            onClick={() => setContactModalOpen(true)}
+                                            className='group relative overflow-hidden rounded-full bg-gradient-to-r from-emerald-600 to-green-600 px-10 py-7 text-xl font-bold text-white shadow-lg shadow-emerald-500/40 transition-all hover:scale-105 hover:shadow-emerald-500/60 sm:px-12 sm:py-8 sm:text-2xl'>
+
+                                            {/* Success particles on hover */}
+                                            <motion.div
+                                                className='absolute inset-0 rounded-full'
+                                                initial={{ opacity: 0 }}
+                                                whileHover={{ opacity: 1 }}
+                                                transition={{ duration: 0.3 }}>
+                                                {[...Array(6)].map((_, i) => (
+                                                    <motion.div
+                                                        key={i}
+                                                        className='absolute h-1 w-1 rounded-full bg-white/60'
+                                                        style={{
+                                                            left: '50%',
+                                                            top: '50%',
+                                                        }}
+                                                        animate={{
+                                                            x: [0, (Math.random() - 0.5) * 100],
+                                                            y: [0, (Math.random() - 0.5) * 100],
+                                                            opacity: [0, 1, 0],
+                                                            scale: [0, 2, 0],
+                                                        }}
+                                                        transition={{
+                                                            duration: 1,
+                                                            repeat: Infinity,
+                                                            delay: i * 0.1,
+                                                        }}
+                                                    />
+                                                ))}
+                                            </motion.div>
+
+                                            <span className='relative z-10 flex items-center gap-3'>
+                                                <motion.span
+                                                    animate={{
+                                                        scale: [1, 1.3, 1],
+                                                        rotate: [0, 10, -10, 0],
+                                                    }}
+                                                    transition={{
+                                                        duration: 2,
+                                                        repeat: Infinity,
+                                                        ease: 'easeInOut',
+                                                    }}>
+                                                    🚀
+                                                </motion.span>
+                                                EMA ile Başlayın
+                                                <motion.span
+                                                    animate={{ x: [0, 5, 0] }}
+                                                    transition={{ duration: 1.5, repeat: Infinity }}>
+                                                    <ArrowRight className='h-6 w-6' />
+                                                </motion.span>
+                                            </span>
+
+                                            <motion.div
+                                                className='absolute inset-0 bg-gradient-to-r from-green-400 to-emerald-400'
+                                                initial={{ x: '-100%' }}
+                                                whileHover={{ x: 0 }}
+                                                transition={{ duration: 0.3 }}
+                                            />
+                                        </Button>
+
+                                        {/* Success promise text */}
+                                        <p className='mt-4 text-sm text-emerald-300/90 sm:text-base'>
+                                            Başarı sizi bekliyor. Hemen başlayın!
+                                        </p>
+                                    </div>
+                                </motion.div>
+                            </motion.div>
+                        </motion.div>
+                    </div>
+                </div>
+            </section>
+
             {/* NEW SECTION: Parallax Feature */}
-            <ParallaxFeature />
+            {/* <section className='w-full bg-white py-16 md:py-24'>
+                <ParallaxFeature />
+            </section> */}
 
             {/* Plan Section */}
             <section className='flex min-h-screen w-full items-center justify-center bg-white py-16 md:py-24'>
@@ -826,17 +1791,17 @@ export default function LandingPage() {
                                 {
                                     step: '1',
                                     title: 'Ürünleri Yükleyin',
-                                    description: 'Ürünlerinizi ve bilgilerini sisteme yükleyin (FILE UPLOAD ARAYÜZÜ)'
+                                    description: 'Ürünlerinizi ve bilgilerini sisteme yükleyin '
                                 },
                                 {
                                     step: '2',
-                                    title: 'QR Kod Okutun',
-                                    description: "Müşterileriniz QR'ı okutsun (QR KOD)"
+                                    title: 'Müşeriniz Konuşmaya Başlayın',
+                                    description: "Müşterileriniz konuşmaya başlasın"
                                 },
                                 {
                                     step: '3',
-                                    title: 'İhtiyacını Anlatsın',
-                                    description: 'Doğal konuşma arayüzünde ihtiyacını anlatsın (KONUŞMA ARAYÜZÜ)'
+                                    title: 'Etkili İletişim Başlasın',
+                                    description: 'Doğal konuşma arayüzünde müşteriniz ile etkili iletişim başlasın, firmanızı ve ürünlerinizi en iyi şekilde tanıtın'
                                 }
                             ].map((step, index) => (
                                 <div
@@ -881,73 +1846,72 @@ export default function LandingPage() {
                             ))}
                         </div>
 
-                        <div className='mt-10 text-center sm:mt-16'>
+                        <div className='mt-10 text-center sm:mt-16 flex flex-col items-center gap-4'>
                             <Badge className='font-montserrat rounded-full border border-blue-200 bg-blue-50 px-4 py-2 text-base text-blue-800 sm:px-6 sm:py-3 sm:text-lg'>
-                                Sade kurulum, eğitim gerekmez.
+                                EMA müşterilerinize değer oluşturur
                             </Badge>
                         </div>
                     </div>
                 </div>
             </section>
 
-            {/* NEW SECTION: Video Showcase */}
-            {/* <section className='w-full bg-gradient-to-b from-slate-100 to-white py-14 sm:py-20'>
-                <div className='container mx-auto px-5 md:px-8'>
-                    <div className='mb-8 text-center sm:mb-12'>
-                        <h2 className='font-playfair mb-3 text-3xl leading-[1.1] font-bold tracking-tighter text-slate-900 sm:mb-4 sm:text-4xl md:text-6xl'>
-                            EMA Nasıl Çalışır?
-                        </h2>
-                        <p className='font-inter mx-auto max-w-2xl text-base leading-relaxed text-slate-600 sm:text-lg'>
-                            Gelişmiş yapay zeka asistanımızın müşterilerle doğal dilde nasıl etkileşim kurduğunu görmek
-                            için videoyu izleyin.
-                        </p>
+            {/* After the hero section (after the video embed) */}
+            <section className='w-full bg-slate-100 py-10 overflow-x-auto'>
+                <div className='container mx-auto flex flex-row items-center justify-center gap-8 md:gap-16' style={{ minWidth: 'max-content' }}>
+                    <div className='flex flex-1 flex-col items-center justify-center bg-slate-900 p-8 rounded-xl shadow-lg'>
+                        <a
+                            href='https://www.afextr.com/tr'
+                            target='_blank'
+                            rel='noopener noreferrer'
+                            className='group cursor-pointer rounded-lg transition-transform duration-300 hover:scale-110'>
+                            <Image
+                                src='/branding/afex_logo.avif'
+                                alt='Afex Logo'
+                                width={240}
+                                height={120}
+                                className='h-20 w-auto object-contain md:h-28 lg:h-32'
+                                style={{ maxWidth: '300px' }}
+                            />
+                        </a>
+                        <span className='mt-3 font-medium text-white text-base tracking-wide'>AFEX İstanbul</span>
                     </div>
-
-                    <VideoShowcase
-                        title='EMA Yapay Zeka Asistanı'
-                        description='5 dilde müşterilerle doğal konuşma akışında iletişim kurar'
-                        videoSrc='/videos/ema-demo.mp4'
-                        posterSrc='/videos/ema-poster.jpg'
-                    />
-                </div>
-            </section> */}
-
-            {/* Add animated metrics section */}
-            <section className='w-full bg-white py-12 sm:py-16'>
-                <div className='container mx-auto px-5 md:px-8'>
-                    <div className='mb-8 text-center sm:mb-12'>
-                        <h2 className='font-playfair mb-3 text-3xl leading-[1.1] font-bold tracking-tighter text-slate-900 sm:mb-4 sm:text-4xl md:text-6xl'>
-                            Rakamlarla EMA
-                        </h2>
-                        <p className='font-inter mx-auto max-w-2xl text-base leading-relaxed text-slate-600 sm:text-lg'>
-                            Her geçen gün daha fazla mağaza ve müşteriye hizmet veriyoruz
-                        </p>
+                    <div className='flex flex-1 flex-col items-center justify-center bg-slate-900 p-8 rounded-xl shadow-lg'>
+                        <a
+                            href='https://www.greyder.com.tr/'
+                            target='_blank'
+                            rel='noopener noreferrer'
+                            className='group cursor-pointer rounded-lg transition-transform duration-300 hover:scale-110'>
+                            <Image
+                                src='/branding/greyder_logo.webp'
+                                alt='Greyder Logo'
+                                width={240}
+                                height={120}
+                                className='h-20 w-auto object-contain md:h-28 lg:h-32 rounded-lg'
+                                style={{ maxWidth: '300px' }}
+                            />
+                        </a>
+                        <span className='mt-3 font-medium text-white text-base tracking-wide'>Greyder</span>
                     </div>
-
-                    <AnimatedMetrics />
-                </div>
-            </section>
-
-            {/* Integration timeline section */}
-            <section className='w-full bg-slate-50 py-16'>
-                <IntegrationTimeline />
-            </section>
-
-            {/* Enhanced testimonials section */}
-            <section className='w-full bg-white py-14 sm:py-20'>
-                <div className='container mx-auto px-5 md:px-8'>
-                    <div className='mb-8 text-center sm:mb-12'>
-                        <h2 className='font-playfair mb-3 text-3xl leading-[1.1] font-bold tracking-tighter text-slate-900 sm:mb-4 sm:text-4xl md:text-6xl'>
-                            Müşterilerimiz Ne Diyor?
-                        </h2>
-                        <p className='font-inter mx-auto max-w-2xl text-base leading-relaxed text-slate-600 sm:text-lg'>
-                            EMA'yı mağazalarında kullanan iş ortaklarımızın deneyimleri
-                        </p>
+                    <div className='flex flex-1 flex-col items-center justify-center bg-slate-900 p-8 rounded-xl shadow-lg'>
+                        <a
+                            href='https://tr.integralgroup.com.tr/'
+                            target='_blank'
+                            rel='noopener noreferrer'
+                            className='group cursor-pointer rounded-lg transition-transform duration-300 hover:scale-110'>
+                            <Image
+                                src='/branding/integral_logo.webp'
+                                alt='Integral Logo'
+                                width={240}
+                                height={120}
+                                className='h-20 w-auto object-contain md:h-28 lg:h-32 rounded-lg'
+                                style={{ maxWidth: '300px' }}
+                            />
+                        </a>
+                        <span className='mt-3 font-medium text-white text-base tracking-wide'>İntegral Group</span>
                     </div>
-
-                    <TestimonialCarousel />
                 </div>
             </section>
+
 
             {/* NEW SECTION: Feature Showcase */}
             <section className='flex min-h-screen w-full items-center justify-center bg-slate-100 py-24'>
@@ -956,78 +1920,6 @@ export default function LandingPage() {
                 </div>
             </section>
 
-            {/* Loss Section */}
-            <section className='flex min-h-screen w-full items-center justify-center bg-slate-900 py-16 text-white md:py-24'>
-                <div className='container px-5 md:px-8'>
-                    <div className='mx-auto max-w-4xl'>
-                        <h2 className='font-playfair mb-10 text-center text-4xl leading-[1.1] font-bold tracking-tighter sm:text-5xl md:mb-16 md:text-7xl'>
-                            Olmazsa <span className='text-red-400'>Ne Olur?</span>
-                        </h2>
-
-                        <div className='mb-10 space-y-6 sm:space-y-10 md:mb-16'>
-                            {[
-                                'Müşteri ürünü bulamadan mağazayı terk eder.',
-                                'Yabancı müşteriyle iletişim kopar.',
-                                'Satış potansiyeli boşa gider.'
-                            ].map((loss, index) => (
-                                <div
-                                    key={index}
-                                    className='flex items-start gap-4 rounded-xl border border-red-900/30 bg-gradient-to-r from-red-900/30 to-slate-800 p-4 sm:gap-6 sm:p-6'>
-                                    <div className='shrink-0 text-red-500'>
-                                        <XCircle className='h-6 w-6 sm:h-8 sm:w-8' />
-                                    </div>
-                                    <p className='font-inter text-base leading-relaxed text-slate-300 sm:text-xl'>
-                                        {loss}
-                                    </p>
-                                </div>
-                            ))}
-                        </div>
-
-                        <div className='rounded-xl border border-red-900/30 bg-red-900/20 p-4 text-center sm:p-6'>
-                            <p className='font-montserrat text-base text-red-300 sm:text-lg'>
-                                Her kaybedilen soru, kaybedilen ciro demektir.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            {/* Success Section */}
-            <section className='flex min-h-screen w-full items-center justify-center bg-gradient-to-b from-slate-900 to-slate-800 py-16 text-white md:py-24'>
-                <div className='container px-5 md:px-8'>
-                    <div className='mx-auto max-w-5xl'>
-                        <h2 className='font-playfair mb-10 text-center text-4xl leading-[1.1] font-bold tracking-tighter sm:text-5xl md:mb-16 md:text-7xl'>
-                            Olursa <span className='text-emerald-400'>Ne Kazanırsınız?</span>
-                        </h2>
-
-                        <div className='mb-10 grid grid-cols-1 gap-5 sm:grid-cols-2 sm:gap-8 md:mb-16'>
-                            {[
-                                'Müşteri memnun, mağaza verimli',
-                                'Çalışan huzurlu, sorular azalır',
-                                'Her konuşma içgörüye dönüşür',
-                                'Satış artışı somutlaşır'
-                            ].map((gain, index) => (
-                                <Card
-                                    key={index}
-                                    className='group border-emerald-900/20 bg-gradient-to-br from-emerald-900/40 to-slate-800 transition-all hover:border-emerald-500/50'>
-                                    <CardContent className='flex items-start gap-4 p-4 sm:gap-6 sm:p-8'>
-                                        <div className='shrink-0 transform text-emerald-400 transition-transform group-hover:scale-110'>
-                                            <Sparkles className='h-6 w-6 sm:h-8 sm:w-8' />
-                                        </div>
-                                        <p className='font-inter text-base leading-relaxed text-slate-300 sm:text-xl'>
-                                            {gain}
-                                        </p>
-                                    </CardContent>
-                                </Card>
-                            ))}
-                        </div>
-
-                        <p className='font-playfair text-center text-base text-emerald-400 italic sm:text-lg'>
-                            Teknoloji artık gerçekten yardımcı.
-                        </p>
-                    </div>
-                </div>
-            </section>
 
             {/* NEW SECTION: Comparison Table */}
             <section className='flex min-h-screen w-full items-center justify-center bg-slate-50 py-16 md:py-24'>
@@ -1048,51 +1940,6 @@ export default function LandingPage() {
                 </div>
             </section>
 
-            {/* Social Proof Section */}
-            <section className='flex min-h-screen w-full items-center justify-center bg-gradient-to-b from-slate-100 to-white py-16 md:py-24'>
-                <div className='container px-5 md:px-8'>
-                    <div className='mx-auto max-w-5xl'>
-                        <h2 className='font-playfair mb-10 text-center text-4xl leading-[1.1] font-bold tracking-tighter text-slate-900 sm:text-5xl md:mb-16 md:text-7xl'>
-                            Onlar Ne <span className='text-blue-600'>Diyor?</span>
-                        </h2>
-
-                        <div className='grid grid-cols-1 gap-6 sm:grid-cols-2 sm:gap-8 lg:grid-cols-3'>
-                            {[
-                                {
-                                    quote: 'EMA sayesinde yabancı müşterilerle %30 daha fazla satış yaptık.',
-                                    author: 'GiyimMarket',
-                                    location: 'İstanbul'
-                                },
-                                {
-                                    quote: 'Ekrana dokunmak yerine konuşmak, özellikle yaşlı müşterilerimizi rahatlattı.',
-                                    author: 'Teknoshop',
-                                    location: 'Ankara'
-                                },
-                                {
-                                    quote: 'Kurulum 20 dakika sürdü, ilk gün 120 ürün sorgusu aldık.',
-                                    author: 'Outlet 44',
-                                    location: 'İzmir'
-                                }
-                            ].map((testimonial, index) => (
-                                <div
-                                    key={index}
-                                    className='flex h-full transform flex-col rounded-xl border border-slate-100 bg-white p-6 shadow-xl shadow-slate-200 transition-transform hover:translate-y-[-5px] sm:p-8'>
-                                    <div className='font-playfair mb-4 text-xl text-blue-500 sm:mb-6 sm:text-2xl'>
-                                        "
-                                    </div>
-                                    <p className='font-inter mb-6 flex-grow text-base leading-relaxed text-slate-700 sm:mb-8 sm:text-lg'>
-                                        {testimonial.quote}
-                                    </p>
-                                    <div>
-                                        <p className='font-montserrat font-bold text-slate-900'>{testimonial.author}</p>
-                                        <p className='font-inter text-slate-500'>{testimonial.location}</p>
-                                    </div>
-                                </div>
-                            ))}
-                        </div>
-                    </div>
-                </div>
-            </section>
 
             {/* NEW SECTION: Animated FAQ */}
             <section className='flex min-h-screen w-full items-center justify-center bg-white py-16 md:py-24'>
@@ -1114,30 +1961,294 @@ export default function LandingPage() {
             </section>
 
             {/* CTA Section (Primary) */}
-            <section className='flex min-h-screen w-full items-center justify-center bg-gradient-to-br from-[#1a2333] to-[#0e0f1a] py-16 text-white md:py-24'>
-                <div className='container px-5 md:px-8'>
-                    <div className='mx-auto max-w-3xl text-center'>
-                        <Badge className='font-montserrat mb-6 rounded-full border-amber-500/20 bg-amber-500/20 px-3 py-1 text-xs tracking-wider text-amber-300 uppercase sm:mb-8 sm:px-4 sm:text-sm'>
-                            İlk 50 Mağaza
-                        </Badge>
+            <section className='relative flex min-h-screen w-full items-center justify-center overflow-hidden bg-gradient-to-br from-[#1a2333] to-[#0e0f1a] py-16 text-white md:py-24'>
+                {/* Animated background elements */}
+                <div className='absolute inset-0'>
+                    <motion.div
+                        className='absolute -left-40 -top-40 h-80 w-80 rounded-full bg-amber-500/10 blur-3xl'
+                        animate={{
+                            scale: [1, 1.2, 1],
+                            opacity: [0.3, 0.5, 0.3],
+                        }}
+                        transition={{
+                            duration: 4,
+                            repeat: Infinity,
+                            ease: 'easeInOut',
+                        }}
+                    />
+                    <motion.div
+                        className='absolute -right-40 -bottom-40 h-96 w-96 rounded-full bg-blue-500/10 blur-3xl'
+                        animate={{
+                            scale: [1, 1.3, 1],
+                            opacity: [0.2, 0.4, 0.2],
+                        }}
+                        transition={{
+                            duration: 5,
+                            repeat: Infinity,
+                            ease: 'easeInOut',
+                            delay: 1,
+                        }}
+                    />
+                </div>
 
-                        <h2 className='font-playfair mb-8 text-4xl leading-[1.1] font-bold tracking-tighter sm:mb-12 sm:text-5xl md:text-7xl'>
-                            <span className='bg-gradient-to-r from-amber-400 to-amber-600 bg-clip-text text-transparent'>
-                                Fırsatı
-                            </span>{' '}
-                            Kaçırmayın
-                        </h2>
+                <div className='container relative z-10 px-5 md:px-8'>
+                    <div className='mx-auto max-w-4xl'>
+                        {/* Transformation Journey */}
+                        <motion.div
+                            initial={{ opacity: 0, y: 20 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true }}
+                            transition={{ duration: 0.8 }}
+                            className='mb-12 text-center'>
 
-                        <Button
-                            size='lg'
-                            onClick={() => setContactModalOpen(true)}
-                            className='font-montserrat w-full rounded-full bg-gradient-to-r from-amber-500 to-amber-600 px-8 py-6 text-lg text-white shadow-lg shadow-amber-500/30 transition-all hover:translate-y-[-2px] hover:from-amber-600 hover:to-amber-700 hover:shadow-amber-500/50 sm:w-auto sm:px-12 sm:py-8 sm:text-xl'>
-                            Pilot Kuruluma Başvur
-                        </Button>
+                            {/* Before/After Comparison */}
+                            <div className='mb-12 grid grid-cols-1 gap-6 md:grid-cols-2'>
+                                {/* Without EMA - The Pain */}
+                                <motion.div
+                                    initial={{ opacity: 0, x: -30 }}
+                                    whileInView={{ opacity: 1, x: 0 }}
+                                    viewport={{ once: true }}
+                                    transition={{ delay: 0.2 }}
+                                    className='relative rounded-2xl border-2 border-red-500/20 bg-gradient-to-br from-red-950/20 to-slate-900/50 p-6 backdrop-blur-sm'>
+                                    <div className='absolute -left-3 -top-3 rounded-full bg-red-500 px-4 py-1 text-sm font-bold'>
+                                        BUGÜN
+                                    </div>
+                                    <h3 className='mb-4 mt-2 text-xl font-bold text-red-300'>EMA Olmadan</h3>
+                                    <ul className='space-y-3 text-left text-slate-300'>
+                                        <li className='flex items-start gap-2'>
+                                            <span className='text-red-400'>✗</span>
+                                            <span className='text-sm'>Müşteriler ürün bulamıyor</span>
+                                        </li>
+                                        <li className='flex items-start gap-2'>
+                                            <span className='text-red-400'>✗</span>
+                                            <span className='text-sm'>Dil bariyeri satışı engelliyor</span>
+                                        </li>
+                                        <li className='flex items-start gap-2'>
+                                            <span className='text-red-400'>✗</span>
+                                            <span className='text-sm'>Personel aynı soruları cevaplıyor</span>
+                                        </li>
+                                        <li className='flex items-start gap-2'>
+                                            <span className='text-red-400'>✗</span>
+                                            <span className='text-sm font-bold'>Günde ₺5,000 kayıp</span>
+                                        </li>
+                                    </ul>
+                                </motion.div>
 
-                        <p className='font-inter mt-4 text-sm text-slate-400 sm:mt-6 sm:text-base'>
-                            İlk 50 mağazaya özel lansman indirimi.
-                        </p>
+                                {/* With EMA - The Transformation */}
+                                <motion.div
+                                    initial={{ opacity: 0, x: 30 }}
+                                    whileInView={{ opacity: 1, x: 0 }}
+                                    viewport={{ once: true }}
+                                    transition={{ delay: 0.4 }}
+                                    className='relative rounded-2xl border-2 border-emerald-500/30 bg-gradient-to-br from-emerald-950/30 to-slate-900/50 p-6 backdrop-blur-sm'>
+                                    <div className='absolute -left-3 -top-3 rounded-full bg-emerald-500 px-4 py-1 text-sm font-bold'>
+                                        YARIN
+                                    </div>
+                                    <h3 className='mb-4 mt-2 text-xl font-bold text-emerald-300'>EMA ile</h3>
+                                    <ul className='space-y-3 text-left text-slate-300'>
+                                        <li className='flex items-start gap-2'>
+                                            <span className='text-emerald-400'>✓</span>
+                                            <span className='text-sm'>Her müşteri aradığını bulur</span>
+                                        </li>
+                                        <li className='flex items-start gap-2'>
+                                            <span className='text-emerald-400'>✓</span>
+                                            <span className='text-sm'>5 dilde doğal iletişim</span>
+                                        </li>
+                                        <li className='flex items-start gap-2'>
+                                            <span className='text-emerald-400'>✓</span>
+                                            <span className='text-sm'>Personel değer katar</span>
+                                        </li>
+                                        <li className='flex items-start gap-2'>
+                                            <span className='text-emerald-400'>✓</span>
+                                            <span className='text-sm font-bold'>Günde +₺6,000 kazanç</span>
+                                        </li>
+                                    </ul>
+                                </motion.div>
+                            </div>
+
+                            {/* Urgency Badge */}
+                            <motion.div
+                                initial={{ opacity: 0, scale: 0.8 }}
+                                whileInView={{ opacity: 1, scale: 1 }}
+                                viewport={{ once: true }}
+                                transition={{ delay: 0.5, type: 'spring' }}
+                                className='mb-8 inline-block'>
+                                <Badge className='font-montserrat rounded-full border-2 border-amber-500/50 bg-gradient-to-r from-amber-600/30 to-orange-600/30 px-6 py-3 text-base tracking-wider text-amber-300 uppercase backdrop-blur-sm shadow-lg shadow-amber-500/20'>
+                                    <motion.span
+                                        animate={{
+                                            scale: [1, 1.2, 1],
+                                        }}
+                                        transition={{
+                                            duration: 1.5,
+                                            repeat: Infinity,
+                                        }}
+                                        className='mr-2 inline-block'>
+                                        ⏰
+                                    </motion.span>
+                                    Sadece İlk 50 Mağaza İçin
+                                </Badge>
+                            </motion.div>
+
+                            {/* Main Headline */}
+                            <motion.h2
+                                initial={{ opacity: 0, y: 20 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                viewport={{ once: true }}
+                                transition={{ delay: 0.6 }}
+                                className='font-playfair mb-6 text-5xl leading-[1.1] font-bold tracking-tighter sm:text-6xl md:text-7xl'>
+                                <span className='block text-white'>Kararınızı</span>
+                                <span className='bg-gradient-to-r from-amber-400 via-yellow-400 to-amber-400 bg-clip-text text-transparent'>
+                                    Bugün Verin
+                                </span>
+                            </motion.h2>
+
+                            {/* Value Proposition */}
+                            <motion.p
+                                initial={{ opacity: 0 }}
+                                whileInView={{ opacity: 1 }}
+                                viewport={{ once: true }}
+                                transition={{ delay: 0.7 }}
+                                className='mx-auto mb-8 max-w-2xl text-xl leading-relaxed text-slate-300'>
+                                Her gün <span className='font-bold text-red-400'>₺5,000 kaybediyor</span> olabilirsiniz.
+                                <br />
+                                Ya da <span className='font-bold text-emerald-400'>₺6,000 kazanmaya</span> başlayabilirsiniz.
+                            </motion.p>
+
+                            {/* Risk Reversal */}
+                            <motion.div
+                                initial={{ opacity: 0, y: 20 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                viewport={{ once: true }}
+                                transition={{ delay: 0.8 }}
+                                className='mb-10 space-y-4'>
+                                <div className='mx-auto max-w-xl rounded-xl bg-slate-800/50 p-6 backdrop-blur-sm'>
+                                    <h3 className='mb-4 text-lg font-bold text-emerald-300'>
+                                        Pilot Program Garantileri:
+                                    </h3>
+                                    <ul className='space-y-2 text-sm text-slate-300'>
+                                        <li className='flex items-center gap-2'>
+                                            <span className='text-emerald-400'>✓</span>
+                                            <span>15 dakikada kurulum</span>
+                                        </li>
+                                        <li className='flex items-center gap-2'>
+                                            <span className='text-emerald-400'>✓</span>
+                                            <span>İlk ay %50 indirim</span>
+                                        </li>
+                                        <li className='flex items-center gap-2'>
+                                            <span className='text-emerald-400'>✓</span>
+                                            <span>30 gün memnuniyet garantisi</span>
+                                        </li>
+                                        <li className='flex items-center gap-2'>
+                                            <span className='text-emerald-400'>✓</span>
+                                            <span>7/24 teknik destek</span>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </motion.div>
+
+                            {/* CTA Button with Animation */}
+                            <motion.div
+                                initial={{ opacity: 0, scale: 0.9 }}
+                                whileInView={{ opacity: 1, scale: 1 }}
+                                viewport={{ once: true }}
+                                transition={{ delay: 0.9, type: 'spring' }}
+                                className='relative'>
+
+                                {/* Pulsing glow effect */}
+                                <motion.div
+                                    className='absolute inset-0 mx-auto h-20 w-80 rounded-full bg-amber-500/30 blur-3xl'
+                                    animate={{
+                                        scale: [1, 1.3, 1],
+                                        opacity: [0.3, 0.6, 0.3],
+                                    }}
+                                    transition={{
+                                        duration: 2,
+                                        repeat: Infinity,
+                                    }}
+                                />
+
+                                <Button
+                                    size='lg'
+                                    onClick={() => setContactModalOpen(true)}
+                                    className='font-montserrat group relative overflow-hidden rounded-full bg-gradient-to-r from-amber-500 to-orange-600 px-12 py-8 text-xl font-bold text-white shadow-2xl shadow-amber-500/40 transition-all hover:scale-105 hover:shadow-amber-500/60'>
+
+                                    {/* Shine effect on hover */}
+                                    <motion.div
+                                        className='absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/20 to-transparent'
+                                        whileHover={{ x: '100%' }}
+                                        transition={{ duration: 0.6 }}
+                                    />
+
+                                    <span className='relative z-10 flex items-center gap-3'>
+                                        <Sparkles className='h-6 w-6' />
+                                        Pilot Kuruluma Hemen Başvur
+                                        <ArrowRight className='h-6 w-6 transition-transform group-hover:translate-x-2' />
+                                    </span>
+                                </Button>
+                            </motion.div>
+
+                            {/* Limited Spots Counter */}
+                            <motion.div
+                                initial={{ opacity: 0 }}
+                                whileInView={{ opacity: 1 }}
+                                viewport={{ once: true }}
+                                transition={{ delay: 1 }}
+                                className='mt-8'>
+                                <div className='inline-flex items-center gap-2 rounded-full bg-slate-800/50 px-6 py-3 backdrop-blur-sm'>
+                                    <motion.div
+                                        className='h-2 w-2 rounded-full bg-red-500'
+                                        animate={{
+                                            scale: [1, 1.2, 1],
+                                            opacity: [1, 0.5, 1],
+                                        }}
+                                        transition={{
+                                            duration: 1,
+                                            repeat: Infinity,
+                                        }}
+                                    />
+                                    <span className='text-sm text-slate-300'>
+                                        Pilot programda <span className='font-bold text-amber-400'>sadece 12 yer kaldı</span>
+                                    </span>
+                                </div>
+                            </motion.div>
+
+                            {/* Social Proof */}
+                            <motion.div
+                                initial={{ opacity: 0, y: 20 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                viewport={{ once: true }}
+                                transition={{ delay: 1.1 }}
+                                className='mt-12'>
+                                <p className='mb-4 text-sm uppercase tracking-wider text-slate-400'>
+                                    Pilot Programa Katılanlar:
+                                </p>
+                                <div className='flex flex-wrap justify-center gap-4'>
+                                    {['Greyder', 'AFEX İstanbul', 'İntegral Group'].map((brand, index) => (
+                                        <motion.div
+                                            key={index}
+                                            initial={{ opacity: 0, scale: 0.8 }}
+                                            whileInView={{ opacity: 1, scale: 1 }}
+                                            viewport={{ once: true }}
+                                            transition={{ delay: 1.2 + index * 0.1 }}
+                                            className='rounded-lg bg-slate-800/30 px-4 py-2 text-sm text-slate-300'>
+                                            {brand}
+                                        </motion.div>
+                                    ))}
+                                </div>
+                            </motion.div>
+
+                            {/* Final Reminder */}
+                            <motion.p
+                                initial={{ opacity: 0 }}
+                                whileInView={{ opacity: 1 }}
+                                viewport={{ once: true }}
+                                transition={{ delay: 1.5 }}
+                                className='font-inter mt-8 text-lg text-slate-400'>
+                                <span className='font-semibold text-white'>Müşteriniz konuşacak.</span>{' '}
+                                <span className='font-semibold text-blue-400'>EMA anlayacak.</span>{' '}
+                                <span className='font-semibold text-emerald-400'>Siz kazanacaksınız.</span>
+                            </motion.p>
+                        </motion.div>
                     </div>
                 </div>
             </section>

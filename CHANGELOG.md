@@ -86,6 +86,8 @@ All notable changes to the EMA Landing Page project will be documented in this f
 - Updated hero section mobile title to use flexbox for better text alignment
 - Simplified RotatingWords component with fixed minimum width for consistent spacing
 - Made RotatingWords component props optional to support internal multilingual configuration
+- Updated testimonial content in `TestimonialCarousel.tsx` to match SB7 framework.
+- Improved `TestimonialCarousel.tsx` transition animation to prevent UI disruption by adding `mode="popLayout"` to `AnimatePresence` and making testimonial fields optional to accommodate new data structure.
 
 ## 2023-10-14
 
