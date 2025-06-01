@@ -70,11 +70,22 @@ All notable changes to the EMA Landing Page project will be documented in this f
 - `VisuallyHidden` component for accessibility needs
 - Documentation and example for Dialog accessibility requirements
 - Example component demonstrating Dialog with visually hidden title
+- Enhanced RotatingWords component with Turkish language support featuring 10 different action words
+- Dynamic color assignment for each rotating word to create visual variety and engagement
+- Language attribute support for better accessibility and SEO
+- Expanded vocabulary showcasing EMA's various capabilities in Turkish
+- Created legal pages: Data Protection, Privacy Policy, and Cookie Policy under /legal/ route
+- Added placeholder content for each legal page with appropriate titles and metadata
+- Updated footer links to point to the new legal pages (data-protection, privacy-policy, cookie-policy)
+- Ensured consistent styling and layout for the new legal pages
 
 ### Changed
 - Updated Navbar to use the contact modal instead of linking to a contact page
 - Enhanced user experience with proper form state management
 - Added accessibility documentation to Dialog component
+- Updated hero section mobile title to use flexbox for better text alignment
+- Simplified RotatingWords component with fixed minimum width for consistent spacing
+- Made RotatingWords component props optional to support internal multilingual configuration
 
 ## 2023-10-14
 
@@ -156,3 +167,12 @@ All notable changes to the EMA Landing Page project will be documented in this f
 - Integration timeline
 - Comparison table
 - FAQ section 
+
+### Fixed
+- Fixed mobile responsive alignment issue in hero section title where rotating words were not properly aligned with "EMA" text
+- Improved RotatingWords component baseline alignment by using flexbox layout and removing problematic invisible spacer
+- Enhanced mobile title layout with better spacing and proper text alignment
+
+### Changed
+- Updated hero section mobile title to use flexbox for better text alignment
+- Simplified RotatingWords component with fixed minimum width for consistent spacing 

@@ -11,11 +11,7 @@ import ComparisonTable from '@/components/ComparisonTable';
 import { ContactModal } from '@/components/ContactModal';
 import FeatureShowcase from '@/components/FeatureShowcase';
 import IntegrationTimeline from '@/components/IntegrationTimeline';
-import InteractiveDemo from '@/components/InteractiveDemo';
-import LanguageBubblesDemoScene from '@/components/LanguageBubblesDemoScene';
-import ParallaxFeature from '@/components/ParallaxFeature';
 import TestimonialCarousel from '@/components/TestimonialCarousel';
-import VideoShowcase from '@/components/VideoShowcase';
 import { Button } from '@/registry/new-york-v4/ui/button';
 import { Card, CardContent } from '@/registry/new-york-v4/ui/card';
 import { Dialog, DialogContent } from '@/registry/new-york-v4/ui/dialog';
@@ -24,6 +20,8 @@ import { Separator } from '@/registry/new-york-v4/ui/separator';
 import { AnimatePresence, Variants, motion, useReducedMotion } from 'framer-motion';
 import { Play } from 'lucide-react';
 import { ArrowRight, Sparkles, XCircle } from 'lucide-react';
+import VideoShowcase from '@/components/VideoShowcase';
+import ParallaxFeature from '@/components/ParallaxFeature';
 
 // Create a Badge component since it's not available
 const Badge = ({ children, className = '' }: { children: React.ReactNode; className?: string }) => {
@@ -48,13 +46,27 @@ interface LanguageBubbleProps {
 
 // Rotating Words Component
 const RotatingWords = ({ words, baseColor, gradientColors = false }: {
-    words: string[],
-    baseColor: string,
+    words?: string[],
+    baseColor?: string,
     gradientColors?: boolean
-}) => {
+} = {}) => {
     const [currentIndex, setCurrentIndex] = useState(0);
     const [direction, setDirection] = useState('down');
     const [isAnimating, setIsAnimating] = useState(false);
+
+    // Define word configurations with different languages and colors
+    const wordConfigs = [
+        { text: 'anlasın', color: 'text-blue-400', lang: 'tr' },
+        { text: 'satsın', color: 'text-emerald-400', lang: 'tr' },
+        { text: 'sunsun', color: 'text-purple-400', lang: 'tr' },
+        { text: 'çözsün', color: 'text-orange-400', lang: 'tr' },
+        { text: 'analiz etsin', color: 'text-pink-400', lang: 'tr' },
+        { text: 'yardım etsin', color: 'text-cyan-400', lang: 'tr' },
+        { text: 'önersin', color: 'text-yellow-400', lang: 'tr' },
+        { text: 'rehberlik etsin', color: 'text-red-400', lang: 'tr' },
+        { text: 'karşılasın', color: 'text-indigo-400', lang: 'tr' },
+        { text: 'desteklesin', color: 'text-green-400', lang: 'tr' }
+    ];
 
     useEffect(() => {
         const interval = setInterval(() => {
@@ -62,7 +74,7 @@ const RotatingWords = ({ words, baseColor, gradientColors = false }: {
             setIsAnimating(true);
 
             setTimeout(() => {
-                setCurrentIndex((prevIndex) => (prevIndex + 1) % words.length);
+                setCurrentIndex((prevIndex) => (prevIndex + 1) % wordConfigs.length);
                 setDirection('down');
 
                 // Small delay before starting the entrance animation
@@ -74,7 +86,7 @@ const RotatingWords = ({ words, baseColor, gradientColors = false }: {
         }, 2500); // Change word every 2.5 seconds for a more dynamic feel
 
         return () => clearInterval(interval);
-    }, [words.length]);
+    }, [wordConfigs.length]);
 
     const animationClasses = isAnimating
         ? direction === 'up'
@@ -82,17 +94,20 @@ const RotatingWords = ({ words, baseColor, gradientColors = false }: {
             : 'transform translate-y-3 opacity-0'
         : 'transform translate-y-0 opacity-100';
 
+    const currentWord = wordConfigs[currentIndex];
+
     return (
-        <span className="relative inline-block overflow-hidden">
+        <span className="relative inline-block">
             <span
                 className={`inline-block transition-all duration-400 ease-in-out ${animationClasses} ${gradientColors
                     ? 'bg-gradient-to-r from-blue-400 via-cyan-300 to-blue-400 bg-clip-text text-transparent'
-                    : baseColor
+                    : currentWord.color
                     }`}
+                style={{ minWidth: '120px', textAlign: 'left' }}
+                lang={currentWord.lang}
             >
-                {words[currentIndex]}
+                {currentWord.text}
             </span>
-            <span className="invisible">{words.reduce((a, b) => a.length > b.length ? a : b)}</span> {/* Use longest word as spacer */}
         </span>
     );
 };
@@ -482,15 +497,12 @@ export default function LandingPage() {
 
                             {/* Title */}
                             <div className='font-playfair mb-6 text-center text-4xl leading-tight font-bold tracking-tighter'>
-                                <div className='mb-1'>
-                                    <div className='text-white'>Müşteriniz konuşsun,</div>
+                                <div className='mb-2 text-white'>
+                                    Müşteriniz konuşsun,
                                 </div>
-                                <div className='text-blue-400'>
-                                    EMA{' '}
-                                    <RotatingWords
-                                        words={['anlasın', 'satsın', 'sunsun', 'çözsün', 'analiz etsin']}
-                                        baseColor="text-blue-400"
-                                    />
+                                <div className='flex items-baseline justify-start gap-2 text-blue-400'>
+                                    <span>EMA</span>
+                                    <RotatingWords />
                                 </div>
                             </div>
 
@@ -538,11 +550,7 @@ export default function LandingPage() {
                                         <span className='block text-shadow-lg'>Müşteriniz konuşsun,</span>
                                         <span className='animate-gradient-shift mt-2 flex items-baseline bg-gradient-to-r from-blue-400 via-cyan-300 to-blue-400 bg-clip-text text-transparent'>
                                             <span className="mr-1 md:mr-2 lg:mr-3">EMA</span>
-                                            <RotatingWords
-                                                words={['anlasın', 'satsın', 'sunsun', 'çözsün', 'analiz etsin']}
-                                                baseColor=""
-                                                gradientColors={true}
-                                            />
+                                            <RotatingWords />
                                         </span>
                                     </h1>
 
@@ -620,8 +628,8 @@ export default function LandingPage() {
             </section>
 
             {/* After the hero section (after the video embed) */}
-            <section className='w-full bg-slate-900 py-10'>
-                <div className='container mx-auto flex flex-row items-center justify-center gap-8 md:gap-16'>
+            <section className='w-full bg-slate-900 py-10 overflow-x-auto'>
+                <div className='container mx-auto flex flex-row items-center justify-center gap-8 md:gap-16' style={{ minWidth: 'max-content' }}>
                     <div className='flex flex-1 flex-col items-center justify-center'>
                         <a
                             href='https://www.afextr.com/tr'
@@ -633,7 +641,7 @@ export default function LandingPage() {
                                 alt='Afex Logo'
                                 width={240}
                                 height={120}
-                                className='h-20 w-auto object-contain md:h-28 lg:h-32 rounded-lg'
+                                className='h-20 w-auto object-contain md:h-28 lg:h-32'
                                 style={{ maxWidth: '300px' }}
                             />
                         </a>
@@ -1152,12 +1160,16 @@ export default function LandingPage() {
                         <div>
                             <h3 className='font-montserrat mb-3 text-base font-semibold sm:mb-4 sm:text-lg'>Yasal</h3>
                             <ul className='font-inter space-y-2 sm:space-y-3'>
-                                {['KVKK', 'Gizlilik Politikası', 'Çerez Politikası'].map((link, index) => (
+                                {[
+                                    { name: 'KVKK', href: '/legal/data-protection' },
+                                    { name: 'Gizlilik Politikası', href: '/legal/privacy-policy' },
+                                    { name: 'Çerez Politikası', href: '/legal/cookie-policy' }
+                                ].map((link, index) => (
                                     <li key={index}>
                                         <Link
-                                            href='#'
+                                            href={link.href}
                                             className='text-sm text-slate-400 transition-colors hover:text-white sm:text-base'>
-                                            {link}
+                                            {link.name}
                                         </Link>
                                     </li>
                                 ))}
@@ -1169,8 +1181,7 @@ export default function LandingPage() {
                                 İletişim
                             </h3>
                             <ul className='font-inter space-y-2 sm:space-y-3'>
-                                <li className='text-sm text-slate-400 sm:text-base'>info@ema.ai</li>
-                                <li className='text-sm text-slate-400 sm:text-base'>+90 212 000 00 00</li>
+                                <li className='text-sm text-slate-400 sm:text-base'>info-ema@solace.com.tr</li>
                                 <li className='flex gap-3 pt-2 sm:gap-4 sm:pt-3'>
                                     {['LinkedIn', 'Instagram', 'YouTube'].map((social, index) => (
                                         <Link
@@ -1188,7 +1199,7 @@ export default function LandingPage() {
                     <Separator className='mb-6 bg-slate-800 sm:mb-8' />
 
                     <p className='font-inter text-center text-xs text-slate-500 sm:text-sm'>
-                        © 2025 EMA. Tüm hakları saklıdır.
+                        © 2025 EMA, Solace Teknoloji. Tüm hakları saklıdır.
                     </p>
                 </div>
             </footer>
