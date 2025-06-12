@@ -175,25 +175,25 @@ export default function CtaSection({ setContactModalOpen }: CtaSectionProps) {
                             transition={{ delay: 0.8 }}
                             className='mb-10 space-y-4'>
                             <div className='mx-auto max-w-xl rounded-xl bg-slate-800/50 p-6 backdrop-blur-sm'>
-                                <h3 className='mb-4 text-lg font-bold text-emerald-300'>
-                                    Pilot Program Garantileri:
+                                <h3 className='mb-4 text-lg font-bold text-emerald-300 text-center'>
+                                    EMA'nın Sunduğu Avantajlar:
                                 </h3>
                                 <ul className='space-y-2 text-sm text-slate-300'>
-                                    <li className='flex items-center gap-2'>
+                                    <li className='flex items-center justify-center gap-2'>
                                         <span className='text-emerald-400'>✓</span>
-                                        <span>15 dakikada kurulum</span>
+                                        <span>5 farklı dilde anında iletişim kurun.</span>
                                     </li>
-                                    <li className='flex items-center gap-2'>
+                                    <li className='flex items-center justify-center gap-2'>
                                         <span className='text-emerald-400'>✓</span>
-                                        <span>İlk ay %50 indirim</span>
+                                        <span>Müşteri memnuniyetini en üst seviyeye taşıyın.</span>
                                     </li>
-                                    <li className='flex items-center gap-2'>
+                                    <li className='flex items-center justify-center gap-2'>
                                         <span className='text-emerald-400'>✓</span>
-                                        <span>30 gün memnuniyet garantisi</span>
+                                        <span>Personelinizin üzerindeki yükü hafifletin.</span>
                                     </li>
-                                    <li className='flex items-center gap-2'>
+                                    <li className='flex items-center justify-center gap-2'>
                                         <span className='text-emerald-400'>✓</span>
-                                        <span>7/24 teknik destek</span>
+                                        <span>Satış sürecinizi akıllı verilerle güçlendirin.</span>
                                     </li>
                                 </ul>
                             </div>
@@ -235,15 +235,15 @@ export default function CtaSection({ setContactModalOpen }: CtaSectionProps) {
                                 <span className='relative z-10 flex items-center gap-3'>
                                     <Sparkles className='h-6 w-6' />
                                     <span className='flex flex-col items-center'>
-                                        <span>Pilot Kuruluma</span>
-                                        <span>Hemen Başvur</span>
+                                        <span>Hemen İletişime Geçin</span>
+                                        <span>Şimdi Başvurun</span>
                                     </span>
                                     <ArrowRight className='h-6 w-6 transition-transform group-hover:translate-x-2' />
                                 </span>
                             </Button>
                         </motion.div>
 
-                        {/* Limited Spots Counter */}
+                        {/* Limited Spots Counter
                         <motion.div
                             initial={{ opacity: 0 }}
                             whileInView={{ opacity: 1 }}
@@ -266,7 +266,7 @@ export default function CtaSection({ setContactModalOpen }: CtaSectionProps) {
                                     Pilot programda <span className='font-bold text-amber-400'>sadece 12 yer kaldı</span>
                                 </span>
                             </div>
-                        </motion.div>
+                        </motion.div> */}
 
                         {/* Social Proof */}
                         <motion.div
@@ -276,10 +276,10 @@ export default function CtaSection({ setContactModalOpen }: CtaSectionProps) {
                             transition={{ delay: 1.1 }}
                             className='mt-12'>
                             <p className='mb-4 text-sm uppercase tracking-wider text-slate-400'>
-                                Pilot Programa Katılanlar:
+                                Referanslar:
                             </p>
                             <div className='flex flex-wrap justify-center gap-4'>
-                                {['Greyder', 'AFEX İstanbul', 'İntegral Group'].map((brand, index) => (
+                                {['Greyder', 'AFEX İstanbul', 'İntegral Group', "Dünya Bahçe"].map((brand, index) => (
                                     <motion.div
                                         key={index}
                                         initial={{ opacity: 0, scale: 0.8 }}

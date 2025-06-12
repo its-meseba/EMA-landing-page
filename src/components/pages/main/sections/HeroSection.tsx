@@ -290,7 +290,7 @@ export default function HeroSection({ isMobile, setContactModalOpen }: HeroSecti
                             size='lg'
                             onClick={() => setContactModalOpen(true)}
                             className='w-full rounded-full bg-blue-500 py-6 text-base font-medium'>
-                            Pilot Kuruluma Başvur
+                            Hemen İletişime Geçin
                         </Button>
 
                         {/* Mobile Video Thumbnail */}
@@ -337,7 +337,7 @@ export default function HeroSection({ isMobile, setContactModalOpen }: HeroSecti
                                         size='lg'
                                         onClick={() => setContactModalOpen(true)}
                                         className='font-montserrat rounded-full bg-blue-500 px-6 py-5 text-base text-white shadow-lg shadow-blue-500/30 transition-all hover:bg-blue-600 hover:shadow-blue-500/50 sm:px-8 sm:py-6 sm:text-lg'>
-                                        Pilot Kurulumu İçin Başvurun
+                                        Hemen İletişime Geçin
                                     </Button>
                                 </div>
                             </div>
