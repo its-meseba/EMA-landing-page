@@ -18,7 +18,7 @@ export default function PlanSection() {
                             {
                                 step: '1',
                                 title: 'Veri Entegrasyonu',
-                                description: 'Ürünlerinizi ve şirket bilgileriniz yükleniyor.'
+                                description: 'Ürünlerinizi ve şirket bilgilerinizi yükleniyor.'
                             },
                             {
                                 step: '2',
