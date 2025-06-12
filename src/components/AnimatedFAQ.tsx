@@ -48,7 +48,7 @@ const faqs: FAQItem[] = [
   },
   {
     question: "EMA'nın maliyeti nedir?",
-    answer: "EMA için aylık abonelik planları sunuyoruz. Fiyatlandırma, mağaza büyüklüğü ve ihtiyaçlarınıza göre değişir. Pilot program için başvuran ilk 50 mağazaya özel lansman indirimleri mevcuttur.",
+    answer: "EMA için aylık abonelik planları sunuyoruz. Fiyatlandırma, mağaza büyüklüğü ve ihtiyaçlarınıza göre değişir. EMA program için başvuran ilk 50 mağazaya özel lansman indirimleri mevcuttur.",
     category: "pricing"
   }
 ];
@@ -71,41 +71,41 @@ const AnimatedFAQ = () => {
 
   // Filter FAQs based on search query and category
   const filteredFaqs = faqs.filter(faq => {
-    const matchesSearch = 
-      searchQuery === "" || 
+    const matchesSearch =
+      searchQuery === "" ||
       faq.question.toLowerCase().includes(searchQuery.toLowerCase()) ||
       faq.answer.toLowerCase().includes(searchQuery.toLowerCase());
-    
-    const matchesCategory = 
-      activeCategory === "all" || 
+
+    const matchesCategory =
+      activeCategory === "all" ||
       faq.category === activeCategory;
-    
+
     return matchesSearch && matchesCategory;
   });
-  
+
   // Highlight text in search results
   const highlightText = (text: string) => {
     if (!searchQuery) return text;
-    
+
     const parts = text.split(new RegExp(`(${searchQuery})`, 'gi'));
     return parts.map((part, i) => {
-      return part.toLowerCase() === searchQuery.toLowerCase() ? 
-        <span key={i} className="bg-yellow-200 text-slate-900 rounded px-1">{part}</span> : 
+      return part.toLowerCase() === searchQuery.toLowerCase() ?
+        <span key={i} className="bg-yellow-200 text-slate-900 rounded px-1">{part}</span> :
         part;
     });
   };
-  
+
   // Handle category click
   const handleCategoryClick = (categoryId: string) => {
     setActiveCategory(categoryId);
     setOpenIndex(null);
   };
-  
+
   return (
     <div className="w-full max-w-3xl mx-auto p-6 bg-white rounded-xl shadow-xl" ref={containerRef}>
       <h2 className="text-3xl font-bold text-slate-900 mb-2">Sıkça Sorulan Sorular</h2>
       <p className="text-slate-600 mb-6">EMA hakkında merak ettiğiniz her şey</p>
-      
+
       {/* Search and Filter */}
       <div className="mb-6 space-y-4">
         <div className="relative">
@@ -121,24 +121,23 @@ const AnimatedFAQ = () => {
           />
           <Search className="absolute left-3 top-3.5 text-slate-400" size={18} />
         </div>
-        
+
         <div className="flex flex-wrap gap-2">
           {categories.map(category => (
             <button
               key={category.id}
               onClick={() => handleCategoryClick(category.id)}
-              className={`px-3 py-1.5 rounded-full text-sm transition-colors ${
-                activeCategory === category.id
+              className={`px-3 py-1.5 rounded-full text-sm transition-colors ${activeCategory === category.id
                   ? 'bg-blue-600 text-white'
                   : 'bg-slate-100 text-slate-600 hover:bg-slate-200'
-              }`}
+                }`}
             >
               {category.name}
             </button>
           ))}
         </div>
       </div>
-      
+
       {/* FAQ Items */}
       <div className="space-y-4">
         {filteredFaqs.length > 0 ? (
@@ -153,9 +152,8 @@ const AnimatedFAQ = () => {
               className="border border-slate-200 rounded-lg overflow-hidden"
             >
               <motion.button
-                className={`w-full p-4 flex justify-between items-center text-left focus:outline-none transition-colors ${
-                  openIndex === index ? 'bg-blue-50' : 'bg-white hover:bg-slate-50'
-                }`}
+                className={`w-full p-4 flex justify-between items-center text-left focus:outline-none transition-colors ${openIndex === index ? 'bg-blue-50' : 'bg-white hover:bg-slate-50'
+                  }`}
                 onClick={() => setOpenIndex(openIndex === index ? null : index)}
                 whileTap={{ scale: 0.995 }}
               >
@@ -169,7 +167,7 @@ const AnimatedFAQ = () => {
                   <ChevronDown className={`h-5 w-5 ${openIndex === index ? 'text-blue-600' : 'text-slate-400'}`} />
                 </motion.div>
               </motion.button>
-              
+
               <AnimatePresence>
                 {openIndex === index && (
                   <motion.div
@@ -203,7 +201,7 @@ const AnimatedFAQ = () => {
           </motion.div>
         )}
       </div>
-      
+
       {/* Footer with more help option */}
       <div className="mt-8 pt-6 border-t border-slate-200 text-center">
         <p className="text-slate-600">Aradığınızı bulamadınız mı?</p>

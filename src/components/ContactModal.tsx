@@ -188,7 +188,7 @@ export function ContactModal({ open, onOpenChange }: ContactModalProps) {
                                     />
                                 </div>
 
-                                <h2 className='mb-2 text-2xl font-bold text-white'>Pilot Program Başvurusu</h2>
+                                <h2 className='mb-2 text-2xl font-bold text-white'>EMA Program Başvurusu</h2>
                                 <p className='max-w-sm text-center text-sm text-blue-100'>
                                     Mağazanızda EMA kullanmak için bilgilerinizi doldurun. En kısa sürede sizinle
                                     iletişime geçeceğiz.
@@ -263,107 +263,4 @@ export function ContactModal({ open, onOpenChange }: ContactModalProps) {
         );
     }
 
-    return (
-        <Drawer
-            open={open}
-            onOpenChange={(open) => {
-                if (!open) resetForm();
-                onOpenChange(open);
-            }}>
-            <DrawerContent className='max-h-[85vh] rounded-t-2xl bg-white dark:bg-slate-950'>
-                <div className='relative overflow-hidden'>
-                    {/* Logo and header area */}
-                    <div className='relative overflow-hidden rounded-t-2xl bg-blue-500 px-6 pt-10 pb-6'>
-                        <Bubbles />
-                        <div className='relative z-1 flex flex-col items-center'>
-                            {/* EMA Logo */}
-                            <div className='mb-5 h-16 w-16 overflow-hidden rounded-xl bg-white p-2'>
-                                <Image
-                                    src='/branding/logo.png'
-                                    alt='EMA Logo'
-                                    width={64}
-                                    height={64}
-                                    className='h-full w-full object-contain'
-                                />
-                            </div>
-
-                            <h2 className='mb-1 text-xl font-bold text-white'>Pilot Program Başvurusu</h2>
-                            <p className='max-w-xs text-center text-sm text-blue-100'>
-                                Mağazanızda EMA kullanmak için bilgilerinizi doldurun.
-                            </p>
-                        </div>
-                    </div>
-
-                    {/* Form area */}
-                    <form onSubmit={handleSubmit} className='relative p-6'>
-                        <div className='space-y-4'>
-                            <div>
-                                <Label
-                                    htmlFor='name-mobile'
-                                    className='flex items-center gap-2 text-sm font-medium text-gray-700 dark:text-gray-300'>
-                                    <User className='h-4 w-4 text-blue-500' />
-                                    Ad Soyad
-                                </Label>
-                                <Input
-                                    id='name-mobile'
-                                    placeholder='Adınız Soyadınız'
-                                    value={name}
-                                    onChange={(e) => setName(e.target.value)}
-                                    disabled={isLoading || isSuccess}
-                                    className='mt-2 rounded-xl border-gray-200 bg-gray-50 py-5 pr-3 pl-3 focus:border-blue-500 focus:ring-blue-500/20 dark:border-slate-800 dark:bg-slate-900'
-                                />
-                            </div>
-                            <div>
-                                <Label
-                                    htmlFor='email-mobile'
-                                    className='flex items-center gap-2 text-sm font-medium text-gray-700 dark:text-gray-300'>
-                                    <Mail className='h-4 w-4 text-blue-500' />
-                                    E-posta
-                                </Label>
-                                <Input
-                                    id='email-mobile'
-                                    type='email'
-                                    placeholder='you@example.com'
-                                    value={email}
-                                    onChange={(e) => setEmail(e.target.value)}
-                                    disabled={isLoading || isSuccess}
-                                    className='mt-2 rounded-xl border-gray-200 bg-gray-50 py-5 pr-3 pl-3 focus:border-blue-500 focus:ring-blue-500/20 dark:border-slate-800 dark:bg-slate-900'
-                                />
-                            </div>
-                        </div>
-
-                        <div className='mt-6 space-y-3'>
-                            <Button
-                                type='submit'
-                                disabled={isLoading || isSuccess}
-                                className='w-full rounded-full border-0 bg-blue-500 py-5 text-white shadow-md transition-all hover:bg-blue-600 focus:ring-4 focus:ring-blue-500/30'>
-                                {isLoading ? (
-                                    <>
-                                        <Loader2 className='mr-2 h-4 w-4 animate-spin' />
-                                        Gönderiliyor
-                                    </>
-                                ) : isSuccess ? (
-                                    <>
-                                        <Check className='mr-2 h-4 w-4' />
-                                        Gönderildi
-                                    </>
-                                ) : (
-                                    'Gönder'
-                                )}
-                            </Button>
-                            <DrawerClose asChild>
-                                <Button
-                                    variant='outline'
-                                    className='w-full rounded-full border-gray-200 py-5 dark:border-slate-800'>
-                                    İptal
-                                </Button>
-                            </DrawerClose>
-                        </div>
-
-                        <AnimatePresence>{isSuccess && <SuccessAnimation />}</AnimatePresence>
-                    </form>
-                </div>
-            </DrawerContent>
-        </Drawer>
-    );
 }

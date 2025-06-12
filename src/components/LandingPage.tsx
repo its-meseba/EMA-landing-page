@@ -14,7 +14,7 @@ const HeroSection = ({
     tagline = 'Konuşun, EMA sizi anlasın.',
     subheading = 'Mağazada sorular canlı, cevaplar da öyle olsun.',
     logoSrc,
-    primaryCTA = 'Pilot Kuruluma Başvur'
+    primaryCTA = 'EMA Kuruluma Başvur'
 }: HeroSectionProps) => {
     return (
         <section className='flex min-h-screen flex-col bg-gradient-to-br from-[#0e0f1a] to-[#1a2333] px-4 py-16 text-white md:flex-row md:px-12 md:py-24'>
@@ -174,7 +174,7 @@ const CTASection = ({
     variant = 'primary',
     headline = variant === 'primary' ? 'Harekete Geçin' : 'Fırsatı Kaçırmayın',
     pitchLine = 'Müşteriniz konuşacak. EMA anlayacak. Siz kazanacaksınız.',
-    cta = 'Pilot Kuruluma Başvur',
+    cta = 'EMA Kuruluma Başvur',
     secondaryLink,
     finePrint = variant === 'final' ? 'İlk 50 mağazaya özel lansman indirimi.' : undefined
 }: CTASectionProps) => {
@@ -433,7 +433,7 @@ export function LandingPage({ logoSrc }: LandingPageProps) {
                 tagline='Konuşun, EMA sizi anlasın.'
                 subheading='Mağazada sorular canlı, cevaplar da öyle olsun.'
                 logoSrc={logoSrc}
-                primaryCTA='Pilot Kuruluma Başvur'
+                primaryCTA='İletişime Geçin'
             />
             <ProblemSection />
             <GuideSection />

@@ -40,7 +40,7 @@ export default function DataProtectionPage() {
                             EMA hizmetlerinin sunulması kapsamında aşağıdaki türde kişisel veriler toplanabilmektedir:
                         </p>
                         <ul>
-                            <li><strong>Kimlik Bilgileri:</strong> Pilot program başvuruları veya iletişim formları aracılığıyla sağladığınız ad, soyad gibi bilgiler.</li>
+                            <li><strong>Kimlik Bilgileri:</strong> EMA başvuruları veya iletişim formları aracılığıyla sağladığınız ad, soyad gibi bilgiler.</li>
                             <li><strong>İletişim Bilgileri:</strong> E-posta adresi, telefon numarası gibi iletişim bilgileriniz.</li>
                             <li><strong>Ses Verileri:</strong> EMA ile etkileşimleriniz sırasında işlenen ses kayıtlarınız (hizmetin doğası gereği anonimleştirilerek veya açık rızanız alınarak işlenir).</li>
                             <li><strong>Kullanım Verileri:</strong> EMA platformu ile etkileşimlerinize ilişkin kullanım alışkanlıkları, sorgu içerikleri gibi veriler.</li>
@@ -54,7 +54,7 @@ export default function DataProtectionPage() {
                         <ul>
                             <li>EMA hizmetlerini sunmak, yönetmek ve geliştirmek.</li>
                             <li>Hizmetlerimiz, güncellemeler ve destek taleplerinizle ilgili sizinle iletişim kurmak.</li>
-                            <li>Pilot program başvurularını değerlendirmek ve yönetmek.</li>
+                            <li>EMA başvurularını değerlendirmek ve yönetmek.</li>
                             <li>Yasal yükümlülüklerimizi yerine getirmek.</li>
                             <li>Platformumuzun güvenliğini ve bütünlüğünü sağlamak.</li>
                             <li>Hizmet kullanımını analiz ederek kullanıcı deneyimini iyileştirmek ve yeni özellikler geliştirmek.</li>

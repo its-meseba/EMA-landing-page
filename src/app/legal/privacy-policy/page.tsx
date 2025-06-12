@@ -27,7 +27,7 @@ export default function PrivacyPolicyPage() {
 
                         <h2 className="text-2xl font-bold text-blue-300 mt-8 mb-4">1. Topladığımız Bilgiler</h2>
                         <p>
-                            Bize gönüllü olarak sağladığınız kişisel bilgileri (örneğin, pilot programımıza kaydolduğunuzda veya sorularınız için bizimle iletişime geçtiğinizde adınız, e-posta adresiniz ve diğer iletişim bilgileriniz gibi) toplayabiliriz. Ek olarak, EMA'yı kullandığınızda, taleplerinizi işlemek için ses verilerini toplayabiliriz. Ayrıca, web sitemizi ziyaret ettiğinizde IP adresiniz, tarayıcı türünüz, işletim sisteminiz ve çerezler ve benzer teknolojiler aracılığıyla kullanım alışkanlıklarınız gibi belirli bilgileri otomatik olarak toplarız.
+                            Bize gönüllü olarak sağladığınız kişisel bilgileri (örneğin, EMA programımıza kaydolduğunuzda veya sorularınız için bizimle iletişime geçtiğinizde adınız, e-posta adresiniz ve diğer iletişim bilgileriniz gibi) toplayabiliriz. Ek olarak, EMA'yı kullandığınızda, taleplerinizi işlemek için ses verilerini toplayabiliriz. Ayrıca, web sitemizi ziyaret ettiğinizde IP adresiniz, tarayıcı türünüz, işletim sisteminiz ve çerezler ve benzer teknolojiler aracılığıyla kullanım alışkanlıklarınız gibi belirli bilgileri otomatik olarak toplarız.
                         </p>
 
                         <h2 className="text-2xl font-bold text-blue-300 mt-8 mb-4">2. Bilgilerinizi Nasıl Kullanıyoruz?</h2>
@@ -40,7 +40,7 @@ export default function PrivacyPolicyPage() {
                             <li>Hizmetlerimizi nasıl kullandığınızı anlamak ve analiz etmek.</li>
                             <li>Yeni ürünler, hizmetler, özellikler ve işlevler geliştirmek.</li>
                             <li>Müşteri hizmetleri, Hizmetle ilgili güncellemeler ve diğer bilgiler sağlamak ve pazarlama ve tanıtım amaçları dahil olmak üzere doğrudan veya ortaklarımızdan biri aracılığıyla sizinle iletişim kurmak.</li>
-                            <li>İşlemlerinizi işlemek ve pilot program katılımınızı yönetmek.</li>
+                            <li>İşlemlerinizi işlemek ve EMA program katılımınızı yönetmek.</li>
                             <li>Dolandırıcılığı bulmak ve önlemek.</li>
                             <li>Yasal yükümlülüklere uymak.</li>
                         </ul>
