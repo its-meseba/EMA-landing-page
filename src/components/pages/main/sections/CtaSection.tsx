@@ -106,7 +106,15 @@ export default function CtaSection({ setContactModalOpen }: CtaSectionProps) {
                                     </li>
                                     <li className='flex items-start gap-2'>
                                         <span className='text-emerald-400'>✓</span>
-                                        <span className='text-sm'>Personel değer katar</span>
+                                        <span>Müşteri memnuniyetini en üst seviyeye taşıyın.</span>
+                                    </li>
+                                    <li className='flex items-start gap-2'>
+                                        <span className='text-emerald-400'>✓</span>
+                                        <span>7/24 çalışan, yorulmayan bir asistana sahip olun.</span>
+                                    </li>
+                                    <li className='flex items-start gap-2'>
+                                        <span className='text-emerald-400'>✓</span>
+                                        <span>Satış sürecinizi akıllı verilerle güçlendirin.</span>
                                     </li>
                                     {/* <li className='flex items-start gap-2'>
                                         <span className='text-emerald-400'>✓</span>
@@ -189,7 +197,7 @@ export default function CtaSection({ setContactModalOpen }: CtaSectionProps) {
                                     </li>
                                     <li className='flex items-center justify-center gap-2'>
                                         <span className='text-emerald-400'>✓</span>
-                                        <span>Personelinizin üzerindeki yükü hafifletin.</span>
+                                        <span>7/24 çalışan, yorulmayan bir asistana sahip olun.</span>
                                     </li>
                                     <li className='flex items-center justify-center gap-2'>
                                         <span className='text-emerald-400'>✓</span>
