@@ -5,3 +5,4 @@ alwaysApply: true
 ---
 - always use pnpm instead of npm
 - create / update a changelod.mdc and update it after every change
+- always create components in a way that they're responsive for both desktop and mobile.

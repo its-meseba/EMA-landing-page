@@ -3,3 +3,99 @@ description:
 globs:
 alwaysApply: false
 ---
+# Changelog
+
+All notable changes to the EMA Landing Page project will be documented in this file.
+
+The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
+and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
+
+## [Unreleased]
+
+### Added
+- **EmaModal Component**: Implemented persistent floating chat modal component
+  - Floating action button positioned in bottom-right corner
+  - Auto-open functionality based on scroll position (75%) and exit intent
+  - Multi-stage modal with hero screen and embedded chat iframe
+  - Tooltip appears after 8 seconds of inactivity
+  - Notification badge with pulsing animation
+  - Keyboard navigation support (ESC to close)
+  - Customizable branding, colors, and messaging
+  - Support for product thumbnails and social proof display
+  - Integrated into main layout for global availability
+
+### Changed
+- Updated main layout to include EmaModal component globally
+- **EmaModal Behavior**: Modified to skip hero stage and open directly to chat interface
+- **EMA URL**: Updated to use Greyder-specific EMA instance (https://live.ema.solace.com.tr/greyder)
+- **Full-Screen Experience**: Simplified modal to truly cover entire viewport
+  - Replaced Dialog component with custom full-screen implementation
+  - Direct DOM manipulation for complete viewport coverage
+  - Clean z-index stacking (9999) for proper layering
+  - Body scroll prevention when modal is open
+  - Elegant close button with backdrop blur effect
+  - Enhanced loading state with Turkish text
+  - Simplified HTML structure for better performance
+- **Smooth Animations**: Added elegant open/close animations
+  - Fade and scale transitions for modal opening/closing
+  - Staggered animations with delays for content elements
+  - Button animations with hover and active states
+  - Backdrop fade-in/out with click-to-close functionality
+  - Slide-up animations for chat content and close button
+  - Loading state animations with proper timing
+  - Iframe fade-in after content loads
+  - 300ms duration with ease-out timing for smooth feel
+- **Updated Button Design**: Enhanced floating action button
+  - Replaced "EMA" text with EMA logo image
+  - Added proper logo styling with white filter for visibility
+  - Updated tooltip message to "Ne arıyorsan, konuş yeter."
+  - Maintained all animation and interaction states
+- **Persistent Text Feature**: Added always-visible text alongside button
+  - Text "Ne arıyorsan, konuş yeter." now always visible next to button
+  - Responsive design with different sizes for mobile/desktop
+  - Clean white bubble design with hover effects
+  - Scales with button animations for cohesive experience
+  - Mobile optimizations: smaller text (xs/sm), reduced padding and gaps
+  - Desktop enhancements: larger text (md/base), more spacing
+  - Proper positioning adjustments for small screens
+- EMA Modal artık butondan çıkarak büyüme (scale-up) ve butona geri dönerek küçülme (scale-down) animasyonuna sahip.
+- Modal açıldığında sayfanın geri kalanını flulaştıran (backdrop-blur) bir arka plan eklendi.
+- Modal butonu içindeki EMA logosu daha estetik bir görünüm için yeniden boyutlandırıldı ve ortalandı.
+- Modal'ın açılış/kapanış animasyon hızı ve yumuşaklığı (easing) iyileştirildi.
+
+### Technical Details
+- Added `EmaModal.tsx` component in `/src/components/`
+- Integrated with existing UI components (Dialog, Button, Tooltip)
+- Uses local storage to track auto-open state
+- Responsive design with full-screen modal on mobile
+- Iframe embedding for live chat functionality
+
+### 2024-07-25
+
+**EmaModal Component Enhancements**
+
+- **Animation Rework**:
+    - Implemented a "scale from button" effect for a more fluid opening and closing animation. The modal now appears to emerge from and return to the floating button.
+    - Adjusted animation duration to `500ms` and used an `ease-in-out` timing function for a smoother experience.
+- **Visual Integration**:
+    - Added a `backdrop-blur-sm` effect to the modal's background, creating a sense of depth and keeping the main site context visible.
+    - Updated the background overlay to `bg-black/10` for a more subtle effect.
+- **Button & Logo Polish**:
+    - The floating action button's logo is now perfectly centered using flexbox properties.
+    - The EMA logo size has been adjusted for better visual balance within the button.
+    - Removed explicit padding from the button to rely on flexbox for centering.
+
+### 2024-07-24
+
+**Initial EmaModal Implementation**
+
+- **Core Functionality**:
+    - Implemented the persistent floating chat modal (`EmaModal.tsx`).
+    - The modal can be triggered by user actions (scroll, exit-intent) or manually.
+    - Includes a loading state and embeds the EMA chat via an iframe.
+- **User Experience**:
+    - A tooltip ("Ne arıyorsan, konuş yeter.") appears after 8 seconds to encourage interaction.
+    - A pulsing notification badge draws initial attention.
+    - The modal is fully responsive and provides a full-screen experience on all devices.
+- **Branding & Customization**:
+    - The component is customizable for different brands, logos, and color schemes.

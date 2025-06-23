@@ -8,6 +8,7 @@ import { ThemeProvider } from 'next-themes';
 
 import '@/app/globals.css';
 import Navbar from '@/components/Navbar';
+import EmaModal from '@/components/EmaModal';
 import { ToastProvider } from '@/providers/toast-provider';
 import { Toaster } from '@/registry/new-york-v4/ui/sonner';
 import '@/styles/animations.css';
@@ -63,6 +64,12 @@ const Layout = ({ children }: Readonly<{ children: ReactNode }>) => {
                 <ThemeProvider attribute='class'>
                     <Navbar />
                     {children}
+                    <EmaModal
+                        emaUrl="https://live.ema.solace.com.tr/greyder"
+                        logoSrc="/branding/ema_logo.svg"
+                        brandName="EMA"
+                        themeColor="#0066ff"
+                    />
                     <Toaster position='top-center' richColors closeButton />
                 </ThemeProvider>
             </body>
