@@ -1,14 +1,22 @@
 'use client';
 
 import Image from "next/image";
+import { useLanguage } from "@/contexts/LanguageContext";
+
+interface Company {
+    name: string;
+    url: string;
+}
 
 export default function PartnersSection() {
+    const { t } = useLanguage();
+    const companies = t('partners.companies') as Company[];
     return (
         <section className='w-full bg-slate-100 py-10 overflow-x-auto'>
             <div className='container mx-auto flex flex-row items-center justify-center gap-8 md:gap-16' style={{ minWidth: 'max-content' }}>
                 <div className='flex flex-1 flex-col items-center justify-center bg-slate-900 p-8 rounded-xl shadow-lg'>
                     <a
-                        href='https://www.afextr.com/tr'
+                        href={companies[0]?.url}
                         target='_blank'
                         rel='noopener noreferrer'
                         className='group cursor-pointer rounded-lg transition-transform duration-300 hover:scale-110'>
@@ -21,11 +29,11 @@ export default function PartnersSection() {
                             style={{ maxWidth: '300px' }}
                         />
                     </a>
-                    <span className='mt-3 font-medium text-white text-base tracking-wide'>AFEX İstanbul</span>
+                    <span className='mt-3 font-medium text-white text-base tracking-wide'>{companies[0]?.name}</span>
                 </div>
                 <div className='flex flex-1 flex-col items-center justify-center bg-slate-900 p-8 rounded-xl shadow-lg'>
                     <a
-                        href='https://www.greyder.com.tr/'
+                        href={companies[1]?.url}
                         target='_blank'
                         rel='noopener noreferrer'
                         className='group cursor-pointer rounded-lg transition-transform duration-300 hover:scale-110'>
@@ -38,11 +46,11 @@ export default function PartnersSection() {
                             style={{ maxWidth: '300px' }}
                         />
                     </a>
-                    <span className='mt-3 font-medium text-white text-base tracking-wide'>Greyder</span>
+                    <span className='mt-3 font-medium text-white text-base tracking-wide'>{companies[1]?.name}</span>
                 </div>
                 <div className='flex flex-1 flex-col items-center justify-center bg-slate-900 p-8 rounded-xl shadow-lg'>
                     <a
-                        href='https://tr.integralgroup.com.tr/'
+                        href={companies[2]?.url}
                         target='_blank'
                         rel='noopener noreferrer'
                         className='group cursor-pointer rounded-lg transition-transform duration-300 hover:scale-110'>
@@ -55,7 +63,7 @@ export default function PartnersSection() {
                             style={{ maxWidth: '300px' }}
                         />
                     </a>
-                    <span className='mt-3 font-medium text-white text-base tracking-wide'>İntegral Group</span>
+                    <span className='mt-3 font-medium text-white text-base tracking-wide'>{companies[2]?.name}</span>
                 </div>
             </div>
         </section>

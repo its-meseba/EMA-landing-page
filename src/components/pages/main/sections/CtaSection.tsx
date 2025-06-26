@@ -1,5 +1,6 @@
 'use client';
 
+import { useLanguage } from "@/contexts/LanguageContext";
 import { Badge } from "@/components/ui/Badge";
 import { Button } from "@/registry/new-york-v4/ui/button";
 import { motion } from "framer-motion";
@@ -9,7 +10,27 @@ interface CtaSectionProps {
     setContactModalOpen: (open: boolean) => void;
 }
 
+interface EmaBenefit {
+    badge: string;
+    title: string;
+    problems?: string[];
+    benefits?: string[];
+}
+
+interface FinalMessageParts {
+    customer: string;
+    ema: string;
+    you: string;
+}
+
 export default function CtaSection({ setContactModalOpen }: CtaSectionProps) {
+    const { t } = useLanguage();
+    const withoutEma = t('cta.withoutEma') as EmaBenefit;
+    const withEma = t('cta.withEma') as EmaBenefit;
+    const referencesSource = t('cta.references');
+    const references: string[] = Array.isArray(referencesSource) ? referencesSource : [];
+    const finalMessageParts = t('cta.finalMessageParts') as FinalMessageParts;
+
     return (
         <section className='relative flex min-h-screen w-full items-center justify-center overflow-hidden bg-gradient-to-br from-[#1a2333] to-[#0e0f1a] py-16 text-white md:py-24'>
             {/* Animated background elements */}
@@ -61,26 +82,16 @@ export default function CtaSection({ setContactModalOpen }: CtaSectionProps) {
                                 transition={{ delay: 0.2 }}
                                 className='relative rounded-2xl border-2 border-red-500/20 bg-gradient-to-br from-red-950/20 to-slate-900/50 p-6 backdrop-blur-sm'>
                                 <div className='absolute -left-3 -top-3 rounded-full bg-red-500 px-4 py-1 text-sm font-bold'>
-                                    REAKTİF
+                                    {withoutEma.badge}
                                 </div>
-                                <h3 className='mb-4 mt-2 text-xl font-bold text-red-300'>EMA Olmadan</h3>
+                                <h3 className='mb-4 mt-2 text-xl font-bold text-red-300'>{withoutEma.title}</h3>
                                 <ul className='space-y-3 text-left text-slate-300'>
-                                    <li className='flex items-start gap-2'>
-                                        <span className='text-red-400'>✗</span>
-                                        <span className='text-sm'>Müşteriler ürün bulamıyor</span>
-                                    </li>
-                                    <li className='flex items-start gap-2'>
-                                        <span className='text-red-400'>✗</span>
-                                        <span className='text-sm'>Dil bariyeri satışı engelliyor</span>
-                                    </li>
-                                    <li className='flex items-start gap-2'>
-                                        <span className='text-red-400'>✗</span>
-                                        <span className='text-sm'>Personel aynı soruları cevaplıyor</span>
-                                    </li>
-                                    {/* <li className='flex items-start gap-2'>
-                                        <span className='text-red-400'>✗</span>
-                                        <span className='text-sm font-bold'>Günde ₺5,000 kayıp</span>
-                                    </li> */}
+                                    {withoutEma.problems?.map((problem: string, index: number) => (
+                                        <li key={index} className='flex items-start gap-2'>
+                                            <span className='text-red-400'>✗</span>
+                                            <span className='text-sm'>{problem}</span>
+                                        </li>
+                                    ))}
                                 </ul>
                             </motion.div>
 
@@ -92,34 +103,16 @@ export default function CtaSection({ setContactModalOpen }: CtaSectionProps) {
                                 transition={{ delay: 0.4 }}
                                 className='relative rounded-2xl border-2 border-emerald-500/30 bg-gradient-to-br from-emerald-950/30 to-slate-900/50 p-6 backdrop-blur-sm'>
                                 <div className='absolute -left-3 -top-3 rounded-full bg-emerald-500 px-4 py-1 text-sm font-bold'>
-                                    PROAKTİF
+                                    {withEma.badge}
                                 </div>
-                                <h3 className='mb-4 mt-2 text-xl font-bold text-emerald-300'>EMA ile</h3>
+                                <h3 className='mb-4 mt-2 text-xl font-bold text-emerald-300'>{withEma.title}</h3>
                                 <ul className='space-y-3 text-left text-slate-300'>
-                                    <li className='flex items-start gap-2'>
-                                        <span className='text-emerald-400'>✓</span>
-                                        <span className='text-sm'>Her müşteri aradığını bulur</span>
-                                    </li>
-                                    <li className='flex items-start gap-2'>
-                                        <span className='text-emerald-400'>✓</span>
-                                        <span className='text-sm'>5 dilde doğal iletişim</span>
-                                    </li>
-                                    <li className='flex items-start gap-2'>
-                                        <span className='text-emerald-400'>✓</span>
-                                        <span>Müşteri memnuniyetini en üst seviyeye taşıyın.</span>
-                                    </li>
-                                    <li className='flex items-start gap-2'>
-                                        <span className='text-emerald-400'>✓</span>
-                                        <span>7/24 çalışan, yorulmayan bir asistana sahip olun.</span>
-                                    </li>
-                                    <li className='flex items-start gap-2'>
-                                        <span className='text-emerald-400'>✓</span>
-                                        <span>Satış sürecinizi akıllı verilerle güçlendirin.</span>
-                                    </li>
-                                    {/* <li className='flex items-start gap-2'>
-                                        <span className='text-emerald-400'>✓</span>
-                                        <span className='text-sm font-bold'>Günde +₺6,000 kazanç</span>
-                                    </li> */}
+                                    {withEma.benefits?.map((benefit: string, index: number) => (
+                                        <li key={index} className='flex items-start gap-2'>
+                                            <span className='text-emerald-400'>✓</span>
+                                            <span className='text-sm'>{benefit}</span>
+                                        </li>
+                                    ))}
                                 </ul>
                             </motion.div>
                         </div>
@@ -143,7 +136,7 @@ export default function CtaSection({ setContactModalOpen }: CtaSectionProps) {
                                     className='mr-2 inline-block'>
                                     ⏰
                                 </motion.span>
-                                Sadece İlk 50 Mağaza İçin
+                                {t('cta.urgencyBadge') as string}
                             </Badge>
                         </motion.div>
 
@@ -154,9 +147,9 @@ export default function CtaSection({ setContactModalOpen }: CtaSectionProps) {
                             viewport={{ once: true }}
                             transition={{ delay: 0.6 }}
                             className='font-playfair mb-6 text-5xl leading-[1.1] font-bold tracking-tighter sm:text-6xl md:text-7xl'>
-                            <span className='block text-white'>Kararınızı</span>
+                            <span className='block text-white'>{t('cta.title') as string}</span>
                             <span className='bg-gradient-to-r from-amber-400 via-yellow-400 to-amber-400 bg-clip-text text-transparent'>
-                                Bugün Verin
+                                {t('cta.titleHighlight') as string}
                             </span>
                         </motion.h2>
 
@@ -167,12 +160,7 @@ export default function CtaSection({ setContactModalOpen }: CtaSectionProps) {
                             viewport={{ once: true }}
                             transition={{ delay: 0.7 }}
                             className='mx-auto mb-8 max-w-2xl text-xl leading-relaxed text-slate-300'>
-                            Her gün müşterilerinizi{' '}
-                            <span className='font-bold text-red-400'>kaybetme riski</span> alabilirsiniz.
-                            <br />
-                            Ya da onlara{' '}
-                            <span className='font-bold text-emerald-400'>aradıkları deneyimi</span>{' '}
-                            yaşatabilirsiniz.
+                            {t('cta.subtitle') as string}
                         </motion.p>
 
                         {/* Risk Reversal */}
@@ -184,25 +172,15 @@ export default function CtaSection({ setContactModalOpen }: CtaSectionProps) {
                             className='mb-10 space-y-4'>
                             <div className='mx-auto max-w-xl rounded-xl bg-slate-800/50 p-6 backdrop-blur-sm'>
                                 <h3 className='mb-4 text-lg font-bold text-emerald-300 text-center'>
-                                    EMA'nın Sunduğu Avantajlar:
+                                    {t('cta.advantagesTitle') as string}
                                 </h3>
                                 <ul className='space-y-2 text-sm text-slate-300'>
-                                    <li className='flex items-center justify-center gap-2'>
-                                        <span className='text-emerald-400'>✓</span>
-                                        <span>5 farklı dilde anında iletişim kurun.</span>
-                                    </li>
-                                    <li className='flex items-center justify-center gap-2'>
-                                        <span className='text-emerald-400'>✓</span>
-                                        <span>Müşteri memnuniyetini en üst seviyeye taşıyın.</span>
-                                    </li>
-                                    <li className='flex items-center justify-center gap-2'>
-                                        <span className='text-emerald-400'>✓</span>
-                                        <span>7/24 çalışan, yorulmayan bir asistana sahip olun.</span>
-                                    </li>
-                                    <li className='flex items-center justify-center gap-2'>
-                                        <span className='text-emerald-400'>✓</span>
-                                        <span>Satış sürecinizi akıllı verilerle güçlendirin.</span>
-                                    </li>
+                                    {(t('cta.advantages') as string[]).map((advantage: string, index: number) => (
+                                        <li key={index} className='flex items-center justify-center gap-2'>
+                                            <span className='text-emerald-400'>✓</span>
+                                            <span>{advantage}</span>
+                                        </li>
+                                    ))}
                                 </ul>
                             </div>
                         </motion.div>
@@ -243,38 +221,13 @@ export default function CtaSection({ setContactModalOpen }: CtaSectionProps) {
                                 <span className='relative z-10 flex items-center gap-3'>
                                     <Sparkles className='h-6 w-6' />
                                     <span className='flex flex-col items-center'>
-                                        <span>Hemen İletişime Geçin</span>
-                                        <span>Şimdi Başvurun</span>
+                                        <span>{t('cta.cta') as string}</span>
+                                        <span>{t('cta.ctaSubtext') as string}</span>
                                     </span>
                                     <ArrowRight className='h-6 w-6 transition-transform group-hover:translate-x-2' />
                                 </span>
                             </Button>
                         </motion.div>
-
-                        {/* Limited Spots Counter
-                        <motion.div
-                            initial={{ opacity: 0 }}
-                            whileInView={{ opacity: 1 }}
-                            viewport={{ once: true }}
-                            transition={{ delay: 1 }}
-                            className='mt-8'>
-                            <div className='inline-flex items-center gap-2 rounded-full bg-slate-800/50 px-6 py-3 backdrop-blur-sm'>
-                                <motion.div
-                                    className='h-2 w-2 rounded-full bg-red-500'
-                                    animate={{
-                                        scale: [1, 1.2, 1],
-                                        opacity: [1, 0.5, 1],
-                                    }}
-                                    transition={{
-                                        duration: 1,
-                                        repeat: Infinity,
-                                    }}
-                                />
-                                <span className='text-sm text-slate-300'>
-                                    Pilot programda <span className='font-bold text-amber-400'>sadece 12 yer kaldı</span>
-                                </span>
-                            </div>
-                        </motion.div> */}
 
                         {/* Social Proof */}
                         <motion.div
@@ -284,10 +237,10 @@ export default function CtaSection({ setContactModalOpen }: CtaSectionProps) {
                             transition={{ delay: 1.1 }}
                             className='mt-12'>
                             <p className='mb-4 text-sm uppercase tracking-wider text-slate-400'>
-                                Referanslar:
+                                {t('cta.referencesTitle') as string}
                             </p>
                             <div className='flex flex-wrap justify-center gap-4'>
-                                {['Greyder', 'AFEX İstanbul', 'İntegral Group', "Dünya Bahçe"].map((brand, index) => (
+                                {references.map((brand, index) => (
                                     <motion.div
                                         key={index}
                                         initial={{ opacity: 0, scale: 0.8 }}
@@ -308,9 +261,9 @@ export default function CtaSection({ setContactModalOpen }: CtaSectionProps) {
                             viewport={{ once: true }}
                             transition={{ delay: 1.5 }}
                             className='font-inter mt-8 text-lg text-slate-400'>
-                            <span className='font-semibold text-white'>Müşteriniz konuşacak.</span>{' '}
-                            <span className='font-semibold text-blue-400'>EMA anlayacak.</span>{' '}
-                            <span className='font-semibold text-emerald-400'>Siz kazanacaksınız.</span>
+                            <span className='font-semibold text-white'>{finalMessageParts.customer}</span>{' '}
+                            <span className='font-semibold text-blue-400'>{finalMessageParts.ema}</span>{' '}
+                            <span className='font-semibold text-emerald-400'>{finalMessageParts.you}</span>
                         </motion.p>
                     </motion.div>
                 </div>

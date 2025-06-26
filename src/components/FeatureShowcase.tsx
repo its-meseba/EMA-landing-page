@@ -3,91 +3,30 @@
 import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
 import { motion, AnimatePresence } from 'framer-motion';
-import {
-  Volume2,
-  Languages,
-  Brain,
-  TrendingUp,
-  ChevronRight
-} from 'lucide-react';
+import { ChevronRight } from 'lucide-react';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 interface Feature {
   id: string;
   title: string;
   description: string;
-  icon: React.ReactNode;
+  icon: string;
   color: string;
   image: string;
   benefits: string[];
 }
 
-const features: Feature[] = [
-  {
-    id: 'voice-recognition',
-    title: 'Doğal Dil İşleme',
-    description: 'EMA, doğal konuşma dilini anlayabilen ve cevaplayabilen gelişmiş yapay zeka modelini kullanır. Müşterileriniz tıpkı bir insanla konuşur gibi EMA ile iletişim kurabilir.',
-    icon: <Volume2 className="h-8 w-8" />,
-    color: 'from-blue-600 to-cyan-600',
-    image: '/images/voice-recognition.png',
-    benefits: [
-      'Klavye ve dokunmatik ekran kullanımını ortadan kaldırır',
-      'Yaşlı ve teknoloji kullanımına alışkın olmayan müşteriler için idealdir',
-      'Eller serbest etkileşim sağlar',
-      'Konuşma nüanslarını, tonlamaları ve aksanları anlayabilir'
-    ]
-  },
-  {
-    id: 'multilingual',
-    title: 'Çoklu Dil Desteği',
-    description: 'EMA, beş farklı dilde akıcı iletişim kurabilir. Müşterinin konuştuğu dili otomatik olarak algılar ve aynı dilde yanıt verir, böylece mağazanız uluslararası müşterilere de hitap edebilir.',
-    icon: <Languages className="h-8 w-8" />,
-    color: 'from-purple-600 to-indigo-600',
-    image: '/images/multilingual.png',
-    benefits: [
-      'Turist ve yabancı müşterilerle iletişim engelini ortadan kaldırır',
-      'Çevirmen ihtiyacını ortadan kaldırır',
-      'Yabancı dil bilen personel gereksinimini azaltır',
-      'Uluslararası müşteri memnuniyetini artırır'
-    ]
-  },
-  {
-    id: 'contextual',
-    title: 'Bağlamsal Anlama',
-    description: 'EMA sadece kelimeleri değil, konuşmanın bağlamını da anlar. Müşterinin ne demek istediğini anlamak için önceki konuşmaları hatırlar ve buna göre yanıt verir.',
-    icon: <Brain className="h-8 w-8" />,
-    color: 'from-orange-500 to-pink-500',
-    image: '/images/contextual.png',
-    benefits: [
-      'Diyalog akışını mantıklı bir şekilde sürdürür',
-      'Müşterinin tekrar bilgi vermesini gerektirmez',
-      'Karmaşık müşteri ihtiyaçlarını anlar',
-      'Doğal ve insan gibi yanıtlar verir'
-    ]
-  },
-  {
-    id: 'analytics',
-    title: 'Müşteri İçgörüleri',
-    description: 'EMA, müşteri sorguları ve etkileşimleri hakkında değerli veriler toplar. Bu veriler, stok yönetimi, ürün yerleşimi ve müşteri deneyimini geliştirmek için kullanılabilir.',
-    icon: <TrendingUp className="h-8 w-8" />,
-    color: 'from-emerald-500 to-teal-500',
-    image: '/images/analytics.png',
-    benefits: [
-      'En çok sorulan ürünleri belirler',
-      'Satın alma eğilimlerini analiz eder',
-      'Müşteri memnuniyetini ölçer',
-      'Veri odaklı stok ve satış kararları almanızı sağlar'
-    ]
-  }
-];
-
 const FeatureShowcase = () => {
-  const [activeFeature, setActiveFeature] = useState<string>(features[0].id);
+  const { t } = useLanguage();
+  const featuresSource = t('features.featuresList') || t('features.featureList');
+  const features: Feature[] = Array.isArray(featuresSource) ? featuresSource : [];
+
+  const [activeFeature, setActiveFeature] = useState<string>(features.length > 0 ? features[0].id : '');
   const [isAutoPlaying, setIsAutoPlaying] = useState(true);
 
   useEffect(() => {
-    if (!isAutoPlaying) return;
+    if (!isAutoPlaying || features.length === 0) return;
 
-    // Rotate through features automatically
     const interval = setInterval(() => {
       const currentIndex = features.findIndex(f => f.id === activeFeature);
       const nextIndex = (currentIndex + 1) % features.length;
@@ -95,19 +34,21 @@ const FeatureShowcase = () => {
     }, 8000);
 
     return () => clearInterval(interval);
-  }, [activeFeature, isAutoPlaying]);
+  }, [activeFeature, isAutoPlaying, features]);
 
-  // Find the current active feature
-  const current = features.find(f => f.id === activeFeature) || features[0];
+  const current = features.find(f => f.id === activeFeature);
+
+  if (features.length === 0 || !current) {
+    return null;
+  }
 
   return (
     <div className="w-full max-w-6xl mx-auto py-10">
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
-        {/* Feature tabs - side navigation */}
         <div className="lg:col-span-4 flex flex-col">
           <div className="mb-6">
-            <h2 className="text-3xl font-bold text-slate-900">EMA'nın Özellikleri</h2>
-            <p className="mt-2 text-slate-600">Her özellik, müşteri deneyimini zenginleştirmek için tasarlandı.</p>
+            <h2 className="text-3xl font-bold text-slate-900">{t('features.title') as string}</h2>
+            <p className="mt-2 text-slate-600">{t('features.subtitle') as string}</p>
           </div>
 
           <div className="space-y-3">
@@ -115,7 +56,7 @@ const FeatureShowcase = () => {
               <button
                 key={feature.id}
                 className={`w-full text-left p-4 rounded-lg transition-all ${activeFeature === feature.id
-                  ? `bg-gradient-to-r ${feature.color} text-white shadow-lg shadow-${feature.id === 'multilingual' ? 'purple' : feature.id === 'contextual' ? 'orange' : feature.id === 'analytics' ? 'emerald' : 'blue'}-500/20`
+                  ? `bg-gradient-to-r ${feature.color} text-white shadow-lg`
                   : 'bg-white hover:bg-slate-50 text-slate-700 border border-slate-200'
                   }`}
                 onClick={() => {
@@ -124,9 +65,9 @@ const FeatureShowcase = () => {
                 }}
               >
                 <div className="flex items-start">
-                  <div className={`p-1.5 rounded-md ${activeFeature === feature.id
+                  <div className={`p-1.5 rounded-md text-2xl flex items-center justify-center ${activeFeature === feature.id
                     ? 'bg-white/20'
-                    : `bg-gradient-to-r ${feature.color} text-white`
+                    : `text-white bg-gradient-to-r ${feature.color}`
                     }`}>
                     {feature.icon}
                   </div>
@@ -150,12 +91,11 @@ const FeatureShowcase = () => {
                 : 'bg-white border border-slate-200 text-slate-600'
                 }`}
             >
-              {isAutoPlaying ? 'Otomatik Oynatma Açık' : 'Otomatik Oynatma Kapalı'}
+              {isAutoPlaying ? t('features.autoplayOn') as string : t('features.autoplayOff') as string}
             </button>
           </div>
         </div>
 
-        {/* Feature display area */}
         <div className="lg:col-span-8">
           <AnimatePresence mode="wait">
             <motion.div
@@ -168,7 +108,7 @@ const FeatureShowcase = () => {
             >
               <div className={`p-6 bg-gradient-to-r ${current.color} text-white`}>
                 <h3 className="text-2xl font-bold flex items-center gap-3">
-                  {current.icon}
+                  <span className="text-3xl">{current.icon}</span>
                   {current.title}
                 </h3>
                 <p className="mt-2 text-white/90">{current.description}</p>
@@ -180,15 +120,15 @@ const FeatureShowcase = () => {
                     <Image
                       src={current.image}
                       alt={current.title}
-                      layout="fill"
-                      objectFit="cover"
+                      fill
+                      style={{ objectFit: 'cover' }}
                     />
                   ) : (
-                    <p className="text-slate-500 text-sm">Görsel bulunamadı</p>
+                    <p className="text-slate-500 text-sm">{t('features.imageNotFound') as string}</p>
                   )}
                 </div>
 
-                <h4 className="text-lg font-semibold text-slate-800 mb-4">Faydaları</h4>
+                <h4 className="text-lg font-semibold text-slate-800 mb-4">{t('features.benefitsTitle') as string}</h4>
                 <ul className="space-y-3">
                   {current.benefits.map((benefit, i) => (
                     <motion.li
@@ -213,5 +153,4 @@ const FeatureShowcase = () => {
     </div>
   );
 };
-
 export default FeatureShowcase; 

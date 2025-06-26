@@ -4,6 +4,7 @@ import { useEffect, useRef, useState } from 'react';
 
 import Image from 'next/image';
 
+import { useLanguage } from '@/contexts/LanguageContext';
 import { Button } from '@/registry/new-york-v4/ui/button';
 import { Dialog, DialogContent } from '@/registry/new-york-v4/ui/dialog';
 import VideoShowcase from '@/components/VideoShowcase';
@@ -30,20 +31,9 @@ const RotatingWords = ({ words, baseColor, gradientColors = false }: {
     const [currentIndex, setCurrentIndex] = useState(0);
     const [direction, setDirection] = useState('down');
     const [isAnimating, setIsAnimating] = useState(false);
+    const { t, language } = useLanguage(); // Use language hook
+    const wordConfigs = t('hero.rotatingWords') as string[];
 
-    // Define word configurations with different languages and colors
-    const wordConfigs = [
-        { text: 'anlasın', color: 'text-blue-400', lang: 'tr' },
-        { text: 'satsın', color: 'text-emerald-400', lang: 'tr' },
-        { text: 'sunsun', color: 'text-purple-400', lang: 'tr' },
-        { text: 'çözsün', color: 'text-orange-400', lang: 'tr' },
-        { text: 'analiz etsin', color: 'text-pink-400', lang: 'tr' },
-        { text: 'yardım etsin', color: 'text-cyan-400', lang: 'tr' },
-        { text: 'önersin', color: 'text-yellow-400', lang: 'tr' },
-        { text: 'rehberlik etsin', color: 'text-red-400', lang: 'tr' },
-        { text: 'karşılasın', color: 'text-indigo-400', lang: 'tr' },
-        { text: 'desteklesin', color: 'text-green-400', lang: 'tr' }
-    ];
 
     useEffect(() => {
         const interval = setInterval(() => {
@@ -73,17 +63,22 @@ const RotatingWords = ({ words, baseColor, gradientColors = false }: {
 
     const currentWord = wordConfigs[currentIndex];
 
+    const colors = [
+        'text-blue-400', 'text-emerald-400', 'text-purple-400', 'text-orange-400', 'text-pink-400', 'text-cyan-400', 'text-yellow-400', 'text-red-400', 'text-indigo-400', 'text-green-400'
+    ];
+    const currentColor = colors[currentIndex % colors.length];
+
     return (
         <span className="relative inline-block">
             <span
                 className={`inline-block transition-all duration-400 ease-in-out ${animationClasses} ${gradientColors
                     ? 'bg-gradient-to-r from-blue-400 via-cyan-300 to-blue-400 bg-clip-text text-transparent'
-                    : currentWord.color
+                    : currentColor
                     }`}
                 style={{ minWidth: '120px', textAlign: 'left' }}
-                lang={currentWord.lang}
+                lang={language} // Use language from hook
             >
-                {currentWord.text}
+                {currentWord}
             </span>
         </span>
     );
@@ -201,6 +196,7 @@ interface HeroSectionProps {
 }
 
 export default function HeroSection({ isMobile, setContactModalOpen }: HeroSectionProps) {
+    const { t } = useLanguage();
     const heroSectionRef = useRef<HTMLElement>(null);
     const [particles, setParticles] = useState<Particle[]>([]);
     const [bubbles, setBubbles] = useState<LanguageBubbleProps[]>([]);
@@ -271,18 +267,17 @@ export default function HeroSection({ isMobile, setContactModalOpen }: HeroSecti
                         {/* Title */}
                         <div className='font-playfair mb-6 text-center text-4xl leading-tight font-bold tracking-tighter'>
                             <div className='mb-2 text-white'>
-                                Müşteriniz konuşsun,
+                                {t('hero.title') as string}
                             </div>
                             <div className='flex items-baseline justify-start gap-2 text-blue-400'>
-                                <span>EMA</span>
+                                <span>{t('hero.titleHighlight') as string}</span>
                                 <RotatingWords />
                             </div>
                         </div>
 
                         {/* Description text */}
                         <p className='mb-8 max-w-xl text-center text-lg text-slate-300'>
-                            Müşteriniz ihtiyacını istediği dilde söylesin, ürünlerinizden en uygun olanları EMA
-                            göstersin.
+                            {t('hero.subtitle') as string}
                         </p>
 
                         {/* CTA button */}
@@ -290,7 +285,7 @@ export default function HeroSection({ isMobile, setContactModalOpen }: HeroSecti
                             size='lg'
                             onClick={() => setContactModalOpen(true)}
                             className='w-full rounded-full bg-blue-500 py-6 text-base font-medium'>
-                            Hemen İletişime Geçin
+                            {t('hero.cta') as string}
                         </Button>
 
                         {/* Mobile Video Thumbnail */}
@@ -308,7 +303,7 @@ export default function HeroSection({ isMobile, setContactModalOpen }: HeroSecti
                                         height: '100%',
                                         borderRadius: '1rem'
                                     }}
-                                    title='EMA Tanıtım Videosu'
+                                    title={t('hero.videoTitle') as string}
                                 />
                             </div>
                         </div>
@@ -320,16 +315,15 @@ export default function HeroSection({ isMobile, setContactModalOpen }: HeroSecti
                             {/* Text content on left side */}
                             <div className='order-1 md:col-span-7'>
                                 <h1 className='font-playfair mb-6 text-4xl leading-[1.1] font-bold tracking-tighter md:mb-6 md:text-7xl lg:text-8xl'>
-                                    <span className='block text-shadow-lg'>Müşteriniz konuşsun,</span>
+                                    <span className='block text-shadow-lg'>{t('hero.title') as string}</span>
                                     <span className='animate-gradient-shift mt-2 flex items-baseline bg-gradient-to-r from-blue-400 via-cyan-300 to-blue-400 bg-clip-text text-transparent'>
-                                        <span className="mr-1 md:mr-2 lg:mr-3">EMA</span>
+                                        <span className="mr-1 md:mr-2 lg:mr-3">{t('hero.titleHighlight') as string}</span>
                                         <RotatingWords />
                                     </span>
                                 </h1>
 
                                 <p className='font-inter max-w-2xl text-xl leading-relaxed font-light text-slate-300 md:text-2xl'>
-                                    Müşteriniz ihtiyacını istediği dilde söylesin, ürünlerinizden en uygun olanları
-                                    EMA göstersin.
+                                    {t('hero.subtitle') as string}
                                 </p>
 
                                 <div className='mt-8'>
@@ -337,7 +331,7 @@ export default function HeroSection({ isMobile, setContactModalOpen }: HeroSecti
                                         size='lg'
                                         onClick={() => setContactModalOpen(true)}
                                         className='font-montserrat rounded-full bg-blue-500 px-6 py-5 text-base text-white shadow-lg shadow-blue-500/30 transition-all hover:bg-blue-600 hover:shadow-blue-500/50 sm:px-8 sm:py-6 sm:text-lg'>
-                                        Hemen İletişime Geçin
+                                        {t('hero.cta') as string}
                                     </Button>
                                 </div>
                             </div>
@@ -377,7 +371,7 @@ export default function HeroSection({ isMobile, setContactModalOpen }: HeroSecti
                                         height: '100%',
                                         borderRadius: '1.5rem'
                                     }}
-                                    title='EMA Tanıtım Videosu'
+                                    title={t('hero.videoTitle') as string}
                                 />
                             </div>
                         </div>
@@ -390,8 +384,8 @@ export default function HeroSection({ isMobile, setContactModalOpen }: HeroSecti
                 <DialogContent className='flex w-full max-w-3xl items-center justify-center bg-transparent p-0 shadow-none'>
                     <div className='w-full'>
                         <VideoShowcase
-                            title='EMA Tanıtım Videosu'
-                            description="EMA'nın mağaza içi deneyimini ve doğal konuşma özelliklerini kısa videoda izleyin."
+                            title={t('hero.videoTitle') as string}
+                            description={t('hero.videoDescription') as string}
                             videoSrc='/videos/ema-demo.mp4'
                             posterSrc='/videos/ema-poster.jpg'
                         />

@@ -4,6 +4,7 @@ import { useState } from 'react';
 
 import Image from 'next/image';
 
+import { useLanguage } from '@/contexts/LanguageContext';
 import { useMediaQuery } from '@/hooks/use-media-query';
 import { Button } from '@/registry/new-york-v4/ui/button';
 import {
@@ -36,6 +37,7 @@ interface ContactModalProps {
 }
 
 export function ContactModal({ open, onOpenChange }: ContactModalProps) {
+    const { t } = useLanguage();
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
     const [isLoading, setIsLoading] = useState(false);
@@ -46,14 +48,13 @@ export function ContactModal({ open, onOpenChange }: ContactModalProps) {
         e.preventDefault();
 
         if (!name || !email) {
-            toast.error('Lütfen tüm alanları doldurun.');
+            toast.error(t('contactModal.fillAllFieldsError') as string);
             return;
         }
 
-        // Email validation
         const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
         if (!emailRegex.test(email)) {
-            toast.error('Geçerli bir e-posta adresi girin.');
+            toast.error(t('contactModal.invalidEmailError') as string);
             return;
         }
 
@@ -69,17 +70,15 @@ export function ContactModal({ open, onOpenChange }: ContactModalProps) {
             const data = await res.json();
 
             if (!res.ok) {
-                // Handle specific error messages from the API
-                toast.error(data.error || 'Bir hata oluştu. Lütfen daha sonra tekrar deneyin.');
+                toast.error(data.error || t('contactModal.apiError') as string);
                 setIsLoading(false);
                 return;
             }
 
             setIsLoading(false);
             setIsSuccess(true);
-            toast.success('Başvurunuz alındı. Teşekkürler!');
+            toast.success(t('contactModal.toastSuccess') as string);
 
-            // Reset form after success
             setTimeout(() => {
                 setName('');
                 setEmail('');
@@ -88,7 +87,7 @@ export function ContactModal({ open, onOpenChange }: ContactModalProps) {
             }, 2000);
         } catch (error) {
             setIsLoading(false);
-            toast.error('Bağlantı hatası. Lütfen internet bağlantınızı kontrol edin.');
+            toast.error(t('contactModal.connectionError') as string);
         }
     };
 
@@ -147,14 +146,14 @@ export function ContactModal({ open, onOpenChange }: ContactModalProps) {
                     initial={{ y: 20, opacity: 0 }}
                     animate={{ y: 0, opacity: 1 }}
                     transition={{ delay: 0.8 }}>
-                    Başvurunuz Alındı
+                    {t('contactModal.successTitle') as string}
                 </motion.p>
                 <motion.p
                     className='mt-1 text-sm opacity-90'
                     initial={{ y: 20, opacity: 0 }}
                     animate={{ y: 0, opacity: 1 }}
                     transition={{ delay: 0.9 }}>
-                    En kısa sürede sizinle iletişime geçeceğiz
+                    {t('contactModal.successSubtitle') as string}
                 </motion.p>
             </motion.div>
         </motion.div>
@@ -188,10 +187,9 @@ export function ContactModal({ open, onOpenChange }: ContactModalProps) {
                                     />
                                 </div>
 
-                                <h2 className='mb-2 text-2xl font-bold text-white'>EMA Program Başvurusu</h2>
+                                <h2 className='mb-2 text-2xl font-bold text-white'>{t('contactModal.title') as string}</h2>
                                 <p className='max-w-sm text-center text-sm text-blue-100'>
-                                    Mağazanızda EMA kullanmak için bilgilerinizi doldurun. En kısa sürede sizinle
-                                    iletişime geçeceğiz.
+                                    {t('contactModal.subtitle') as string}
                                 </p>
                             </div>
                         </div>
@@ -204,11 +202,11 @@ export function ContactModal({ open, onOpenChange }: ContactModalProps) {
                                         htmlFor='name'
                                         className='flex items-center gap-2 text-sm font-medium text-gray-700 dark:text-gray-300'>
                                         <User className='h-4 w-4 text-blue-500' />
-                                        Ad Soyad
+                                        {t('contactModal.name') as string}
                                     </Label>
                                     <Input
                                         id='name'
-                                        placeholder='Adınız Soyadınız'
+                                        placeholder={t('contactModal.namePlaceholder') as string}
                                         value={name}
                                         onChange={(e) => setName(e.target.value)}
                                         disabled={isLoading || isSuccess}
@@ -220,12 +218,12 @@ export function ContactModal({ open, onOpenChange }: ContactModalProps) {
                                         htmlFor='email'
                                         className='flex items-center gap-2 text-sm font-medium text-gray-700 dark:text-gray-300'>
                                         <Mail className='h-4 w-4 text-blue-500' />
-                                        E-posta
+                                        {t('contactModal.email') as string}
                                     </Label>
                                     <Input
                                         id='email'
                                         type='email'
-                                        placeholder='you@example.com'
+                                        placeholder={t('contactModal.emailPlaceholder') as string}
                                         value={email}
                                         onChange={(e) => setEmail(e.target.value)}
                                         disabled={isLoading || isSuccess}
@@ -242,15 +240,15 @@ export function ContactModal({ open, onOpenChange }: ContactModalProps) {
                                     {isLoading ? (
                                         <>
                                             <Loader2 className='mr-2 h-4 w-4 animate-spin' />
-                                            Gönderiliyor
+                                            {t('contactModal.sending') as string}
                                         </>
                                     ) : isSuccess ? (
                                         <>
                                             <Check className='mr-2 h-4 w-4' />
-                                            Gönderildi
+                                            {t('contactModal.submitSuccess') as string}
                                         </>
                                     ) : (
-                                        'Gönder'
+                                        t('contactModal.submit') as string
                                     )}
                                 </Button>
                             </div>

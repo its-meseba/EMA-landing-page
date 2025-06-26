@@ -1,0 +1,428 @@
+{
+    "common": {
+        "loading": "Loading...",
+        "error": "An error occurred",
+        "close": "Close",
+        "contact": "Contact Us",
+        "submit": "Submit",
+        "name": "Full Name",
+        "email": "Email",
+        "phone": "Phone",
+        "company": "Company",
+        "message": "Message"
+    },
+    "navbar": {
+        "contact": "Contact Us",
+        "language": "Language",
+        "selectLanguage": "Select Language"
+    },
+    "hero": {
+        "title": "Let your customer speak, let",
+        "titleHighlight": "EMA",
+        "rotatingWords": [
+            "support",
+            "understand",
+            "solve",
+            "help",
+            "recommend",
+            "greet",
+            "sell",
+            "analyze"
+        ],
+        "subtitle": "Let your customer express their needs in the language they prefer, and EMA will suggest the best products from your offerings that fit their needs.",
+        "cta": "Contact Us Now",
+        "videoTitle": "EMA Promotional Video",
+        "videoDescription": "Ema, your salesperson that knows all the details of all your products."
+    },
+    "problem": {
+        "title": "A slow, frustrating, and impersonal shopping experience",
+        "titleHighlight": "kills conversions.",
+        "problems": [
+            "Language barriers push potential customers away.",
+            "Delayed or inconsistent replies drive them straight to your competitors.",
+            "When confused, customers don't ask — they abandon."
+        ],
+        "quote": "The easier and more natural you make the shopping experience, the greater your sales success will be."
+    },
+    "guide": {
+        "title": "Using the System Is as Easy as",
+        "titleHighlight": "Talking",
+        "subtitle": "EMA welcomes every customer with a natural, human-like dialogue.",
+        "features": [
+            {
+                "title": "Never Gets Tired",
+                "description": "Available 24/7, never fatigues.",
+                "icon": "⏰"
+            },
+            {
+                "title": "Endless Patience",
+                "description": "Answers every question patiently.",
+                "icon": "😊"
+            },
+            {
+                "title": "Knows Every Product",
+                "description": "Complete knowledge of product details, stock, and prices.",
+                "icon": "📦"
+            },
+            {
+                "title": "Master of the Details",
+                "description": "Understands even the most technical specifications.",
+                "icon": "🔍"
+            }
+        ]
+    },
+    "plan": {
+        "title": "3 Simple Steps",
+        "steps": [
+            {
+                "step": "1",
+                "title": "Data Integration",
+                "description": "We upload your product and company information."
+            },
+            {
+                "step": "2",
+                "title": "AI Training",
+                "description": "Your AI Voice Assistant is trained specifically for your business."
+            },
+            {
+                "step": "3",
+                "title": "Interface Setup",
+                "description": "A personalized EMA page is created for your company."
+            }
+        ],
+        "badge": "As easy as speaking, no training required."
+    },
+    "features": {
+        "title": "EMA's Key Features",
+        "subtitle": "Each feature is designed to enrich the customer experience.",
+        "featuresList": [
+            {
+                "id": "voice-recognition",
+                "title": "Natural Language Processing",
+                "icon": "🔊",
+                "description": "EMA understands and responds to natural spoken language using advanced AI.",
+                "color": "from-blue-600 to-cyan-600",
+                "image": "/images/voice-recognition.png",
+                "benefits": [
+                    "Eliminates the need for keyboard and touchscreen use",
+                    "Ideal for elderly customers or those unfamiliar with technology",
+                    "Enables hands-free interaction",
+                    "Understands nuances, intonations, and accents in speech"
+                ]
+            },
+            {
+                "id": "multilingual",
+                "title": "Multilingual Support",
+                "icon": "🌐",
+                "description": "EMA can communicate fluently in five different languages. It speaks your customer's language—literally.",
+                "color": "from-purple-600 to-indigo-600",
+                "image": "/images/multilingual.png",
+                "benefits": [
+                    "Removes communication barriers with tourists and foreign customers",
+                    "Eliminates the need for a translator",
+                    "Reduces the need for foreign language–speaking staff",
+                    "Increases international customer satisfaction"
+                ]
+            },
+            {
+                "id": "contextual",
+                "title": "Contextual Understanding",
+                "icon": "🧠",
+                "description": "EMA doesn't just hear words — it understands the context behind them.",
+                "color": "from-orange-500 to-pink-500",
+                "image": "/images/contextual.png",
+                "benefits": [
+                    "Maintains a logical and seamless flow of dialogue",
+                    "Doesn't require the customer to repeat information",
+                    "Understands complex customer needs",
+                    "Responds naturally, like a human"
+                ]
+            },
+            {
+                "id": "analytics",
+                "title": "Customer Insights",
+                "icon": "📈",
+                "description": "EMA gathers valuable data from customer queries and interactions, turning them into actionable insights.",
+                "color": "from-emerald-500 to-teal-500",
+                "image": "/images/analytics.png",
+                "benefits": [
+                    "Identifies the most frequently asked-about products",
+                    "Analyzes purchasing trends",
+                    "Measures customer satisfaction",
+                    "Helps you make data-driven inventory and sales decisions"
+                ]
+            }
+        ],
+        "autoplayOn": "Auto-Play On",
+        "autoplayOff": "Auto-Play Off",
+        "imageNotFound": "Image not found",
+        "benefitsTitle": "Benefits"
+    },
+    "comparison": {
+        "title": "Solution",
+        "titleHighlight": "Comparison",
+        "subtitle": "Discover the advantages EMA offers over traditional methods.",
+        "altTitle": "EMA Solution Comparison",
+        "altSubtitle": "Explore how EMA stands out compared to traditional approaches.",
+        "toggleAll": "All Features",
+        "toggleDiff": "Differences Only",
+        "tooltip": "This table shows the advantages of EMA compared to touchscreens and human staff.",
+        "featureCol": "Feature",
+        "emaCol": "AI Assistant",
+        "touchscreenCol": "Touchscreen",
+        "kioskCol": "Kiosk",
+        "staffCol": "Human Staff",
+        "salesRepCol": "Sales Rep",
+        "features": [
+            {
+                "name": "Multilingual Support",
+                "ema": true,
+                "touchscreen": true,
+                "human": true,
+                "description": "EMA can understand and respond to natural conversation in 5 languages."
+            },
+            {
+                "name": "Natural Speech Recognition",
+                "ema": true,
+                "touchscreen": false,
+                "human": true,
+                "description": "EMA follows the flow of dialogue and understands context."
+            },
+            {
+                "name": "Scalability During Peak Hours",
+                "ema": true,
+                "touchscreen": true,
+                "human": false,
+                "description": "Responds to all customer queries at the same speed, even during busy periods."
+            },
+            {
+                "name": "Access to Product Information",
+                "ema": true,
+                "touchscreen": true,
+                "human": true,
+                "description": "Provides instant information about all products in the store."
+            },
+            {
+                "name": "Personalized Recommendations",
+                "ema": true,
+                "touchscreen": false,
+                "human": true,
+                "description": "Offers personalized recommendations based on customer queries and preferences."
+            },
+            {
+                "name": "Insights from Conversation Data",
+                "ema": true,
+                "touchscreen": false,
+                "human": false,
+                "description": "Extracts and reports valuable insights from customer interactions."
+            },
+            {
+                "name": "24/7 Availability",
+                "ema": true,
+                "touchscreen": true,
+                "human": false,
+                "description": "Provides service even outside of staff working hours."
+            },
+            {
+                "name": "Requires No Human Intervention",
+                "ema": true,
+                "touchscreen": true,
+                "human": false,
+                "description": "Operates fully autonomously, without needing constant human support."
+            }
+        ],
+        "columns": {
+            "ema": "EMA (AI Assistant)",
+            "touchscreen": "Touchscreen Kiosk",
+            "human": "Human Staff (Sales Rep)"
+        }
+    },
+    "faq": {
+        "title": "Your Questions,",
+        "titleHighlight": "Answered",
+        "subtitle": "Find answers to the most frequently asked questions about EMA.",
+        "altTitle": "Frequently Asked Questions",
+        "altSubtitle": "Everything you're curious about regarding EMA",
+        "searchPlaceholder": "Search a question...",
+        "categories": [
+            {
+                "id": "all",
+                "name": "All"
+            },
+            {
+                "id": "technical",
+                "name": "Technical"
+            },
+            {
+                "id": "setup",
+                "name": "Setup"
+            },
+            {
+                "id": "usage",
+                "name": "Usage"
+            },
+            {
+                "id": "privacy",
+                "name": "Privacy"
+            },
+            {
+                "id": "pricing",
+                "name": "Pricing"
+            }
+        ],
+        "questions": [
+            {
+                "question": "Which languages does EMA support?",
+                "answer": "EMA currently supports Turkish, English, Arabic, Russian, and French fluently. Language support will expand with future updates.",
+                "category": "technical"
+            },
+            {
+                "question": "How can I integrate EMA into my store?",
+                "answer": "Integrating EMA is very simple. Our installation team visits your store, installs the required hardware, and integrates it with your systems. The average setup time is just a couple of days.",
+                "category": "setup"
+            },
+            {
+                "question": "What are EMA's hardware requirements?",
+                "answer": "EMA does not require any hardware per se. However for in-store solution all that is required is only a standard touchscreen, a microphone, and a speaker system. All equipment is included in the installation package and is set up by our professional team in your store.",
+                "category": "technical"
+            },
+            {
+                "question": "How do my customers use EMA?",
+                "answer": "Your customers can interact with EMA completely naturally. Saying \"Merhaba\" or \"Hello\" on the screen is enough to get started.",
+                "category": "usage"
+            },
+            {
+                "question": "Does EMA store customer data?",
+                "answer": "EMA extracts valuable insights from customer interactions but does not store personal data. It collects only anonymous data such as product queries and frequently asked questions to help improve store operations.",
+                "category": "privacy"
+            },
+            {
+                "question": "Do I need to update EMA when I add new products?",
+                "answer": "No. EMA is cloud-based and automatically syncs with your store inventory. When you add new products or change prices, EMA updates itself automatically.",
+                "category": "usage"
+            },
+            {
+                "question": "Can EMA work without an internet connection?",
+                "answer": "EMA requires internet access for optimal performance.",
+                "category": "technical"
+            },
+            {
+                "question": "What is the cost of EMA?",
+                "answer": "EMA is offered through monthly subscription plans. Pricing depends on the size and needs of your store.",
+                "category": "pricing"
+            }
+        ],
+        "noResultsTitle": "No Results Found",
+        "noResultsSubtitle": "No questions matched your search. Please try different keywords or browse all categories.",
+        "footerText": "Can't find what you're looking for?",
+        "footerButton": "Contact Us"
+    },
+    "partners": {
+        "companies": [
+            {
+                "name": "AFEX Istanbul",
+                "url": "https://www.afextr.com/tr"
+            },
+            {
+                "name": "Greyder",
+                "url": "https://www.greyder.com.tr/"
+            },
+            {
+                "name": "Integral Group",
+                "url": "https://tr.integralgroup.com.tr/"
+            }
+        ]
+    },
+    "cta": {
+        "withoutEma": {
+            "title": "Without EMA",
+            "badge": "REACTIVE",
+            "problems": [
+                "Customers can't find products",
+                "Language barriers hinder sales",
+                "Staff keeps answering the same questions"
+            ]
+        },
+        "withEma": {
+            "title": "With EMA",
+            "badge": "PROACTIVE",
+            "benefits": [
+                "Every customer finds what they're looking for",
+                "Natural communication in 5 languages",
+                "Take customer satisfaction to the highest level.",
+                "Have an assistant that works 24/7 and never gets tired.",
+                "Strengthen your sales process with smart data."
+            ]
+        },
+        "urgencyBadge": "Only for the First 50 Stores",
+        "title": "Make Your Decision",
+        "titleHighlight": "Today",
+        "subtitle": "Every day you can risk losing your customers.\nOr you can give them the experience they're looking for.",
+        "advantagesTitle": "Advantages EMA Offers:",
+        "advantages": [
+            "Instant communication in 5 different languages.",
+            "Take customer satisfaction to the highest level.",
+            "Have an assistant that works 24/7 and never gets tired.",
+            "Strengthen your sales process with smart data."
+        ],
+        "cta": "Contact Us Now",
+        "ctaSubtext": "Apply Now",
+        "referencesTitle": "References:",
+        "references": [
+            "Greyder",
+            "AFEX Istanbul",
+            "Integral Group",
+            "Dünya Bahçe"
+        ],
+        "finalMessage": "Your customer will speak. EMA will understand. You will win.",
+        "finalMessageParts": {
+            "customer": "Your customer will speak.",
+            "ema": "EMA will understand.",
+            "you": "You will win."
+        }
+    },
+    "footer": {
+        "slogan": "We Deliver Technology with the Ease of Conversation.",
+        "legal": "Legal",
+        "legalLinks": [
+            {
+                "name": "GDPR",
+                "href": "/legal/data-protection"
+            },
+            {
+                "name": "Privacy Policy",
+                "href": "/legal/privacy-policy"
+            },
+            {
+                "name": "Cookie Policy",
+                "href": "/legal/cookie-policy"
+            }
+        ],
+        "contact": "Contact",
+        "email": "info-ema@solace.com.tr",
+        "socials": [
+            "LinkedIn",
+            "Instagram",
+            "YouTube"
+        ],
+        "copyright": "© 2025 EMA, Solace Technology. All rights reserved."
+    },
+    "contactModal": {
+        "title": "Contact Us",
+        "subtitle": "Share your information to get to know EMA, and we'll reach out to you.",
+        "name": "Full Name",
+        "namePlaceholder": "Your first and last name",
+        "email": "Email",
+        "emailPlaceholder": "example@email.com",
+        "phone": "Phone",
+        "phonePlaceholder": "+90 5XX XXX XX XX",
+        "company": "Company",
+        "companyPlaceholder": "Your company name",
+        "message": "Message",
+        "messagePlaceholder": "What you're curious about EMA...",
+        "submit": "Submit",
+        "sending": "Sending...",
+        "success": "Your message has been sent successfully!",
+        "error": "An error occurred. Please try again."
+    }
+}

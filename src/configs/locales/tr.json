@@ -1,0 +1,431 @@
+{
+    "common": {
+        "loading": "Yükleniyor...",
+        "error": "Bir hata oluştu",
+        "close": "Kapat",
+        "contact": "İletişime Geçin",
+        "submit": "Gönder",
+        "name": "Ad Soyad",
+        "email": "E-posta",
+        "phone": "Telefon",
+        "company": "Şirket",
+        "message": "Mesaj"
+    },
+    "navbar": {
+        "contact": "İletişime Geçin",
+        "language": "Dil",
+        "selectLanguage": "Dil Seçin"
+    },
+    "hero": {
+        "title": "Müşteriniz konuşsun,",
+        "titleHighlight": "EMA",
+        "rotatingWords": [
+            "anlasın",
+            "satsın",
+            "sunsun",
+            "çözsün",
+            "analiz etsin",
+            "yardım etsin",
+            "önersin",
+            "rehberlik etsin",
+            "karşılasın",
+            "desteklesin"
+        ],
+        "subtitle": "Müşteriniz ihtiyacını istediği dilde söylesin, ürünlerinizden en uygun olanları EMA göstersin.",
+        "cta": "Hemen İletişime Geçin",
+        "videoTitle": "EMA Tanıtım Videosu",
+        "videoDescription": "EMA'nın mağaza içi deneyimini ve doğal konuşma özelliklerini kısa videoda izleyin."
+    },
+    "problem": {
+        "title": "Alışverişin zahmetli, yavaş ve kişisel olmayan yapısı",
+        "titleHighlight": "satışları düşürüyor.",
+        "problems": [
+            "Dil engeli nedeniyle müşteriler kaçıyor.",
+            "Yavaş ve kesintili yanıtlar müşterileri başkalarına itiyor.",
+            "Kafası karışan müşteriler pes ediyor."
+        ],
+        "quote": "Alışverişi ne kadar kolay ve doğal hale getirirseniz, satış başarınız o kadar artar."
+    },
+    "guide": {
+        "title": "Sistemi Kullanmak,",
+        "titleHighlight": "Konuşma",
+        "titleSuffix": "Kolaylığında",
+        "subtitle": "EMA, her müşterinin ihtiyacını doğal bir diyalogla karşılar.",
+        "features": [
+            {
+                "title": "Hiç Sıkılmayan",
+                "description": "7/24 müsait, yorulmaz.",
+                "icon": "⏰"
+            },
+            {
+                "title": "Sabrı Bitmeyen",
+                "description": "Her soruya sabırla cevap verir.",
+                "icon": "🤗"
+            },
+            {
+                "title": "Tüm Ürünleri Bilen",
+                "description": "Kapsamlı ürün bilgisi, stok ve fiyat.",
+                "icon": "📦"
+            },
+            {
+                "title": "Tüm Detaylara Hakim",
+                "description": "Teknik özelliklere kadar hakim.",
+                "icon": "🔍"
+            }
+        ]
+    },
+    "plan": {
+        "title": "3 Kolay Adım",
+        "steps": [
+            {
+                "step": "1",
+                "title": "Veri Entegrasyonu",
+                "description": "Ürünlerinizi ve şirket bilgilerinizi yükleniyor."
+            },
+            {
+                "step": "2",
+                "title": "Yapay Zeka Eğitimi",
+                "description": "Yapay Zeka Sesli Asistan sizin için eğitiliyor."
+            },
+            {
+                "step": "3",
+                "title": "Arayüz Hazırlanması",
+                "description": "Şirketinize özel EMA sayfanız hazırlanıyor."
+            }
+        ],
+        "badge": "Konuşma kolaylığında, eğitim gerektirmez."
+    },
+    "features": {
+        "title": "EMA'nın Temel Özellikleri",
+        "subtitle": "Her özellik, müşteri deneyimini zenginleştirmek için tasarlanmıştır.",
+        "featuresList": [
+            {
+                "id": "voice-recognition",
+                "title": "Doğal Dil İşleme",
+                "icon": "🔊",
+                "description": "EMA, gelişmiş yapay zeka kullanarak doğal konuşma dilini anlar ve yanıtlar.",
+                "color": "from-blue-600 to-cyan-600",
+                "image": "/images/voice-recognition.png",
+                "benefits": [
+                    "Klavye ve dokunmatik ekran kullanımını ortadan kaldırır",
+                    "Yaşlı veya teknolojiye alışkın olmayan müşteriler için idealdir",
+                    "Eller serbest etkileşim sağlar",
+                    "Konuşma nüanslarını, tonlamaları ve aksanları anlar"
+                ]
+            },
+            {
+                "id": "multilingual",
+                "title": "Çoklu Dil Desteği",
+                "icon": "🌐",
+                "description": "EMA, beş farklı dilde akıcı bir şekilde iletişim kurabilir. Müşterinizin dilini konuşur.",
+                "color": "from-purple-600 to-indigo-600",
+                "image": "/images/multilingual.png",
+                "benefits": [
+                    "Turist ve yabancı müşterilerle iletişim engellerini ortadan kaldırır",
+                    "Tercüman ihtiyacını ortadan kaldırır",
+                    "Yabancı dil bilen personel ihtiyacını azaltır",
+                    "Uluslararası müşteri memnuniyetini artırır"
+                ]
+            },
+            {
+                "id": "contextual",
+                "title": "Bağlamsal Anlama",
+                "icon": "🧠",
+                "description": "EMA sadece kelimeleri duymaz, arkasındaki bağlamı da anlar.",
+                "color": "from-orange-500 to-pink-500",
+                "image": "/images/contextual.png",
+                "benefits": [
+                    "Mantıklı ve akıcı bir diyalog akışı sağlar",
+                    "Müşterinin bilgileri tekrarlamasına gerek kalmaz",
+                    "Karmaşık müşteri ihtiyaçlarını anlar",
+                    "İnsan gibi doğal yanıtlar verir"
+                ]
+            },
+            {
+                "id": "analytics",
+                "title": "Müşteri İçgörüleri",
+                "icon": "📈",
+                "description": "EMA, müşteri sorgularından ve etkileşimlerinden değerli veriler toplayarak eyleme geçirilebilir içgörülere dönüştürür.",
+                "color": "from-emerald-500 to-teal-500",
+                "image": "/images/analytics.png",
+                "benefits": [
+                    "En çok sorulan ürünleri belirler",
+                    "Satın alma eğilimlerini analiz eder",
+                    "Müşteri memnuniyetini ölçer",
+                    "Veriye dayalı stok ve satış kararları almanıza yardımcı olur"
+                ]
+            }
+        ],
+        "autoplayOn": "Otomatik Oynatma Açık",
+        "autoplayOff": "Otomatik Oynatma Kapalı",
+        "imageNotFound": "Görsel bulunamadı",
+        "benefitsTitle": "Faydaları"
+    },
+    "comparison": {
+        "title": "Çözüm",
+        "titleHighlight": "Karşılaştırması",
+        "subtitle": "EMA'nın geleneksel yöntemlere göre sunduğu avantajları keşfedin.",
+        "altTitle": "EMA Çözümü Karşılaştırması",
+        "altSubtitle": "EMA'nın geleneksel yaklaşımlara göre nasıl öne çıktığını keşfedin.",
+        "toggleAll": "Tüm Özellikler",
+        "toggleDiff": "Sadece Farklar",
+        "tooltip": "Bu tablo, EMA'nın dokunmatik ekranlara ve insan personele kıyasla sunduğu avantajları gösterir.",
+        "featureCol": "Özellik",
+        "emaCol": "Yapay Zeka Asistanı",
+        "touchscreenCol": "Dokunmatik Ekran",
+        "kioskCol": "Kiosk",
+        "staffCol": "İnsan Personel",
+        "salesRepCol": "Satış Temsilcisi",
+        "features": [
+            {
+                "name": "Çoklu Dil Desteği",
+                "ema": true,
+                "touchscreen": true,
+                "human": true,
+                "description": "EMA, 5 dilde doğal konuşma diyaloglarını anlayabilir ve yanıtlayabilir."
+            },
+            {
+                "name": "Doğal Konuşma Tanıma",
+                "ema": true,
+                "touchscreen": false,
+                "human": true,
+                "description": "EMA, diyalog akışını takip eder ve bağlamı anlar."
+            },
+            {
+                "name": "Yoğun Saatlerde Ölçeklenme",
+                "ema": true,
+                "touchscreen": true,
+                "human": false,
+                "description": "Kalabalık anlarda bile tüm müşteri sorgularını aynı hızda yanıtlar."
+            },
+            {
+                "name": "Ürün Bilgisi Erişimi",
+                "ema": true,
+                "touchscreen": true,
+                "human": true,
+                "description": "Mağazadaki tüm ürünler hakkında anlık bilgi sağlar."
+            },
+            {
+                "name": "Kişiselleştirilmiş Öneriler",
+                "ema": true,
+                "touchscreen": false,
+                "human": true,
+                "description": "Müşteri sorguları ve tercihlerine göre kişiselleştirilmiş öneriler sunar."
+            },
+            {
+                "name": "Konuşma Verilerinden İçgörüler",
+                "ema": true,
+                "touchscreen": false,
+                "human": false,
+                "description": "Müşteri etkileşimlerinden değerli içgörüler çıkarır ve raporlar."
+            },
+            {
+                "name": "7/24 Kullanılabilirlik",
+                "ema": true,
+                "touchscreen": true,
+                "human": false,
+                "description": "Personel mesai saatleri dışında da hizmet verir."
+            },
+            {
+                "name": "İnsan Müdahalesi Gerektirmez",
+                "ema": true,
+                "touchscreen": true,
+                "human": false,
+                "description": "Tamamen otonom çalışır, sürekli insan desteği gerektirmez."
+            }
+        ],
+        "columns": {
+            "ema": "EMA (Yapay Zeka Asistanı)",
+            "touchscreen": "Dokunmatik Ekran Kiosk",
+            "human": "İnsan Personel (Satış Temsilcisi)"
+        }
+    },
+    "partners": {
+        "companies": [
+            {
+                "name": "AFEX İstanbul",
+                "url": "https://www.afextr.com/tr"
+            },
+            {
+                "name": "Greyder",
+                "url": "https://www.greyder.com.tr/"
+            },
+            {
+                "name": "İntegral Group",
+                "url": "https://tr.integralgroup.com.tr/"
+            }
+        ]
+    },
+    "cta": {
+        "withoutEma": {
+            "title": "EMA Olmadan",
+            "badge": "REAKTİF",
+            "problems": [
+                "Müşteriler ürün bulamıyor",
+                "Dil bariyeri satışı engelliyor",
+                "Personel aynı soruları cevaplıyor"
+            ]
+        },
+        "withEma": {
+            "title": "EMA ile",
+            "badge": "PROAKTİF",
+            "benefits": [
+                "Her müşteri aradığını bulur",
+                "5 dilde doğal iletişim",
+                "Müşteri memnuniyetini en üst seviyeye taşıyın.",
+                "7/24 çalışan, yorulmayan bir asistana sahip olun.",
+                "Satış sürecinizi akıllı verilerle güçlendirin."
+            ]
+        },
+        "urgencyBadge": "Sadece İlk 50 Mağaza İçin",
+        "title": "Kararınızı",
+        "titleHighlight": "Bugün Verin",
+        "subtitle": "Her gün müşterilerinizi kaybetme riski alabilirsiniz.\nYa da onlara aradıkları deneyimi yaşatabilirsiniz.",
+        "advantagesTitle": "EMA'nın Sunduğu Avantajlar:",
+        "advantages": [
+            "5 farklı dilde anında iletişim kurun.",
+            "Müşteri memnuniyetini en üst seviyeye taşıyın.",
+            "7/24 çalışan, yorulmayan bir asistana sahip olun.",
+            "Satış sürecinizi akıllı verilerle güçlendirin."
+        ],
+        "cta": "Hemen İletişime Geçin",
+        "ctaSubtext": "Şimdi Başvurun",
+        "referencesTitle": "Referanslar:",
+        "references": [
+            "Greyder",
+            "AFEX İstanbul",
+            "İntegral Group",
+            "Dünya Bahçe"
+        ],
+        "finalMessage": "Müşteriniz konuşacak. EMA anlayacak. Siz kazanacaksınız.",
+        "finalMessageParts": {
+            "customer": "Müşteriniz konuşacak.",
+            "ema": "EMA anlayacak.",
+            "you": "Siz kazanacaksınız."
+        }
+    },
+    "footer": {
+        "slogan": "Teknolojiyi Konuşma Kolaylığında Sunuyoruz.",
+        "legal": "Yasal",
+        "legalLinks": [
+            {
+                "name": "KVKK",
+                "href": "/legal/data-protection"
+            },
+            {
+                "name": "Gizlilik Politikası",
+                "href": "/legal/privacy-policy"
+            },
+            {
+                "name": "Çerez Politikası",
+                "href": "/legal/cookie-policy"
+            }
+        ],
+        "contact": "İletişim",
+        "email": "info-ema@solace.com.tr",
+        "socials": [
+            "LinkedIn",
+            "Instagram",
+            "YouTube"
+        ],
+        "copyright": "© 2025 EMA, Solace Teknoloji. Tüm hakları saklıdır."
+    },
+    "contactModal": {
+        "title": "İletişime Geçin",
+        "subtitle": "EMA ile tanışmak için bilgilerinizi paylaşın, size ulaşalım.",
+        "name": "Ad Soyad",
+        "namePlaceholder": "Adınız ve soyadınız",
+        "email": "E-posta",
+        "emailPlaceholder": "ornek@email.com",
+        "phone": "Telefon",
+        "phonePlaceholder": "+90 5XX XXX XX XX",
+        "company": "Şirket",
+        "companyPlaceholder": "Şirket adınız",
+        "message": "Mesaj",
+        "messagePlaceholder": "EMA hakkında merak ettikleriniz...",
+        "submit": "Gönder",
+        "sending": "Gönderiliyor...",
+        "success": "Mesajınız başarıyla gönderildi!",
+        "error": "Bir hata oluştu. Lütfen tekrar deneyin."
+    },
+    "faq": {
+        "title": "Sıkça Sorulan",
+        "titleHighlight": "Sorular",
+        "subtitle": "EMA hakkında sıkça sorulan soruları ve yanıtlarını bulun.",
+        "altTitle": "Sıkça Sorulan Sorular",
+        "altSubtitle": "EMA hakkında merak ettiğiniz her şey",
+        "searchPlaceholder": "Soru ara...",
+        "categories": [
+            {
+                "id": "all",
+                "name": "Tümü"
+            },
+            {
+                "id": "technical",
+                "name": "Teknik"
+            },
+            {
+                "id": "installation",
+                "name": "Kurulum"
+            },
+            {
+                "id": "usage",
+                "name": "Kullanım"
+            },
+            {
+                "id": "privacy",
+                "name": "Gizlilik"
+            },
+            {
+                "id": "pricing",
+                "name": "Fiyatlandırma"
+            }
+        ],
+        "questions": [
+            {
+                "question": "EMA hangi dilleri destekliyor?",
+                "answer": "EMA şu anda Türkçe, İngilizce, Arapça, Rusça ve Almanca dillerini akıcı bir şekilde desteklemektedir. Gelecekteki güncellemelerle dil desteği genişletilecektir.",
+                "category": "technical"
+            },
+            {
+                "question": "EMA'yı mağazama nasıl entegre edebilirim?",
+                "answer": "EMA entegrasyonu son derece basittir. Kurulum ekibimiz mağazanıza gelir, gerekli donanımı kurar ve sistemlerinizle entegrasyonu sağlar. Ortalama kurulum süresi sadece birkaç saattir.",
+                "category": "installation"
+            },
+            {
+                "question": "EMA'nın donanım gereksinimleri nelerdir?",
+                "answer": "EMA için standart bir dokunmatik ekran, mikrofon ve hoparlör sistemi yeterlidir. Tüm ekipmanlar kurulum paketine dahildir ve mağazanıza profesyonel ekibimiz tarafından kurulur.",
+                "category": "technical"
+            },
+            {
+                "question": "Müşterilerim EMA'yı nasıl kullanır?",
+                "answer": "Müşterileriniz EMA ile tamamen doğal bir şekilde konuşabilir. Ekranda 'Merhaba' veya 'Hello' diyerek başlamaları yeterlidir. EMA, müşterinin dilini otomatik olarak algılar ve o dilde yanıt verir.",
+                "category": "usage"
+            },
+            {
+                "question": "EMA müşteri verilerini kaydediyor mu?",
+                "answer": "EMA, müşteri etkileşimlerinden değerli içgörüler çıkarır ancak kişisel bilgileri kaydetmez. Yalnızca ürün sorguları, sıkça sorulan sorular gibi mağaza operasyonlarını geliştirmeye yönelik anonim veriler toplanır.",
+                "category": "privacy"
+            },
+            {
+                "question": "Yeni ürünler eklendiğinde EMA'yı güncellemem gerekir mi?",
+                "answer": "Hayır. EMA bulut tabanlıdır ve mağaza envanterinizle otomatik olarak senkronize olur. Yeni ürünler eklediğinizde veya fiyatları değiştirdiğinizde EMA otomatik olarak güncellenir.",
+                "category": "usage"
+            },
+            {
+                "question": "EMA internet bağlantısı olmadan çalışır mı?",
+                "answer": "EMA, optimum performans için internet erişimi gerektirir.",
+                "category": "technical"
+            },
+            {
+                "question": "EMA'nın maliyeti nedir?",
+                "answer": "EMA, aylık abonelik planları ile sunulmaktadır. Fiyatlandırma, mağazanızın büyüklüğüne ve ihtiyaçlarına göre değişir.",
+                "category": "pricing"
+            }
+        ],
+        "noResultsTitle": "Sonuç Bulunamadı",
+        "noResultsSubtitle": "Aramanızla eşleşen bir soru bulunamadı. Lütfen farklı anahtar kelimeler deneyin veya tüm kategorilere göz atın.",
+        "footerText": "Aradığınızı bulamadınız mı?",
+        "footerButton": "Bize Ulaşın"
+    }
+}

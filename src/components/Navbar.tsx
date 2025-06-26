@@ -6,10 +6,13 @@ import Image from 'next/image';
 import Link from 'next/link';
 
 import { ContactModal } from '@/components/ContactModal';
+import { LanguageSelector } from '@/components/LanguageSelector';
+import { useLanguage } from '@/contexts/LanguageContext';
 import { Button } from '@/registry/new-york-v4/ui/button';
 
 const Navbar = () => {
     const [contactModalOpen, setContactModalOpen] = useState(false);
+    const { t } = useLanguage();
 
     return (
         <>
@@ -24,12 +27,13 @@ const Navbar = () => {
                             className='h-10 w-auto'
                         />
                     </Link>
-                    <div className='flex items-center space-x-4'>
+                    <div className='flex items-center space-x-3'>
+                        <LanguageSelector />
                         <Button
                             onClick={() => setContactModalOpen(true)}
                             className='bg-blue-600 text-white hover:bg-blue-700'>
-                            <span className='hidden sm:inline'>İletişime Geçin</span>
-                            <span className='sm:hidden'>İletişime Geçin</span>
+                            <span className='hidden sm:inline'>{t('navbar.contact') as string}</span>
+                            <span className='sm:hidden'>{t('navbar.contact') as string}</span>
                         </Button>
                         {/* <a href='https://app.ema.solace.com.tr' target='_blank' rel='noopener noreferrer'>
                             <Button

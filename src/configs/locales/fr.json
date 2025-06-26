@@ -1,0 +1,429 @@
+{
+    "common": {
+        "loading": "Chargement...",
+        "error": "Une erreur s'est produite",
+        "close": "Fermer",
+        "contact": "Nous Contacter",
+        "submit": "Envoyer",
+        "name": "Nom Complet",
+        "email": "Email",
+        "phone": "Téléphone",
+        "company": "Entreprise",
+        "message": "Message"
+    },
+    "navbar": {
+        "contact": "Nous Contacter",
+        "language": "Langue",
+        "selectLanguage": "Sélectionner la Langue"
+    },
+    "hero": {
+        "title": "Laissez votre client parler, laissez",
+        "titleHighlight": "EMA",
+        "rotatingWords": [
+            "soutenir",
+            "comprendre",
+            "résoudre",
+            "aider",
+            "recommander",
+            "accueillir",
+            "vendre",
+            "analyser"
+        ],
+        "subtitle": "Laissez votre client exprimer ses besoins dans la langue de son choix, et EMA proposera les produits les plus adaptés à partir de votre catalogue.",
+        "cta": "Contactez-nous dès maintenant",
+        "videoTitle": "🎥 Vidéo",
+        "videoDescription": "EMA, votre vendeur qui connaît tous les détails de tous vos produits."
+    },
+    "problem": {
+        "title": "Une expérience d'achat lente, frustrante et impersonnelle",
+        "titleHighlight": "nuit à vos ventes.",
+        "problems": [
+            "Les barrières linguistiques éloignent les clients potentiels.",
+            "Des réponses tardives ou incohérentes les poussent directement vers vos concurrents.",
+            "En cas de confusion, les clients n'insistent pas — ils abandonnent."
+        ],
+        "quote": "Plus l'expérience d'achat est fluide et naturelle, plus vos ventes augmentent."
+    },
+    "guide": {
+        "title": "Utiliser le système est aussi simple que",
+        "titleHighlight": "parler",
+        "titleSuffix": "",
+        "subtitle": "EMA accueille chaque client avec un dialogue naturel et humain.",
+        "features": [
+            {
+                "title": "Infatigable",
+                "description": "Disponible 24h/24, 7j/7, ne se fatigue jamais.",
+                "icon": "⏰"
+            },
+            {
+                "title": "Patience infinie",
+                "description": "Répond avec patience à chaque question.",
+                "icon": "😊"
+            },
+            {
+                "title": "Connaît tous les produits",
+                "description": "Maîtrise tous les détails concernant les produits, les stocks et les prix.",
+                "icon": "📦"
+            },
+            {
+                "title": "Maîtrise des détails",
+                "description": "Comprend même les spécifications techniques les plus complexes.",
+                "icon": "🔍"
+            }
+        ]
+    },
+    "plan": {
+        "title": "3 étapes simples",
+        "steps": [
+            {
+                "step": "1",
+                "title": "Intégration des données",
+                "description": "Nous téléchargeons les informations sur vos produits et votre entreprise."
+            },
+            {
+                "step": "2",
+                "title": "Entraînement de l'IA",
+                "description": "Votre assistant vocal IA est entraîné spécifiquement pour votre activité."
+            },
+            {
+                "step": "3",
+                "title": "Mise en place de l'interface",
+                "description": "Une page EMA personnalisée est créée pour votre entreprise."
+            }
+        ],
+        "badge": "Aussi facile que de parler, aucune formation requise."
+    },
+    "features": {
+        "title": "Les fonctionnalités clés d'EMA",
+        "subtitle": "Chaque fonctionnalité est conçue pour enrichir l'expérience client.",
+        "featuresList": [
+            {
+                "id": "voice-recognition",
+                "title": "Traitement du langage naturel",
+                "icon": "🔊",
+                "description": "EMA comprend et répond au langage parlé grâce à une intelligence artificielle avancée.",
+                "color": "from-blue-600 to-cyan-600",
+                "image": "/images/voice-recognition.png",
+                "benefits": [
+                    "Élimine l'utilisation du clavier et de l'écran tactile",
+                    "Idéal pour les clients âgés ou peu à l'aise avec la technologie",
+                    "Permet une interaction mains libres",
+                    "Comprend les nuances, les intonations et les accents"
+                ]
+            },
+            {
+                "id": "multilingual",
+                "title": "Support multilingue",
+                "icon": "🌐",
+                "description": "EMA peut communiquer couramment dans cinq langues. Il parle littéralement la langue de vos clients.",
+                "color": "from-purple-600 to-indigo-600",
+                "image": "/images/multilingual.png",
+                "benefits": [
+                    "Supprime les barrières de communication avec les touristes et clients étrangers",
+                    "Élimine le besoin d'un traducteur",
+                    "Réduit la nécessité de recruter du personnel multilingue",
+                    "Améliore la satisfaction client à l'international"
+                ]
+            },
+            {
+                "id": "contextual",
+                "title": "Compréhension contextuelle",
+                "icon": "🧠",
+                "description": "EMA ne se contente pas d'entendre les mots — il comprend le contexte.",
+                "color": "from-orange-500 to-pink-500",
+                "image": "/images/contextual.png",
+                "benefits": [
+                    "Maintient un flux de dialogue logique et fluide",
+                    "Évite les répétitions côté client",
+                    "Comprend des besoins complexes",
+                    "Répond de manière naturelle, comme un humain"
+                ]
+            },
+            {
+                "id": "analytics",
+                "title": "Analyses clients",
+                "icon": "📈",
+                "description": "EMA collecte des données précieuses issues des interactions pour en tirer des analyses exploitables.",
+                "color": "from-emerald-500 to-teal-500",
+                "image": "/images/analytics.png",
+                "benefits": [
+                    "Identifie les produits les plus demandés",
+                    "Analyse les tendances d'achat",
+                    "Mesure la satisfaction client",
+                    "Aide à prendre des décisions basées sur les données concernant le stock et les ventes"
+                ]
+            }
+        ],
+        "autoplayOn": "Lecture automatique activée",
+        "autoplayOff": "Lecture automatique désactivée",
+        "imageNotFound": "Image non trouvée",
+        "benefitsTitle": "Avantages"
+    },
+    "comparison": {
+        "title": "Comparatif des",
+        "titleHighlight": "solutions",
+        "subtitle": "Découvrez les avantages d'EMA par rapport aux méthodes traditionnelles.",
+        "altTitle": "Comparaison de la solution EMA",
+        "altSubtitle": "Découvrez comment EMA se distingue des approches traditionnelles.",
+        "toggleAll": "Toutes les fonctionnalités",
+        "toggleDiff": "Seulement les différences",
+        "tooltip": "Ce tableau montre les avantages d'EMA par rapport aux écrans tactiles et au personnel humain.",
+        "featureCol": "Fonctionnalité",
+        "emaCol": "Assistant IA",
+        "touchscreenCol": "Écran tactile",
+        "kioskCol": "Kiosque",
+        "staffCol": "Personnel humain",
+        "salesRepCol": "Représentant des ventes",
+        "features": [
+            {
+                "name": "Support multilingue",
+                "ema": true,
+                "touchscreen": true,
+                "human": true,
+                "description": "EMA peut comprendre et répondre à une conversation naturelle en 5 langues."
+            },
+            {
+                "name": "Reconnaissance vocale naturelle",
+                "ema": true,
+                "touchscreen": false,
+                "human": true,
+                "description": "EMA suit le flux du dialogue et comprend le contexte."
+            },
+            {
+                "name": "Scalabilité aux heures de pointe",
+                "ema": true,
+                "touchscreen": true,
+                "human": false,
+                "description": "Répond à toutes les demandes des clients à la même vitesse, même pendant les périodes de pointe."
+            },
+            {
+                "name": "Accès à l'information produit",
+                "ema": true,
+                "touchscreen": true,
+                "human": true,
+                "description": "Fournit des informations instantanées sur tous les produits du magasin."
+            },
+            {
+                "name": "Recommandations personnalisées",
+                "ema": true,
+                "touchscreen": false,
+                "human": true,
+                "description": "Offre des recommandations personnalisées basées sur les requêtes et préférences des clients."
+            },
+            {
+                "name": "Analyses basées sur les conversations",
+                "ema": true,
+                "touchscreen": false,
+                "human": false,
+                "description": "Extrait et rapporte des informations précieuses des interactions avec les clients."
+            },
+            {
+                "name": "Disponibilité 24/7",
+                "ema": true,
+                "touchscreen": true,
+                "human": false,
+                "description": "Fournit un service même en dehors des heures de travail du personnel."
+            },
+            {
+                "name": "Fonctionne sans intervention humaine",
+                "ema": true,
+                "touchscreen": true,
+                "human": false,
+                "description": "Fonctionne de manière totalement autonome, sans nécessiter de support humain constant."
+            }
+        ],
+        "columns": {
+            "ema": "EMA (Assistant IA)",
+            "touchscreen": "Kiosque à écran tactile",
+            "human": "Personnel humain (Vendeur)"
+        }
+    },
+    "faq": {
+        "title": "Vos questions,",
+        "titleHighlight": "nos réponses",
+        "subtitle": "Trouvez les réponses aux questions fréquentes sur EMA.",
+        "sectionTitle": "Foire aux questions",
+        "sectionSubtitle": "Tout ce que vous voulez savoir sur EMA",
+        "searchPlaceholder": "🔍 Rechercher une question...",
+        "categories": [
+            {
+                "id": "all",
+                "name": "Toutes"
+            },
+            {
+                "id": "technical",
+                "name": "Technique"
+            },
+            {
+                "id": "installation",
+                "name": "Installation"
+            },
+            {
+                "id": "usage",
+                "name": "Utilisation"
+            },
+            {
+                "id": "privacy",
+                "name": "Confidentialité"
+            },
+            {
+                "id": "pricing",
+                "name": "Tarification"
+            }
+        ],
+        "questions": [
+            {
+                "question": "Quelles langues EMA prend-elle en charge ?",
+                "answer": "EMA prend actuellement en charge le turc, l'anglais, l'arabe, le russe et le français de manière fluide. D'autres langues seront ajoutées dans les futures mises à jour.",
+                "category": "technical"
+            },
+            {
+                "question": "Comment intégrer EMA à mon magasin ?",
+                "answer": "L'intégration d'EMA est très simple. Notre équipe d'installation se rend dans votre magasin, installe le matériel nécessaire et procède à l'intégration avec vos systèmes. Le processus prend généralement deux à trois jours.",
+                "category": "installation"
+            },
+            {
+                "question": "Quelles sont les exigences matérielles d'EMA ?",
+                "answer": "EMA ne nécessite aucun matériel spécifique. Toutefois, pour une solution en magasin, un écran tactile standard, un microphone et un haut-parleur suffisent. Tout l'équipement est inclus dans le pack d'installation et mis en place par notre équipe professionnelle.",
+                "category": "technical"
+            },
+            {
+                "question": "Comment mes clients utilisent-ils EMA ?",
+                "answer": "Vos clients peuvent interagir naturellement avec EMA. Il leur suffit de dire \"Merhaba\" ou \"Hello\" devant l'écran. EMA détecte automatiquement la langue et répond dans celle-ci.",
+                "category": "usage"
+            },
+            {
+                "question": "EMA enregistre-t-elle les données des clients ?",
+                "answer": "EMA extrait des données anonymes utiles à partir des interactions mais ne stocke aucune information personnelle. Seules des données comme les produits demandés ou les questions fréquentes sont collectées pour améliorer les opérations en magasin.",
+                "category": "privacy"
+            },
+            {
+                "question": "Dois-je mettre à jour EMA lorsque j'ajoute de nouveaux produits ?",
+                "answer": "Non. EMA est basé sur le cloud et se synchronise automatiquement avec votre inventaire. Lorsque vous ajoutez un produit ou modifiez un prix, EMA se met à jour automatiquement.",
+                "category": "technical"
+            },
+            {
+                "question": "EMA fonctionne-t-elle sans connexion Internet ?",
+                "answer": "EMA nécessite une connexion Internet pour fonctionner de manière optimale. Cependant, elle peut continuer à exécuter des fonctions de base en cas de coupures temporaires.",
+                "category": "technical"
+            },
+            {
+                "question": "Quel est le coût d'EMA ?",
+                "answer": "EMA est proposé sous forme d'abonnement mensuel. Le tarif dépend de la taille de votre magasin et de vos besoins. Des remises spéciales de lancement sont disponibles pour les 50 premiers magasins inscrits.",
+                "category": "pricing"
+            }
+        ],
+        "noResultsTitle": "Aucun Résultat",
+        "noResultsSubtitle": "Aucune question ne correspond à votre recherche. Veuillez essayer d'autres mots-clés ou parcourir toutes les catégories.",
+        "footerText": "Vous ne trouvez pas ce que vous cherchez ?",
+        "footerButton": "Contactez-nous"
+    },
+    "partners": {
+        "companies": [
+            {
+                "name": "AFEX Istanbul",
+                "url": "https://www.afextr.com/tr"
+            },
+            {
+                "name": "Greyder",
+                "url": "https://www.greyder.com.tr/"
+            },
+            {
+                "name": "Integral Group",
+                "url": "https://tr.integralgroup.com.tr/"
+            }
+        ]
+    },
+    "cta": {
+        "withoutEma": {
+            "title": "Sans EMA",
+            "badge": "RÉACTIF",
+            "problems": [
+                "Les clients ne trouvent pas les produits",
+                "Les barrières linguistiques freinent les ventes",
+                "Le personnel répond sans cesse aux mêmes questions"
+            ]
+        },
+        "withEma": {
+            "title": "Avec EMA",
+            "badge": "PROACTIF",
+            "benefits": [
+                "Chaque client trouve ce qu'il cherche",
+                "Communication naturelle en 5 langues",
+                "Portez la satisfaction client au plus haut niveau.",
+                "Ayez un assistant qui travaille 24h/24 et ne se fatigue jamais.",
+                "Renforcez votre processus de vente avec des données intelligentes."
+            ]
+        },
+        "urgencyBadge": "Seulement pour les 50 Premiers Magasins",
+        "title": "Prenez Votre Décision",
+        "titleHighlight": "Aujourd'hui",
+        "subtitle": "Chaque jour, vous pouvez risquer de perdre vos clients.\nOu vous pouvez leur donner l'expérience qu'ils recherchent.",
+        "advantagesTitle": "Avantages qu'EMA Offre :",
+        "advantages": [
+            "Communication instantanée en 5 langues différentes.",
+            "Portez la satisfaction client au plus haut niveau.",
+            "Ayez un assistant qui travaille 24h/24 et ne se fatigue jamais.",
+            "Renforcez votre processus de vente avec des données intelligentes."
+        ],
+        "cta": "Contactez-nous Maintenant",
+        "ctaSubtext": "Postulez Maintenant",
+        "referencesTitle": "Références :",
+        "references": [
+            "Greyder",
+            "AFEX Istanbul",
+            "Integral Group",
+            "Dünya Bahçe"
+        ],
+        "finalMessage": "Votre client parlera. EMA comprendra. Vous gagnerez.",
+        "finalMessageParts": {
+            "customer": "Votre client parlera.",
+            "ema": "EMA comprendra.",
+            "you": "Vous gagnerez."
+        }
+    },
+    "footer": {
+        "slogan": "Nous Livrons la Technologie avec la Facilité de la Conversation.",
+        "legal": "Légal",
+        "legalLinks": [
+            {
+                "name": "RGPD",
+                "href": "/legal/data-protection"
+            },
+            {
+                "name": "Politique de Confidentialité",
+                "href": "/legal/privacy-policy"
+            },
+            {
+                "name": "Politique des Cookies",
+                "href": "/legal/cookie-policy"
+            }
+        ],
+        "contact": "Contact",
+        "email": "info-ema@solace.com.tr",
+        "socials": [
+            "LinkedIn",
+            "Instagram",
+            "YouTube"
+        ],
+        "copyright": "© 2025 EMA, Solace Technology. Tous droits réservés."
+    },
+    "contactModal": {
+        "title": "Nous Contacter",
+        "subtitle": "Partagez vos informations pour faire connaissance avec EMA, et nous vous contacterons.",
+        "name": "Nom Complet",
+        "namePlaceholder": "Votre prénom et nom",
+        "email": "Email",
+        "emailPlaceholder": "exemple@email.com",
+        "phone": "Téléphone",
+        "phonePlaceholder": "+90 5XX XXX XX XX",
+        "company": "Entreprise",
+        "companyPlaceholder": "Le nom de votre entreprise",
+        "message": "Message",
+        "messagePlaceholder": "Ce qui vous intrigue à propos d'EMA...",
+        "submit": "Envoyer",
+        "sending": "Envoi en cours...",
+        "success": "Votre message a été envoyé avec succès !",
+        "error": "Une erreur s'est produite. Veuillez réessayer."
+    }
+}

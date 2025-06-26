@@ -9,6 +9,7 @@ import { ThemeProvider } from 'next-themes';
 import '@/app/globals.css';
 import Navbar from '@/components/Navbar';
 import EmaModal from '@/components/EmaModal';
+import { LanguageProvider } from '@/contexts/LanguageContext';
 import { ToastProvider } from '@/providers/toast-provider';
 import { Toaster } from '@/registry/new-york-v4/ui/sonner';
 import '@/styles/animations.css';
@@ -61,17 +62,20 @@ const Layout = ({ children }: Readonly<{ children: ReactNode }>) => {
         <html suppressHydrationWarning lang='tr'>
             <body
                 className={`${playfair.variable} ${inter.variable} ${montserrat.variable} ${geistMono.variable} bg-background text-foreground overscroll-none antialiased`}>
-                <ThemeProvider attribute='class'>
-                    <Navbar />
-                    {children}
-                    <EmaModal
-                        emaUrl="https://live.ema.solace.com.tr/greyder"
-                        logoSrc="/branding/ema_logo.svg"
-                        brandName="EMA"
-                        themeColor="#0066ff"
-                    />
-                    <Toaster position='top-center' richColors closeButton />
-                </ThemeProvider>
+                <LanguageProvider>
+                    <ThemeProvider attribute='class'>
+                        <Navbar />
+                        {children}
+                        {/* for now deactivated because of the new modal */}
+                        {/* <EmaModal
+                            emaUrl="https://live.ema.solace.com.tr/greyder"
+                            logoSrc="/branding/ema_logo.svg"
+                            brandName="EMA"
+                            themeColor="#0066ff"
+                        /> */}
+                        <Toaster position='top-center' richColors closeButton />
+                    </ThemeProvider>
+                </LanguageProvider>
             </body>
         </html>
     );

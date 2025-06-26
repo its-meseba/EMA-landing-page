@@ -41,7 +41,7 @@ export default function MainPage() {
             <PartnersSection />
             <FeatureShowcaseSection />
             <ComparisonSection />
-            <FaqSection />
+            <FaqSection setContactModalOpen={setContactModalOpen} />
             <CtaSection setContactModalOpen={setContactModalOpen} />
             <FooterSection />
         </main>
