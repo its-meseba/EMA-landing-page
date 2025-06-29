@@ -10,9 +10,17 @@ All notable changes to the EMA Landing Page project will be documented in this f
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [Unreleased]
+## [Unreleased] - 2025-01-17
 
 ### Added
+- **Localization System**: Complete internationalization support with Turkish (tr), English (en), and French (fr) languages
+  - Language Selector: Interactive language selector in navbar with flag icons and dialog interface
+  - Dynamic Language Routing: Middleware-based routing with `/[language]` path structure
+  - Language Context: React context for managing language state and translations
+  - Translation Files: Comprehensive JSON translation files for all three supported languages
+  - Metadata Localization: Language-specific meta tags and SEO optimization
+  - Language Detection: Automatic language detection from URL, localStorage, and Accept-Language header
+  - Route Management: Dynamic routes for language-specific pages with proper redirects
 - **EmaModal Component**: Implemented persistent floating chat modal component
   - Floating action button positioned in bottom-right corner
   - Auto-open functionality based on scroll position (75%) and exit intent
@@ -23,6 +31,19 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   - Customizable branding, colors, and messaging
   - Support for product thumbnails and social proof display
   - Integrated into main layout for global availability
+- Added comprehensive French localization for new landing page sections
+- Added `features` section with detailed key functionalities of EMA including:
+  - Natural language processing with advantages
+  - Multilingual support benefits  
+  - Contextual understanding capabilities
+  - Customer analytics features
+- Added `comparison` section with feature comparison table between EMA, touchscreen, and human staff
+- Added `faq` section with categorized frequently asked questions covering:
+  - Technical specifications
+  - Installation process
+  - Usage instructions
+  - Privacy policies
+  - Pricing information
 
 ### Changed
 - Updated main layout to include EmaModal component globally
@@ -62,6 +83,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Modal açıldığında sayfanın geri kalanını flulaştıran (backdrop-blur) bir arka plan eklendi.
 - Modal butonu içindeki EMA logosu daha estetik bir görünüm için yeniden boyutlandırıldı ve ortalandı.
 - Modal'ın açılış/kapanış animasyon hızı ve yumuşaklığı (easing) iyileştirildi.
+- Updated hero section with new title structure and rotating words
+- Enhanced problem section with more specific pain points
+- Refined guide section with better feature descriptions
+- Improved plan section with clearer step descriptions
+- Updated video descriptions and call-to-action text
 
 ### Technical Details
 - Added `EmaModal.tsx` component in `/src/components/`
@@ -99,3 +125,23 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
     - The modal is fully responsive and provides a full-screen experience on all devices.
 - **Branding & Customization**:
     - The component is customizable for different brands, logos, and color schemes.
+
+### Updated Content Sections
+- **Hero**: Updated title to "Laissez votre client parler, laissez EMA..." with new rotating action words
+- **Problem**: Enhanced problem descriptions and empathy quote
+- **Guide**: Refined feature titles and descriptions for better clarity
+- **Plan**: Updated step descriptions for installation process
+- **Features**: New comprehensive section with 4 key features and their advantages
+- **Comparison**: New table comparing EMA vs traditional solutions
+- **FAQ**: New section with 8 categorized questions and detailed answers
+
+### Updated
+- **English Localization (en.json)** - Updated content based on new page structure
+  - Hero section: Updated rotating words and subtitle
+  - Problem section: Refined messaging for conversion impact
+  - Guide section: Simplified title and improved feature descriptions
+  - Plan section: Enhanced step descriptions for clarity
+  - Added new "Features" section with detailed benefits for each EMA capability
+  - Added new "Comparison" section comparing EMA with touchscreen kiosks and human staff
+  - Added comprehensive "FAQ" section with 8 questions across 5 categories
+  - Maintained existing CTA, Partners, Footer, and Contact Modal content

@@ -8,6 +8,7 @@ import { useLanguage } from '@/contexts/LanguageContext';
 import { Button } from '@/registry/new-york-v4/ui/button';
 import { Dialog, DialogContent } from '@/registry/new-york-v4/ui/dialog';
 import VideoShowcase from '@/components/VideoShowcase';
+import { z } from 'zod';
 
 import { Variants, motion, useReducedMotion } from 'framer-motion';
 
@@ -22,20 +23,28 @@ interface LanguageBubbleProps {
     delay: number;
 }
 
+const rotatingWordsSchema = z.array(z.string());
+
 // Rotating Words Component
-const RotatingWords = ({ words, baseColor, gradientColors = false }: {
-    words?: string[],
-    baseColor?: string,
-    gradientColors?: boolean
+const RotatingWords = ({
+    words,
+    baseColor,
+    gradientColors = false,
+}: {
+    words?: string[];
+    baseColor?: string;
+    gradientColors?: boolean;
 } = {}) => {
     const [currentIndex, setCurrentIndex] = useState(0);
     const [direction, setDirection] = useState('down');
     const [isAnimating, setIsAnimating] = useState(false);
     const { t, language } = useLanguage(); // Use language hook
-    const wordConfigs = t('hero.rotatingWords') as string[];
-
+    const wordConfigsData = t('hero.rotatingWords');
+    const wordConfigsResult = rotatingWordsSchema.safeParse(wordConfigsData);
+    const wordConfigs = wordConfigsResult.success ? wordConfigsResult.data : [];
 
     useEffect(() => {
+        if (wordConfigs.length === 0) return;
         const interval = setInterval(() => {
             setDirection('up');
             setIsAnimating(true);
@@ -44,7 +53,6 @@ const RotatingWords = ({ words, baseColor, gradientColors = false }: {
                 setCurrentIndex((prevIndex) => (prevIndex + 1) % wordConfigs.length);
                 setDirection('down');
 
-                // Small delay before starting the entrance animation
                 setTimeout(() => {
                     setIsAnimating(false);
                 }, 50);
@@ -54,6 +62,10 @@ const RotatingWords = ({ words, baseColor, gradientColors = false }: {
 
         return () => clearInterval(interval);
     }, [wordConfigs.length]);
+
+    if (wordConfigs.length === 0) {
+        return null;
+    }
 
     const animationClasses = isAnimating
         ? direction === 'up'
@@ -206,6 +218,13 @@ export default function HeroSection({ isMobile, setContactModalOpen }: HeroSecti
         setParticles(createParticles(isMobile ? 0 : 30));
     }, [isMobile]);
 
+    const title = t('hero.title');
+    const titleHighlight = t('hero.titleHighlight');
+    const subtitle = t('hero.subtitle');
+    const cta = t('hero.cta');
+    const videoTitle = t('hero.videoTitle');
+    const videoDescription = t('hero.videoDescription');
+
     return (
         <section
             ref={heroSectionRef}
@@ -267,17 +286,17 @@ export default function HeroSection({ isMobile, setContactModalOpen }: HeroSecti
                         {/* Title */}
                         <div className='font-playfair mb-6 text-center text-4xl leading-tight font-bold tracking-tighter'>
                             <div className='mb-2 text-white'>
-                                {t('hero.title') as string}
+                                {typeof title === 'string' ? title : ''}
                             </div>
                             <div className='flex items-baseline justify-start gap-2 text-blue-400'>
-                                <span>{t('hero.titleHighlight') as string}</span>
+                                <span>{typeof titleHighlight === 'string' ? titleHighlight : ''}</span>
                                 <RotatingWords />
                             </div>
                         </div>
 
                         {/* Description text */}
                         <p className='mb-8 max-w-xl text-center text-lg text-slate-300'>
-                            {t('hero.subtitle') as string}
+                            {typeof subtitle === 'string' ? subtitle : ''}
                         </p>
 
                         {/* CTA button */}
@@ -285,7 +304,7 @@ export default function HeroSection({ isMobile, setContactModalOpen }: HeroSecti
                             size='lg'
                             onClick={() => setContactModalOpen(true)}
                             className='w-full rounded-full bg-blue-500 py-6 text-base font-medium'>
-                            {t('hero.cta') as string}
+                            {typeof cta === 'string' ? cta : ''}
                         </Button>
 
                         {/* Mobile Video Thumbnail */}
@@ -303,7 +322,7 @@ export default function HeroSection({ isMobile, setContactModalOpen }: HeroSecti
                                         height: '100%',
                                         borderRadius: '1rem'
                                     }}
-                                    title={t('hero.videoTitle') as string}
+                                    title={typeof videoTitle === 'string' ? videoTitle : ''}
                                 />
                             </div>
                         </div>
@@ -315,15 +334,15 @@ export default function HeroSection({ isMobile, setContactModalOpen }: HeroSecti
                             {/* Text content on left side */}
                             <div className='order-1 md:col-span-7'>
                                 <h1 className='font-playfair mb-6 text-4xl leading-[1.1] font-bold tracking-tighter md:mb-6 md:text-7xl lg:text-8xl'>
-                                    <span className='block text-shadow-lg'>{t('hero.title') as string}</span>
+                                    <span className='block text-shadow-lg'>{typeof title === 'string' ? title : ''}</span>
                                     <span className='animate-gradient-shift mt-2 flex items-baseline bg-gradient-to-r from-blue-400 via-cyan-300 to-blue-400 bg-clip-text text-transparent'>
-                                        <span className="mr-1 md:mr-2 lg:mr-3">{t('hero.titleHighlight') as string}</span>
+                                        <span className="mr-1 md:mr-2 lg:mr-3">{typeof titleHighlight === 'string' ? titleHighlight : ''}</span>
                                         <RotatingWords />
                                     </span>
                                 </h1>
 
                                 <p className='font-inter max-w-2xl text-xl leading-relaxed font-light text-slate-300 md:text-2xl'>
-                                    {t('hero.subtitle') as string}
+                                    {typeof subtitle === 'string' ? subtitle : ''}
                                 </p>
 
                                 <div className='mt-8'>
@@ -331,7 +350,7 @@ export default function HeroSection({ isMobile, setContactModalOpen }: HeroSecti
                                         size='lg'
                                         onClick={() => setContactModalOpen(true)}
                                         className='font-montserrat rounded-full bg-blue-500 px-6 py-5 text-base text-white shadow-lg shadow-blue-500/30 transition-all hover:bg-blue-600 hover:shadow-blue-500/50 sm:px-8 sm:py-6 sm:text-lg'>
-                                        {t('hero.cta') as string}
+                                        {typeof cta === 'string' ? cta : ''}
                                     </Button>
                                 </div>
                             </div>
@@ -371,7 +390,7 @@ export default function HeroSection({ isMobile, setContactModalOpen }: HeroSecti
                                         height: '100%',
                                         borderRadius: '1.5rem'
                                     }}
-                                    title={t('hero.videoTitle') as string}
+                                    title={typeof videoTitle === 'string' ? videoTitle : ''}
                                 />
                             </div>
                         </div>
@@ -384,8 +403,8 @@ export default function HeroSection({ isMobile, setContactModalOpen }: HeroSecti
                 <DialogContent className='flex w-full max-w-3xl items-center justify-center bg-transparent p-0 shadow-none'>
                     <div className='w-full'>
                         <VideoShowcase
-                            title={t('hero.videoTitle') as string}
-                            description={t('hero.videoDescription') as string}
+                            title={typeof videoTitle === 'string' ? videoTitle : ''}
+                            description={typeof videoDescription === 'string' ? videoDescription : ''}
                             videoSrc='/videos/ema-demo.mp4'
                             posterSrc='/videos/ema-poster.jpg'
                         />

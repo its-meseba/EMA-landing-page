@@ -2,50 +2,63 @@
 
 import { useLanguage } from '@/contexts/LanguageContext';
 import { Card, CardContent } from '@/registry/new-york-v4/ui/card';
+import { z } from 'zod';
 
-interface Feature {
-    title: string;
-    description: string;
-    icon: string;
-}
+const featureSchema = z.object({
+    title: z.string(),
+    description: z.string(),
+    icon: z.string(),
+});
+
+const featuresSchema = z.array(featureSchema);
 
 export default function GuideSection() {
-    const { t } = useLanguage();
+    const { t, language } = useLanguage();
+
+    const title = t('guide.title');
+    const titleHighlight = t('guide.titleHighlight');
+    const titleSuffix = t('guide.titleSuffix');
+    const subtitle = t('guide.subtitle');
+    const featuresData = t('guide.features');
+
+    const features = featuresSchema.safeParse(featuresData);
+
     return (
         <section className='flex min-h-screen w-full items-center justify-center bg-gradient-to-b from-slate-900 to-slate-800 py-16 text-white md:py-24'>
             <div className='container px-5 md:px-8'>
                 <div className='mx-auto mb-10 max-w-5xl text-center md:mb-16'>
                     <h2 className='font-playfair mb-4 text-4xl leading-[1.1] font-bold tracking-tighter sm:mb-6 sm:text-5xl md:text-7xl'>
-                        {t('guide.title') as string}{' '}
+                        {typeof title === 'string' ? title : ''}{' '}
                         <span className='bg-gradient-to-r from-blue-400 to-cyan-300 bg-clip-text text-transparent'>
-                            {t('guide.titleHighlight') as string}
+                            {typeof titleHighlight === 'string' ? titleHighlight : ''}
                         </span>{' '}
-                        {t('guide.titleSuffix') as string}
+                        {language === 'tr' && (typeof titleSuffix === 'string' ? titleSuffix : '')}
                     </h2>
                     <p className='font-inter mx-auto max-w-2xl text-lg leading-relaxed text-slate-300 sm:text-xl'>
-                        {t('guide.subtitle') as string}
+                        {typeof subtitle === 'string' ? subtitle : ''}
                     </p>
                 </div>
 
                 <div className='mb-10 grid grid-cols-1 gap-6 sm:grid-cols-2 sm:gap-8 md:mb-12 md:grid-cols-4'>
-                    {(t('guide.features') as Feature[]).map((feature: Feature, index: number) => (
-                        <Card
-                            key={index}
-                            className='group overflow-hidden border-slate-700 bg-gradient-to-br from-slate-800 to-slate-900 transition-all hover:border-blue-500/50'>
-                            <CardContent className='relative p-6 sm:p-8'>
-                                <div className='absolute top-0 right-0 -mt-10 -mr-10 h-20 w-20 rounded-full bg-blue-500/10 transition-colors group-hover:bg-blue-500/20 sm:h-24 sm:w-24'></div>
-                                <div className='mb-4 text-3xl sm:text-4xl'>{feature.icon}</div>
-                                <h3 className='font-montserrat mb-2 text-xl font-bold text-white sm:mb-3 sm:text-2xl'>
-                                    {feature.title}
-                                </h3>
-                                <p className='font-inter text-sm text-slate-300 sm:text-base'>
-                                    {feature.description}
-                                </p>
-                            </CardContent>
-                        </Card>
-                    ))}
+                    {features.success &&
+                        features.data.map((feature, index) => (
+                            <Card
+                                key={index}
+                                className='group overflow-hidden border-slate-700 bg-gradient-to-br from-slate-800 to-slate-900 transition-all hover:border-blue-500/50'>
+                                <CardContent className='relative p-6 sm:p-8'>
+                                    <div className='absolute top-0 right-0 -mt-10 -mr-10 h-20 w-20 rounded-full bg-blue-500/10 transition-colors group-hover:bg-blue-500/20 sm:h-24 sm:w-24'></div>
+                                    <div className='mb-4 text-3xl sm:text-4xl'>{feature.icon}</div>
+                                    <h3 className='font-montserrat mb-2 text-xl font-bold text-white sm:mb-3 sm:text-2xl'>
+                                        {feature.title}
+                                    </h3>
+                                    <p className='font-inter text-sm text-slate-300 sm:text-base'>
+                                        {feature.description}
+                                    </p>
+                                </CardContent>
+                            </Card>
+                        ))}
                 </div>
             </div>
         </section>
-    )
+    );
 } 

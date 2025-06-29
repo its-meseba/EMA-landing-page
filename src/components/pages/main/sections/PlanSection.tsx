@@ -2,27 +2,37 @@
 
 import { useLanguage } from "@/contexts/LanguageContext";
 import { Badge } from "@/components/ui/Badge";
+import { z } from "zod";
 
-interface Step {
-    step: string;
-    title: string;
-    description: string;
-}
+const stepSchema = z.object({
+    step: z.string(),
+    title: z.string(),
+    description: z.string(),
+});
+
+const stepsSchema = z.array(stepSchema);
 
 export default function PlanSection() {
     const { t } = useLanguage();
+
+    const title = t('plan.title');
+    const stepsData = t('plan.steps');
+    const badge = t('plan.badge');
+
+    const steps = stepsSchema.safeParse(stepsData);
+
     return (
         <section className='flex min-h-screen w-full items-center justify-center bg-white py-16 md:py-24'>
             <div className='container px-5 md:px-8'>
                 <div className='mx-auto max-w-5xl'>
                     <h2 className='font-playfair mb-10 text-center text-4xl leading-[1.1] font-bold tracking-tighter text-slate-900 sm:text-5xl md:mb-16 md:text-7xl'>
-                        {t('plan.title') as string}
+                        {typeof title === 'string' ? title : ''}
                     </h2>
 
                     <div className='relative'>
                         <div className='absolute left-1/2 hidden h-full w-1 -translate-x-1/2 bg-blue-100 md:block'></div>
 
-                        {(t('plan.steps') as Step[]).map((step: Step, index: number) => (
+                        {steps.success && steps.data.map((step, index: number) => (
                             <div
                                 key={index}
                                 className='relative mb-10 flex flex-col items-center gap-4 last:mb-0 sm:mb-16 sm:gap-6 md:flex-row md:gap-12'>
@@ -67,7 +77,7 @@ export default function PlanSection() {
 
                     <div className='mt-10 text-center sm:mt-16 flex flex-col items-center gap-4'>
                         <Badge className='font-montserrat rounded-full border border-blue-200 bg-blue-50 px-4 py-2 text-base text-blue-800 sm:px-6 sm:py-3 sm:text-lg'>
-                            {t('plan.badge') as string}
+                            {typeof badge === 'string' ? badge : ''}
                         </Badge>
                     </div>
                 </div>

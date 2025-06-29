@@ -2,15 +2,21 @@
 
 import Image from "next/image";
 import { useLanguage } from "@/contexts/LanguageContext";
+import { z } from "zod";
 
-interface Company {
-    name: string;
-    url: string;
-}
+const companySchema = z.object({
+    name: z.string(),
+    url: z.string(),
+});
+
+const companiesSchema = z.array(companySchema);
 
 export default function PartnersSection() {
     const { t } = useLanguage();
-    const companies = t('partners.companies') as Company[];
+    const companiesData = t('partners.companies');
+    const companiesResult = companiesSchema.safeParse(companiesData);
+    const companies = companiesResult.success ? companiesResult.data : [];
+
     return (
         <section className='w-full bg-slate-100 py-10 overflow-x-auto'>
             <div className='container mx-auto flex flex-row items-center justify-center gap-8 md:gap-16' style={{ minWidth: 'max-content' }}>

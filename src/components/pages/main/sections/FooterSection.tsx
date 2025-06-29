@@ -3,14 +3,32 @@
 import Link from "next/link";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { Separator } from "@/registry/new-york-v4/ui/separator";
+import { z } from "zod";
 
-interface LegalLink {
-    name: string;
-    href: string;
-}
+const legalLinkSchema = z.object({
+    name: z.string(),
+    href: z.string(),
+});
+
+const legalLinksSchema = z.array(legalLinkSchema);
+const socialsSchema = z.array(z.string());
 
 export default function FooterSection() {
     const { t } = useLanguage();
+
+    const slogan = t('footer.slogan');
+    const legal = t('footer.legal');
+    const contact = t('footer.contact');
+    const email = t('footer.email');
+    const copyright = t('footer.copyright');
+
+    const legalLinksData = t('footer.legalLinks');
+    const legalLinksResult = legalLinksSchema.safeParse(legalLinksData);
+    const legalLinks = legalLinksResult.success ? legalLinksResult.data : [];
+
+    const socialsData = t('footer.socials');
+    const socialsResult = socialsSchema.safeParse(socialsData);
+    const socials = socialsResult.success ? socialsResult.data : [];
 
     return (
         <footer className='w-full bg-[#0e0f1a] py-12 text-white sm:py-16'>
@@ -23,14 +41,14 @@ export default function FooterSection() {
                             </span>
                         </div>
                         <p className='font-inter max-w-xs text-sm leading-relaxed text-slate-400 sm:text-base'>
-                            {t('footer.slogan') as string}
+                            {typeof slogan === 'string' ? slogan : ''}
                         </p>
                     </div>
 
                     <div>
-                        <h3 className='font-montserrat mb-3 text-base font-semibold sm:mb-4 sm:text-lg'>{t('footer.legal') as string}</h3>
+                        <h3 className='font-montserrat mb-3 text-base font-semibold sm:mb-4 sm:text-lg'>{typeof legal === 'string' ? legal : ''}</h3>
                         <ul className='font-inter space-y-2 sm:space-y-3'>
-                            {(t('footer.legalLinks') as LegalLink[]).map((link: LegalLink, index: number) => (
+                            {legalLinks.map((link, index: number) => (
                                 <li key={index}>
                                     <Link
                                         href={link.href}
@@ -44,12 +62,12 @@ export default function FooterSection() {
 
                     <div>
                         <h3 className='font-montserrat mb-3 text-base font-semibold sm:mb-4 sm:text-lg'>
-                            {t('footer.contact') as string}
+                            {typeof contact === 'string' ? contact : ''}
                         </h3>
                         <ul className='font-inter space-y-2 sm:space-y-3'>
-                            <li className='text-sm text-slate-400 sm:text-base'>{t('footer.email') as string}</li>
+                            <li className='text-sm text-slate-400 sm:text-base'>{typeof email === 'string' ? email : ''}</li>
                             <li className='flex gap-3 pt-2 sm:gap-4 sm:pt-3'>
-                                {(t('footer.socials') as string[]).map((social: string, index: number) => (
+                                {socials.map((social: string, index: number) => (
                                     <Link
                                         key={index}
                                         href='#'
@@ -65,7 +83,7 @@ export default function FooterSection() {
                 <Separator className='mb-6 bg-slate-800 sm:mb-8' />
 
                 <p className='font-inter text-center text-xs text-slate-500 sm:text-sm'>
-                    {t('footer.copyright') as string}
+                    {typeof copyright === 'string' ? copyright : ''}
                 </p>
             </div>
         </footer>

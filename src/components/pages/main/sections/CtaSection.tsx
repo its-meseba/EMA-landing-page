@@ -5,31 +5,51 @@ import { Badge } from "@/components/ui/Badge";
 import { Button } from "@/registry/new-york-v4/ui/button";
 import { motion } from "framer-motion";
 import { ArrowRight, Sparkles } from "lucide-react";
+import { z } from "zod";
+
+const emaBenefitSchema = z.object({
+    badge: z.string(),
+    title: z.string(),
+    problems: z.array(z.string()).optional(),
+    benefits: z.array(z.string()).optional(),
+});
+
+const finalMessagePartsSchema = z.object({
+    customer: z.string(),
+    ema: z.string(),
+    you: z.string(),
+});
+
+const referencesSchema = z.array(z.string());
+const advantagesSchema = z.array(z.string());
 
 interface CtaSectionProps {
     setContactModalOpen: (open: boolean) => void;
 }
 
-interface EmaBenefit {
-    badge: string;
-    title: string;
-    problems?: string[];
-    benefits?: string[];
-}
-
-interface FinalMessageParts {
-    customer: string;
-    ema: string;
-    you: string;
-}
-
 export default function CtaSection({ setContactModalOpen }: CtaSectionProps) {
     const { t } = useLanguage();
-    const withoutEma = t('cta.withoutEma') as EmaBenefit;
-    const withEma = t('cta.withEma') as EmaBenefit;
-    const referencesSource = t('cta.references');
-    const references: string[] = Array.isArray(referencesSource) ? referencesSource : [];
-    const finalMessageParts = t('cta.finalMessageParts') as FinalMessageParts;
+
+    const withoutEmaResult = emaBenefitSchema.safeParse(t('cta.withoutEma'));
+    const withEmaResult = emaBenefitSchema.safeParse(t('cta.withEma'));
+    const referencesResult = referencesSchema.safeParse(t('cta.references'));
+    const finalMessagePartsResult = finalMessagePartsSchema.safeParse(t('cta.finalMessageParts'));
+    const advantagesResult = advantagesSchema.safeParse(t('cta.advantages'));
+
+    const withoutEma = withoutEmaResult.success ? withoutEmaResult.data : { badge: '', title: '', problems: [] };
+    const withEma = withEmaResult.success ? withEmaResult.data : { badge: '', title: '', benefits: [] };
+    const references = referencesResult.success ? referencesResult.data : [];
+    const finalMessageParts = finalMessagePartsResult.success ? finalMessagePartsResult.data : { customer: '', ema: '', you: '' };
+    const advantages = advantagesResult.success ? advantagesResult.data : [];
+
+    const urgencyBadge = t('cta.urgencyBadge');
+    const title = t('cta.title');
+    const titleHighlight = t('cta.titleHighlight');
+    const subtitle = t('cta.subtitle');
+    const advantagesTitle = t('cta.advantagesTitle');
+    const cta = t('cta.cta');
+    const ctaSubtext = t('cta.ctaSubtext');
+    const referencesTitle = t('cta.referencesTitle');
 
     return (
         <section className='relative flex min-h-screen w-full items-center justify-center overflow-hidden bg-gradient-to-br from-[#1a2333] to-[#0e0f1a] py-16 text-white md:py-24'>
@@ -136,7 +156,7 @@ export default function CtaSection({ setContactModalOpen }: CtaSectionProps) {
                                     className='mr-2 inline-block'>
                                     ⏰
                                 </motion.span>
-                                {t('cta.urgencyBadge') as string}
+                                {typeof urgencyBadge === 'string' ? urgencyBadge : ''}
                             </Badge>
                         </motion.div>
 
@@ -147,9 +167,9 @@ export default function CtaSection({ setContactModalOpen }: CtaSectionProps) {
                             viewport={{ once: true }}
                             transition={{ delay: 0.6 }}
                             className='font-playfair mb-6 text-5xl leading-[1.1] font-bold tracking-tighter sm:text-6xl md:text-7xl'>
-                            <span className='block text-white'>{t('cta.title') as string}</span>
+                            <span className='block text-white'>{typeof title === 'string' ? title : ''}</span>
                             <span className='bg-gradient-to-r from-amber-400 via-yellow-400 to-amber-400 bg-clip-text text-transparent'>
-                                {t('cta.titleHighlight') as string}
+                                {typeof titleHighlight === 'string' ? titleHighlight : ''}
                             </span>
                         </motion.h2>
 
@@ -160,7 +180,7 @@ export default function CtaSection({ setContactModalOpen }: CtaSectionProps) {
                             viewport={{ once: true }}
                             transition={{ delay: 0.7 }}
                             className='mx-auto mb-8 max-w-2xl text-xl leading-relaxed text-slate-300'>
-                            {t('cta.subtitle') as string}
+                            {typeof subtitle === 'string' ? subtitle : ''}
                         </motion.p>
 
                         {/* Risk Reversal */}
@@ -172,10 +192,10 @@ export default function CtaSection({ setContactModalOpen }: CtaSectionProps) {
                             className='mb-10 space-y-4'>
                             <div className='mx-auto max-w-xl rounded-xl bg-slate-800/50 p-6 backdrop-blur-sm'>
                                 <h3 className='mb-4 text-lg font-bold text-emerald-300 text-center'>
-                                    {t('cta.advantagesTitle') as string}
+                                    {typeof advantagesTitle === 'string' ? advantagesTitle : ''}
                                 </h3>
                                 <ul className='space-y-2 text-sm text-slate-300'>
-                                    {(t('cta.advantages') as string[]).map((advantage: string, index: number) => (
+                                    {advantages.map((advantage: string, index: number) => (
                                         <li key={index} className='flex items-center justify-center gap-2'>
                                             <span className='text-emerald-400'>✓</span>
                                             <span>{advantage}</span>
@@ -221,8 +241,8 @@ export default function CtaSection({ setContactModalOpen }: CtaSectionProps) {
                                 <span className='relative z-10 flex items-center gap-3'>
                                     <Sparkles className='h-6 w-6' />
                                     <span className='flex flex-col items-center'>
-                                        <span>{t('cta.cta') as string}</span>
-                                        <span>{t('cta.ctaSubtext') as string}</span>
+                                        <span>{typeof cta === 'string' ? cta : ''}</span>
+                                        <span>{typeof ctaSubtext === 'string' ? ctaSubtext : ''}</span>
                                     </span>
                                     <ArrowRight className='h-6 w-6 transition-transform group-hover:translate-x-2' />
                                 </span>
@@ -237,7 +257,7 @@ export default function CtaSection({ setContactModalOpen }: CtaSectionProps) {
                             transition={{ delay: 1.1 }}
                             className='mt-12'>
                             <p className='mb-4 text-sm uppercase tracking-wider text-slate-400'>
-                                {t('cta.referencesTitle') as string}
+                                {typeof referencesTitle === 'string' ? referencesTitle : ''}
                             </p>
                             <div className='flex flex-wrap justify-center gap-4'>
                                 {references.map((brand, index) => (
