@@ -154,13 +154,32 @@ function ema_modal_register_settings() {
         'ema_modal_section_main'
     );
 
-    add_settings_field(
-        'ema_modal_field_floating_text',
-        __( 'Floating Button Text', 'ema-modal' ),
-        'ema_modal_field_floating_text_cb',
-        'ema_modal',
-        'ema_modal_section_main'
+    // Add new section for localization
+    add_settings_section(
+        'ema_modal_section_localization',
+        __( 'Localization for Floating Text', 'ema-modal' ),
+        'ema_modal_section_localization_cb',
+        'ema_modal'
     );
+
+    $supported_languages = array(
+        'en' => 'English',
+        'tr' => 'Turkish (Türkçe)',
+        'de' => 'German (Deutsch)',
+        'ar' => 'Arabic (العربية)',
+        'ru' => 'Russian (Русский)',
+    );
+
+    foreach ( $supported_languages as $code => $name ) {
+        add_settings_field(
+            'ema_modal_field_floating_text_' . $code,
+            $name,
+            'ema_modal_field_localized_text_cb',
+            'ema_modal',
+            'ema_modal_section_localization',
+            array( 'lang_code' => $code ) // Pass language code to the callback
+        );
+    }
 }
 add_action( 'admin_init', 'ema_modal_register_settings' );
 
@@ -203,11 +222,27 @@ function ema_modal_field_brand_name_cb() {
     echo '<p class="description">' . __( 'Your brand name, used in modal text and customization.', 'ema-modal' ) . '</p>';
 }
 
-function ema_modal_field_floating_text_cb() {
+function ema_modal_section_localization_cb() {
+    echo '<p>' . __( 'Enter the text for the floating button for each language. The plugin will automatically display the correct text based on the site\'s active language.', 'ema-modal' ) . '</p>';
+}
+
+function ema_modal_field_localized_text_cb( $args ) {
     $options = get_option( 'ema_modal_settings' );
-    $floating_text = isset( $options['floating_text'] ) ? esc_attr( $options['floating_text'] ) : '💬 Ne arıyorsan, konuş yeter.';
-    echo '<input type="text" name="ema_modal_settings[floating_text]" value="' . $floating_text . '" class="large-text">';
-    echo '<p class="description">' . __( 'The text displayed next to the floating EMA button.', 'ema-modal' ) . '</p>';
+    $lang_code = $args['lang_code'];
+    $field_name = 'floating_text_' . $lang_code;
+    $value = isset( $options[$field_name] ) ? esc_attr( $options[$field_name] ) : '';
+
+    // Set default placeholder text
+    $placeholders = array(
+        'en' => '💬 Whatever you are looking for, just say it.',
+        'tr' => '💬 Ne arıyorsan, konuş yeter.',
+        'de' => '💬 Was auch immer Sie suchen, sagen Sie es einfach.',
+        'ar' => '💬 مهما كان ما تبحث عنه ، فقط قله.',
+        'ru' => '💬 Что бы вы ни искали, просто скажите это.',
+    );
+    $placeholder = isset( $placeholders[$lang_code] ) ? $placeholders[$lang_code] : '';
+
+    echo '<input type="text" name="ema_modal_settings[' . $field_name . ']" value="' . $value . '" class="large-text" placeholder="' . $placeholder . '">';
 }
 
 // Sanitize settings
@@ -234,8 +269,12 @@ function ema_modal_sanitize_settings( $input ) {
         $sanitized['brand_name'] = sanitize_text_field( $input['brand_name'] );
     }
 
-    if ( isset( $input['floating_text'] ) ) {
-        $sanitized['floating_text'] = sanitize_text_field( $input['floating_text'] );
+    $supported_languages = array('en', 'tr', 'de', 'ar', 'ru');
+    foreach ($supported_languages as $code) {
+        $field_name = 'floating_text_' . $code;
+        if ( isset( $input[$field_name] ) ) {
+            $sanitized[$field_name] = sanitize_text_field( $input[$field_name] );
+        }
     }
     
     return $sanitized;
@@ -281,6 +320,21 @@ function ema_modal_enqueue_assets() {
     );
 
     // Prepare props for React component
+    
+    // Determine the floating text based on the current locale
+    $locale = get_locale(); // e.g., 'tr_TR', 'en_US'
+    $lang_code = substr( $locale, 0, 2 ); // e.g., 'tr', 'en'
+    
+    $floating_text_key = 'floating_text_' . $lang_code;
+    
+    // Fallback logic: use specific language text, or EN text, or a default
+    $default_en_text = isset($settings['floating_text_en']) && !empty($settings['floating_text_en']) ? $settings['floating_text_en'] : '💬 Whatever you are looking for, just say it.';
+    $default_tr_text = '💬 Ne arıyorsan, konuş yeter.';
+
+    $floating_text = isset($settings[$floating_text_key]) && !empty($settings[$floating_text_key]) 
+        ? $settings[$floating_text_key] 
+        : ($lang_code === 'tr' ? $default_tr_text : $default_en_text);
+
     $props = array(
         'emaUrl'       => $settings['ema_url'],
         'themeColor'   => isset( $settings['theme_color'] ) ? $settings['theme_color'] : '#0066ff',
@@ -288,7 +342,7 @@ function ema_modal_enqueue_assets() {
         'subtitle'     => isset( $settings['modal_subtitle'] ) ? $settings['modal_subtitle'] : 'Ürünleri bulmanın, sorularınızı sormanın en kolay yolu',
         'brandName'    => isset( $settings['brand_name'] ) ? $settings['brand_name'] : get_bloginfo( 'name' ),
         'logoSrc'      => EMA_MODAL_PLUGIN_URL . 'assets/ema_logo.png',
-        'floatingButtonText' => isset( $settings['floating_text'] ) ? $settings['floating_text'] : '💬 Ne arıyorsan, konuş yeter.',
+        'floatingButtonText' => $floating_text,
         'ctaLabel'     => 'EMA yı Başlat',
         'socialProof'  => '+1 200 kişi bugün EMA yı kullandı',
     );

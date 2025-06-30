@@ -34,12 +34,14 @@ This plugin adds a floating EMA assistant button to your WordPress site that ope
 ## Configuration
 
 1. After activation, go to **Settings > EMA Modal** in your WordPress admin
-2. Enter your **EMA URL** (provided by the EMA team)
-3. Customize the settings:
+2. Configure the **Main Configuration** section:
+   - **EMA URL**: Your unique EMA instance URL (required for the plugin to work)
    - **Theme Color**: Choose a color that matches your brand
    - **Modal Title**: Customize the modal heading
    - **Modal Subtitle**: Set the subtitle (use `{{brand}}` placeholder for brand name)
    - **Brand Name**: Your business name
+3. Configure the **Localization for Floating Text** section:
+   - Enter the text for the floating button bubble for each supported language. The plugin will automatically show the correct version based on your site's active language.
 4. Click **Save Settings**
 
 ## Usage
@@ -61,7 +63,8 @@ Once configured, the EMA modal will automatically appear on all public pages of 
 | **Theme Color** | Primary color for buttons and branding | `#0066ff` |
 | **Modal Title** | Main heading in the modal | `EMA – Etkileşimli Müşteri Asistanı` |
 | **Modal Subtitle** | Subtitle text (supports `{{brand}}` placeholder) | `Ürünleri bulmanın, sorularınızı sormanın en kolay yolu` |
-| **Brand Name** | Your business name for personalization | - |
+| **Brand Name** | Your business name for personalization | Your site's title |
+| **Floating Text (EN, TR, DE, AR, RU)** | Localized text for the floating button bubble. | Varies by language |
 
 ## Technical Details
 
