@@ -15,6 +15,7 @@ declare global {
             ctaLabel?: string;
             socialProof?: string;
             floatingButtonText?: string;
+            buttonPosition?: string;
         };
     }
 }
@@ -28,9 +29,16 @@ if (rootElement) {
     // Only render if the essential emaUrl is provided
     if (props && props.emaUrl) {
         const root = ReactDOM.createRoot(rootElement);
+
+        // Type-safe props with proper casting for buttonPosition
+        const typedProps = {
+            ...props,
+            buttonPosition: (props.buttonPosition as 'auto' | 'bottom-right' | 'bottom-right-high' | 'bottom-left' | 'top-right') || 'auto'
+        };
+
         root.render(
             <React.StrictMode>
-                <EmaModal {...props} />
+                <EmaModal {...typedProps} />
             </React.StrictMode>
         );
     } else {

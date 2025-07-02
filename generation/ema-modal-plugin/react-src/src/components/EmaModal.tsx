@@ -42,6 +42,8 @@ interface EmaModalProps {
     themeColor?: string;
     /** Text for the floating button bubble */
     floatingButtonText?: string;
+    /** Button position preference */
+    buttonPosition?: 'auto' | 'bottom-right' | 'bottom-right-high' | 'bottom-left' | 'top-right';
 }
 
 const EmaModal = ({
@@ -55,16 +57,83 @@ const EmaModal = ({
     productCues,
     themeColor = '#0066ff',
     floatingButtonText = '💬 Ne arıyorsan, konuş yeter.',
+    buttonPosition = 'auto',
 }: EmaModalProps) => {
     const [stage, setStage] = useState<Stage>('closed');
     const [showTooltip, setShowTooltip] = useState(false);
     const [iframeLoaded, setIframeLoaded] = useState(false);
     const [isAnimating, setIsAnimating] = useState(false);
+    const [dynamicPosition, setDynamicPosition] = useState({ bottom: 'bottom-4', right: 'right-4' });
 
     const computedSubtitle = subtitle.replace('{{brand}}', brandName ?? '');
 
     // Get the default logo path (WordPress plugin path)
     const defaultLogoSrc = logoSrc || '/wp-content/plugins/ema-modal-plugin/assets/ema_logo.png';
+
+    // Get position classes based on admin setting and auto-detection
+    const getPositionClasses = () => {
+        switch (buttonPosition) {
+            case 'bottom-left':
+                return { bottom: 'bottom-4', right: 'left-4' };
+            case 'bottom-right-high':
+                return { bottom: 'bottom-[5rem]', right: 'right-4' };
+            case 'top-right':
+                return { bottom: 'top-4', right: 'right-4' };
+            case 'bottom-right':
+                return { bottom: 'bottom-4', right: 'right-4' };
+            case 'auto':
+            default:
+                return dynamicPosition;
+        }
+    };
+
+    // Auto-detect existing floating buttons and adjust position (only for 'auto' mode)
+    useEffect(() => {
+        if (buttonPosition !== 'auto') return;
+
+        const detectExistingButtons = () => {
+            // Common selectors for WhatsApp and other floating buttons
+            const commonSelectors = [
+                '[href*="wa.me"]',
+                '[href*="whatsapp"]',
+                '.whatsapp-button',
+                '.wa-button',
+                '.floating-button',
+                '[style*="position: fixed"][style*="bottom"][style*="right"]',
+                '.fixed.bottom-4.right-4',
+                '.fixed.bottom-5.right-5'
+            ];
+
+            let hasConflict = false;
+            const existingButtons = document.querySelectorAll(commonSelectors.join(', '));
+
+            existingButtons.forEach((button) => {
+                const rect = button.getBoundingClientRect();
+                const styles = window.getComputedStyle(button);
+
+                // Check if button is in bottom-right area
+                if (styles.position === 'fixed' &&
+                    rect.bottom > window.innerHeight - 100 &&
+                    rect.right > window.innerWidth - 100) {
+                    hasConflict = true;
+                }
+            });
+
+            if (hasConflict) {
+                // Position EMA button above other floating buttons
+                setDynamicPosition({
+                    bottom: 'bottom-[5rem]', // 80px from bottom instead of 16px
+                    right: 'right-4'
+                });
+            }
+        };
+
+        detectExistingButtons();
+
+        // Re-check after page content loads
+        const timeoutId = setTimeout(detectExistingButtons, 1000);
+        return () => clearTimeout(timeoutId);
+    }, [buttonPosition]);
 
     useEffect(() => {
         const onKey = (e: KeyboardEvent) => e.key === 'Escape' && setStage('closed');
@@ -178,9 +247,11 @@ const EmaModal = ({
         };
     }, [open]);
 
+    const currentPosition = getPositionClasses();
+
     return (
         <>
-            <div className={`fixed bottom-4 right-4 sm:bottom-5 sm:right-5 z-50 transition-all duration-200 ${open ? 'scale-0 opacity-0' : 'scale-100 opacity-100'}`}>
+            <div className={`fixed ${currentPosition.bottom} ${currentPosition.right} sm:${currentPosition.bottom} sm:${currentPosition.right} z-50 transition-all duration-200 ${open ? 'scale-0 opacity-0' : 'scale-100 opacity-100'}`}>
                 <div className="flex items-center gap-2 sm:gap-3">
                     {/* Persistent Text Bubble */}
                     <div className="bg-white rounded-full py-1 px-3 sm:py-2 sm:px-4 shadow-lg border border-gray-100 hover:shadow-xl transition-all duration-200">

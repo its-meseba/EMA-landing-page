@@ -154,6 +154,14 @@ function ema_modal_register_settings() {
         'ema_modal_section_main'
     );
 
+    add_settings_field(
+        'ema_modal_field_position',
+        __( 'Button Position', 'ema-modal' ),
+        'ema_modal_field_position_cb',
+        'ema_modal',
+        'ema_modal_section_main'
+    );
+
     // Add new section for localization
     add_settings_section(
         'ema_modal_section_localization',
@@ -222,6 +230,20 @@ function ema_modal_field_brand_name_cb() {
     echo '<p class="description">' . __( 'Your brand name, used in modal text and customization.', 'ema-modal' ) . '</p>';
 }
 
+function ema_modal_field_position_cb() {
+    $options = get_option( 'ema_modal_settings' );
+    $position = isset( $options['button_position'] ) ? esc_attr( $options['button_position'] ) : 'auto';
+    
+    echo '<select name="ema_modal_settings[button_position]">';
+    echo '<option value="auto"' . selected( $position, 'auto', false ) . '>' . __( 'Auto-detect (Recommended)', 'ema-modal' ) . '</option>';
+    echo '<option value="bottom-right"' . selected( $position, 'bottom-right', false ) . '>' . __( 'Bottom Right (Default)', 'ema-modal' ) . '</option>';
+    echo '<option value="bottom-right-high"' . selected( $position, 'bottom-right-high', false ) . '>' . __( 'Bottom Right (Higher Position)', 'ema-modal' ) . '</option>';
+    echo '<option value="bottom-left"' . selected( $position, 'bottom-left', false ) . '>' . __( 'Bottom Left', 'ema-modal' ) . '</option>';
+    echo '<option value="top-right"' . selected( $position, 'top-right', false ) . '>' . __( 'Top Right', 'ema-modal' ) . '</option>';
+    echo '</select>';
+    echo '<p class="description">' . __( 'Choose button position. Auto-detect will avoid conflicts with WhatsApp and other floating buttons.', 'ema-modal' ) . '</p>';
+}
+
 function ema_modal_section_localization_cb() {
     echo '<p>' . __( 'Enter the text for the floating button for each language. The plugin will automatically display the correct text based on the site\'s active language.', 'ema-modal' ) . '</p>';
 }
@@ -267,6 +289,13 @@ function ema_modal_sanitize_settings( $input ) {
     
     if ( isset( $input['brand_name'] ) ) {
         $sanitized['brand_name'] = sanitize_text_field( $input['brand_name'] );
+    }
+    
+    if ( isset( $input['button_position'] ) ) {
+        $allowed_positions = array('auto', 'bottom-right', 'bottom-right-high', 'bottom-left', 'top-right');
+        $sanitized['button_position'] = in_array( $input['button_position'], $allowed_positions ) 
+            ? $input['button_position'] 
+            : 'auto';
     }
 
     $supported_languages = array('en', 'tr', 'de', 'ar', 'ru');
@@ -343,6 +372,7 @@ function ema_modal_enqueue_assets() {
         'brandName'    => isset( $settings['brand_name'] ) ? $settings['brand_name'] : get_bloginfo( 'name' ),
         'logoSrc'      => EMA_MODAL_PLUGIN_URL . 'assets/ema_logo.png',
         'floatingButtonText' => $floating_text,
+        'buttonPosition' => isset( $settings['button_position'] ) ? $settings['button_position'] : 'auto',
         'ctaLabel'     => 'EMA yı Başlat',
         'socialProof'  => '+1 200 kişi bugün EMA yı kullandı',
     );
