@@ -16,6 +16,8 @@ declare global {
             socialProof?: string;
             floatingButtonText?: string;
             buttonPosition?: string;
+            debugMode?: boolean;
+            mobileSafePosition?: boolean;
         };
     }
 }

@@ -1,0 +1,15 @@
+# Learn more about configuring your theme app extension:
+# https://shopify.dev/docs/apps/app-extensions/theme-app-extensions
+
+name = "EMA Modal"
+type = "theme"
+
+[capabilities]
+block_templates = true
+app_blocks = true
+
+[extension_points]
+
+  [[extension_points.metafields]]
+  namespace = "ema_modal"
+  key = "configuration" 

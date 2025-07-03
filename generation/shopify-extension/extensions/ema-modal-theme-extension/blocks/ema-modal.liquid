@@ -1,0 +1,131 @@
+{% comment %}
+  EMA Modal App Block
+  Configurable through theme editor
+  Provides voice-activated customer assistance
+{% endcomment %}
+
+{% schema %}
+{
+  "name": "EMA Modal",
+  "target": "body",
+  "settings": [
+    {
+      "type": "header",
+      "content": "EMA Configuration"
+    },
+    {
+      "type": "url",
+      "id": "ema_url",
+      "label": "EMA Instance URL",
+      "info": "Enter your EMA instance URL (required for the modal to work)"
+    },
+    {
+      "type": "color",
+      "id": "theme_color",
+      "label": "Theme Color",
+      "default": "#0066ff",
+      "info": "Primary color for buttons and modal elements"
+    },
+    {
+      "type": "header",
+      "content": "Modal Content"
+    },
+    {
+      "type": "text",
+      "id": "modal_title",
+      "label": "Modal Title",
+      "default": "EMA – Interactive Customer Assistant"
+    },
+    {
+      "type": "text",
+      "id": "modal_subtitle",
+      "label": "Modal Subtitle",
+      "default": "The easiest way to find products and get answers",
+      "info": "Use {{brand}} to include your brand name"
+    },
+    {
+      "type": "text",
+      "id": "brand_name",
+      "label": "Brand Name",
+      "default": "{{ shop.name }}",
+      "info": "Your brand name for personalization"
+    },
+    {
+      "type": "text",
+      "id": "cta_label",
+      "label": "CTA Button Text",
+      "default": "Start EMA"
+    },
+    {
+      "type": "header",
+      "content": "Appearance & Behavior"
+    },
+    {
+      "type": "select",
+      "id": "button_position",
+      "label": "Button Position",
+      "options": [
+        { "value": "auto", "label": "Auto-detect (Recommended)" },
+        { "value": "bottom-right", "label": "Bottom Right" },
+        { "value": "bottom-right-high", "label": "Bottom Right (Higher)" },
+        { "value": "bottom-left", "label": "Bottom Left" },
+        { "value": "top-right", "label": "Top Right" }
+      ],
+      "default": "auto",
+      "info": "Auto-detect will avoid conflicts with WhatsApp and other floating buttons"
+    },
+    {
+      "type": "checkbox",
+      "id": "auto_trigger",
+      "label": "Auto-trigger modal",
+      "default": true,
+      "info": "Automatically open modal when user scrolls 75% or moves to leave page"
+    },
+    {
+      "type": "checkbox",
+      "id": "enabled",
+      "label": "Enable EMA Modal",
+      "default": true
+    }
+  ]
+}
+{% endschema %}
+
+{% if block.settings.enabled and block.settings.ema_url != blank %}
+  <div id="ema-modal-root" 
+       data-ema-url="{{ block.settings.ema_url | escape }}"
+       data-theme-color="{{ block.settings.theme_color | escape }}"
+       data-modal-title="{{ block.settings.modal_title | escape }}"
+       data-modal-subtitle="{{ block.settings.modal_subtitle | escape }}"
+       data-brand-name="{{ block.settings.brand_name | default: shop.name | escape }}"
+       data-cta-label="{{ block.settings.cta_label | escape }}"
+       data-button-position="{{ block.settings.button_position | escape }}"
+       data-auto-trigger="{{ block.settings.auto_trigger }}"
+       data-locale="{{ request.locale.iso_code | default: 'en' | escape }}"
+       data-shop-name="{{ shop.name | escape }}">
+  </div>
+  
+  <!-- Load EMA Modal Assets -->
+  {{ 'ema-modal.css' | asset_url | stylesheet_tag }}
+  <script>
+    window.emaModalConfig = {
+      emaUrl: "{{ block.settings.ema_url | escape }}",
+      themeColor: "{{ block.settings.theme_color | escape }}",
+      title: "{{ block.settings.modal_title | escape }}",
+      subtitle: "{{ block.settings.modal_subtitle | escape }}",
+      brandName: "{{ block.settings.brand_name | default: shop.name | escape }}",
+      ctaLabel: "{{ block.settings.cta_label | escape }}",
+      buttonPosition: "{{ block.settings.button_position | escape }}",
+      autoTrigger: {{ block.settings.auto_trigger | json }},
+      locale: "{{ request.locale.iso_code | default: 'en' | escape }}",
+      shopName: "{{ shop.name | escape }}"
+    };
+  </script>
+  {{ 'ema-modal.js' | asset_url | script_tag }}
+{% elsif block.settings.enabled and block.settings.ema_url == blank %}
+  <!-- Show configuration message in theme editor -->
+  <div style="background: #fef3c7; border: 1px solid #f59e0b; padding: 1rem; border-radius: 0.5rem; margin: 1rem 0; text-align: center;">
+    <h3 style="margin: 0 0 0.5rem 0; color: #92400e;">⚠️ EMA Modal Configuration Required</h3>
+    <p style="margin: 0; color: #92400e;">Please enter your EMA URL in the theme editor to activate the modal.</p>
+  </div>
+{% endif %} 

@@ -2,9 +2,9 @@
 /**
  * Plugin Name:       EMA Modal Plugin
  * Description:       Integrates the interactive EMA Modal into any WordPress site with voice-activated customer assistance.
- * Version:           1.0.0
- * Author:            EMA Team
- * Author URI:        https://ema.ai
+ * Version:           1.0.14
+ * Author:            Solace Technology
+ * Author URI:        https://solace.com.tr
  * License:           GPL v2 or later
  * License URI:       https://www.gnu.org/licenses/gpl-2.0.html
  * Text Domain:       ema-modal
@@ -18,7 +18,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 // Define plugin constants
-define( 'EMA_MODAL_VERSION', '1.0.0' );
+define( 'EMA_MODAL_VERSION', '1.0.14' );
 define( 'EMA_MODAL_PLUGIN_URL', plugin_dir_url( __FILE__ ) );
 define( 'EMA_MODAL_PLUGIN_PATH', plugin_dir_path( __FILE__ ) );
 
@@ -162,6 +162,14 @@ function ema_modal_register_settings() {
         'ema_modal_section_main'
     );
 
+    add_settings_field(
+        'ema_modal_field_debug_mode',
+        __( 'Debug Mode', 'ema-modal' ),
+        'ema_modal_field_debug_mode_cb',
+        'ema_modal',
+        'ema_modal_section_main'
+    );
+
     // Add new section for localization
     add_settings_section(
         'ema_modal_section_localization',
@@ -244,6 +252,14 @@ function ema_modal_field_position_cb() {
     echo '<p class="description">' . __( 'Choose button position. Auto-detect will avoid conflicts with WhatsApp and other floating buttons.', 'ema-modal' ) . '</p>';
 }
 
+function ema_modal_field_debug_mode_cb() {
+    $options = get_option( 'ema_modal_settings' );
+    $debug_mode = isset( $options['debug_mode'] ) ? $options['debug_mode'] : false;
+    
+    echo '<input type="checkbox" name="ema_modal_settings[debug_mode]" value="1"' . checked( 1, $debug_mode, false ) . '>';
+    echo '<p class="description">' . __( 'Enable this to log diagnostic information to the browser console. This is useful for troubleshooting issues.', 'ema-modal' ) . '</p>';
+}
+
 function ema_modal_section_localization_cb() {
     echo '<p>' . __( 'Enter the text for the floating button for each language. The plugin will automatically display the correct text based on the site\'s active language.', 'ema-modal' ) . '</p>';
 }
@@ -296,6 +312,10 @@ function ema_modal_sanitize_settings( $input ) {
         $sanitized['button_position'] = in_array( $input['button_position'], $allowed_positions ) 
             ? $input['button_position'] 
             : 'auto';
+    }
+
+    if ( isset( $input['debug_mode'] ) ) {
+        $sanitized['debug_mode'] = (bool) $input['debug_mode'];
     }
 
     $supported_languages = array('en', 'tr', 'de', 'ar', 'ru');
@@ -373,6 +393,7 @@ function ema_modal_enqueue_assets() {
         'logoSrc'      => EMA_MODAL_PLUGIN_URL . 'assets/ema_logo.png',
         'floatingButtonText' => $floating_text,
         'buttonPosition' => isset( $settings['button_position'] ) ? $settings['button_position'] : 'auto',
+        'debugMode'    => isset( $settings['debug_mode'] ) ? (bool) $settings['debug_mode'] : false,
         'ctaLabel'     => 'EMA yı Başlat',
         'socialProof'  => '+1 200 kişi bugün EMA yı kullandı',
     );

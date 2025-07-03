@@ -1,0 +1,14 @@
+{
+    "ema_modal": {
+        "name": "EMA Modal",
+        "floating_text": "💬 Whatever you are looking for, just say it.",
+        "title": "EMA – Interactive Customer Assistant",
+        "subtitle": "The easiest way to find products and get answers",
+        "cta_label": "Start EMA",
+        "social_proof": "+1,200 people used EMA today",
+        "loading": "Loading EMA...",
+        "loading_wait": "Please wait",
+        "close": "Close EMA Chat",
+        "button_aria_label": "EMA - Interactive Customer Assistant"
+    }
+}

@@ -1,0 +1,14 @@
+{
+    "ema_modal": {
+        "name": "EMA Modal",
+        "floating_text": "💬 Ne arıyorsan, konuş yeter.",
+        "title": "EMA – Etkileşimli Müşteri Asistanı",
+        "subtitle": "Ürünleri bulmanın, sorularınızı sormanın en kolay yolu",
+        "cta_label": "EMA'yı Başlat",
+        "social_proof": "+1.200 kişi bugün EMA'yı kullandı",
+        "loading": "EMA yükleniyor...",
+        "loading_wait": "Lütfen bekleyin",
+        "close": "EMA Sohbetini Kapat",
+        "button_aria_label": "EMA - Etkileşimli Müşteri Asistanı"
+    }
+}

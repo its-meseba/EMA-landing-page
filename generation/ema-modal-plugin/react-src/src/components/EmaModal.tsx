@@ -43,7 +43,11 @@ interface EmaModalProps {
     /** Text for the floating button bubble */
     floatingButtonText?: string;
     /** Button position preference */
-    buttonPosition?: 'auto' | 'bottom-right' | 'bottom-right-high' | 'bottom-left' | 'top-right';
+    buttonPosition?: 'auto' | 'bottom-right' | 'bottom-right-high' | 'bottom-left' | 'top-right' | 'top-left' | 'bottom-left-high';
+    /** Enable debug logging */
+    debugMode?: boolean;
+    /** Use mobile-safe positioning */
+    mobileSafePosition?: boolean;
 }
 
 const EmaModal = ({
@@ -58,82 +62,49 @@ const EmaModal = ({
     themeColor = '#0066ff',
     floatingButtonText = '💬 Ne arıyorsan, konuş yeter.',
     buttonPosition = 'auto',
+    debugMode = false,
+    mobileSafePosition = true,
 }: EmaModalProps) => {
     const [stage, setStage] = useState<Stage>('closed');
     const [showTooltip, setShowTooltip] = useState(false);
     const [iframeLoaded, setIframeLoaded] = useState(false);
     const [isAnimating, setIsAnimating] = useState(false);
-    const [dynamicPosition, setDynamicPosition] = useState({ bottom: 'bottom-4', right: 'right-4' });
 
-    const computedSubtitle = subtitle.replace('{{brand}}', brandName ?? '');
-
-    // Get the default logo path (WordPress plugin path)
-    const defaultLogoSrc = logoSrc || '/wp-content/plugins/ema-modal-plugin/assets/ema_logo.png';
-
-    // Get position classes based on admin setting and auto-detection
-    const getPositionClasses = () => {
-        switch (buttonPosition) {
-            case 'bottom-left':
-                return { bottom: 'bottom-4', right: 'left-4' };
-            case 'bottom-right-high':
-                return { bottom: 'bottom-[5rem]', right: 'right-4' };
-            case 'top-right':
-                return { bottom: 'top-4', right: 'right-4' };
-            case 'bottom-right':
-                return { bottom: 'bottom-4', right: 'right-4' };
-            case 'auto':
-            default:
-                return dynamicPosition;
+    const log = (...args: any[]) => {
+        if (debugMode) {
+            console.log('[EMA Modal]', ...args);
         }
     };
 
-    // Auto-detect existing floating buttons and adjust position (only for 'auto' mode)
     useEffect(() => {
-        if (buttonPosition !== 'auto') return;
+        log('Component mounted with props:', { emaUrl, themeColor, buttonPosition, floatingButtonText });
+    }, []);
 
-        const detectExistingButtons = () => {
-            // Common selectors for WhatsApp and other floating buttons
-            const commonSelectors = [
-                '[href*="wa.me"]',
-                '[href*="whatsapp"]',
-                '.whatsapp-button',
-                '.wa-button',
-                '.floating-button',
-                '[style*="position: fixed"][style*="bottom"][style*="right"]',
-                '.fixed.bottom-4.right-4',
-                '.fixed.bottom-5.right-5'
-            ];
+    const computedSubtitle = subtitle.replace('{{brand}}', brandName ?? '');
+    const defaultLogoSrc = logoSrc || '/wp-content/plugins/ema-modal-plugin/assets/ema_logo.png';
 
-            let hasConflict = false;
-            const existingButtons = document.querySelectorAll(commonSelectors.join(', '));
+    // This function now returns a string of responsive CSS classes
+    const getPositionClasses = () => {
+        const isLeft = buttonPosition.includes('left');
+        const horizontalPosition = isLeft ? 'left-4 sm:left-5' : 'right-4 sm:right-5';
+        const mobileVerticalPosition = mobileSafePosition ? 'bottom-24' : 'bottom-4';
 
-            existingButtons.forEach((button) => {
-                const rect = button.getBoundingClientRect();
-                const styles = window.getComputedStyle(button);
+        switch (buttonPosition) {
+            case 'top-right':
+            case 'top-left':
+                return `top-4 ${horizontalPosition}`;
 
-                // Check if button is in bottom-right area
-                if (styles.position === 'fixed' &&
-                    rect.bottom > window.innerHeight - 100 &&
-                    rect.right > window.innerWidth - 100) {
-                    hasConflict = true;
-                }
-            });
+            case 'bottom-right-high':
+            case 'bottom-left-high':
+                return `bottom-24 sm:bottom-20 ${horizontalPosition}`;
 
-            if (hasConflict) {
-                // Position EMA button above other floating buttons
-                setDynamicPosition({
-                    bottom: 'bottom-[5rem]', // 80px from bottom instead of 16px
-                    right: 'right-4'
-                });
-            }
-        };
-
-        detectExistingButtons();
-
-        // Re-check after page content loads
-        const timeoutId = setTimeout(detectExistingButtons, 1000);
-        return () => clearTimeout(timeoutId);
-    }, [buttonPosition]);
+            case 'auto':
+            case 'bottom-right':
+            case 'bottom-left':
+            default:
+                return `${mobileVerticalPosition} sm:bottom-5 ${horizontalPosition}`;
+        }
+    };
 
     useEffect(() => {
         const onKey = (e: KeyboardEvent) => e.key === 'Escape' && setStage('closed');
@@ -184,12 +155,14 @@ const EmaModal = ({
     }, []);
 
     const handleOpen = () => {
+        log('handleOpen called, opening modal.');
         setShowTooltip(false);
         setIsAnimating(true);
         setStage('chat'); // Skip hero stage and go directly to chat
     };
 
     const handleClose = () => {
+        log('handleClose called, closing modal.');
         setIsAnimating(false);
         // Delay the actual close to allow exit animation
         setTimeout(() => {
@@ -247,14 +220,19 @@ const EmaModal = ({
         };
     }, [open]);
 
-    const currentPosition = getPositionClasses();
+    useEffect(() => {
+        log('Current stage:', stage);
+    }, [stage]);
+
+    const isLeftAligned = buttonPosition.includes('left');
+    const positionClasses = getPositionClasses();
 
     return (
-        <>
-            <div className={`fixed ${currentPosition.bottom} ${currentPosition.right} sm:${currentPosition.bottom} sm:${currentPosition.right} z-50 transition-all duration-200 ${open ? 'scale-0 opacity-0' : 'scale-100 opacity-100'}`}>
-                <div className="flex items-center gap-2 sm:gap-3">
+        <div id="ema-modal-container">
+            <div className={`fixed ${positionClasses} z-50 transition-all duration-200 ${open ? 'scale-0 opacity-0' : 'scale-100 opacity-100'}`}>
+                <div className={`flex items-center gap-2 sm:gap-3 ${isLeftAligned ? 'flex-row-reverse' : ''}`}>
                     {/* Persistent Text Bubble */}
-                    <div className="bg-white rounded-full py-1 px-3 sm:py-2 sm:px-4 shadow-lg border border-gray-100 hover:shadow-xl transition-all duration-200">
+                    <div className="bg-white rounded-full py-1 px-3 sm:py-2 sm:px-4 shadow-lg border border-gray-100 hover:shadow-xl transition-all duration-200 flex items-center">
                         <p className="text-gray-700 font-medium text-xs sm:text-sm whitespace-nowrap">
                             {floatingButtonText}
                         </p>
@@ -355,10 +333,10 @@ const EmaModal = ({
                                         onClick={handleClose}
                                         variant="outline"
                                         size="icon"
-                                        className="h-10 w-10 rounded-full bg-white/90 backdrop-blur-sm border-gray-200 hover:bg-white hover:scale-110 shadow-lg transition-all duration-200"
+                                        className="h-10 w-10 rounded-full bg-white border-2 border-gray-600 hover:bg-gray-100 hover:border-gray-800 hover:scale-110 shadow-lg transition-all duration-200"
                                         aria-label="Close EMA Chat"
                                     >
-                                        <X className="h-4 w-4" />
+                                        <X className="h-6 w-6 text-gray-900" />
                                     </Button>
                                 </div>
 
@@ -379,7 +357,10 @@ const EmaModal = ({
                                     className={`w-full h-full border-none flex-1 transition-all duration-500 delay-400 ${isAnimating && iframeLoaded ? 'opacity-100' : 'opacity-0'
                                         }`}
                                     allow="microphone; speech-recognition; camera"
-                                    onLoad={() => setIframeLoaded(true)}
+                                    onLoad={() => {
+                                        log('Iframe loaded.');
+                                        setIframeLoaded(true);
+                                    }}
                                     style={{
                                         width: '100%',
                                         height: '100%',
@@ -392,7 +373,7 @@ const EmaModal = ({
                     </div>
                 </>
             )}
-        </>
+        </div>
     );
 };
 

@@ -27,19 +27,23 @@
 /* Utility classes to replace Tailwind CSS */
 
 /* Position utilities */
-.fixed { position: fixed !important; }
-.absolute { position: absolute !important; }
-.relative { position: relative !important; }
-.inset-0 { top: 0; right: 0; bottom: 0; left: 0; }
+#ema-modal-container .fixed { position: fixed !important; }
+#ema-modal-container .absolute { position: absolute !important; }
+#ema-modal-container .relative { position: relative !important; }
+#ema-modal-container .inset-0 { top: 0; right: 0; bottom: 0; left: 0; }
 
 /* Bottom/Right positioning */
-.bottom-4 { bottom: 1rem; }
-.bottom-5 { bottom: 1.25rem; }
-.right-4 { right: 1rem; }
-.right-5 { right: 1.25rem; }
-.top-1 { top: 0.25rem; }
-.top-4 { top: 1rem; }
-.right-1 { right: 0.25rem; }
+#ema-modal-container .bottom-4 { bottom: 1rem; }
+#ema-modal-container .bottom-5 { bottom: 1.25rem; }
+#ema-modal-container .bottom-20 { bottom: 5rem; }
+#ema-modal-container .bottom-24 { bottom: 6rem; }
+#ema-modal-container .right-4 { right: 1rem; }
+#ema-modal-container .right-5 { right: 1.25rem; }
+#ema-modal-container .left-4 { left: 1rem; }
+#ema-modal-container .left-5 { left: 1.25rem; }
+#ema-modal-container .top-1 { top: 0.25rem; }
+#ema-modal-container .top-4 { top: 1rem; }
+#ema-modal-container .right-1 { right: 0.25rem; }
 
 /* Z-index */
 .z-10 { z-index: 10; }
@@ -49,17 +53,21 @@
 .z-\[9999\] { z-index: 9999; }
 
 /* Flexbox utilities */
-.flex { display: flex !important; }
-.flex-col { flex-direction: column; }
-.items-center { align-items: center; }
-.justify-center { justify-content: center; }
-.gap-2 { gap: 0.5rem; }
-.gap-3 { gap: 0.75rem; }
-.gap-4 { gap: 1rem; }
+#ema-modal-container .flex { display: flex !important; }
+#ema-modal-container .flex-col { flex-direction: column; }
+#ema-modal-container .flex-row-reverse { flex-direction: row-reverse; }
+#ema-modal-container .items-center { align-items: center; }
+#ema-modal-container .justify-center { justify-content: center; }
+#ema-modal-container .gap-2 { gap: 0.5rem; }
+#ema-modal-container .gap-3 { gap: 0.75rem; }
+#ema-modal-container .gap-4 { gap: 1rem; }
 
 /* Width and Height */
 .w-0 { width: 0; }
 .w-3 { width: 0.75rem; }
+.w-4 { width: 1rem; }
+.w-5 { width: 1.25rem; }
+.w-6 { width: 1.5rem; }
 .w-10 { width: 2.5rem; }
 .w-14 { width: 3.5rem; }
 .w-16 { width: 4rem; }
@@ -70,6 +78,8 @@
 .h-0 { height: 0; }
 .h-3 { height: 0.75rem; }
 .h-4 { height: 1rem; }
+.h-5 { height: 1.25rem; }
+.h-6 { height: 1.5rem; }
 .h-10 { height: 2.5rem; }
 .h-14 { height: 3.5rem; }
 .h-16 { height: 4rem; }
@@ -81,6 +91,7 @@
 /* Background colors */
 .bg-white { background-color: #ffffff; }
 .bg-black\/10 { background-color: rgba(0, 0, 0, 0.1); }
+.bg-white\/80 { background-color: rgba(255, 255, 255, 0.8); }
 .bg-white\/90 { background-color: rgba(255, 255, 255, 0.9); }
 .bg-red-400 { background-color: #f87171; }
 .bg-red-500 { background-color: #ef4444; }
@@ -92,6 +103,8 @@
 .text-gray-600 { color: #4b5563; }
 .text-gray-400 { color: #9ca3af; }
 .text-gray-500 { color: #6b7280; }
+.text-gray-800 { color: #1f2937; }
+.text-gray-900 { color: #111827; }
 .text-white { color: #ffffff; }
 
 /* Font weights and sizes */
@@ -104,9 +117,9 @@
 .text-3xl { font-size: 1.875rem; line-height: 2.25rem; }
 
 /* Border radius */
-.rounded-md { border-radius: 0.375rem; }
-.rounded-lg { border-radius: 0.5rem; }
-.rounded-full { border-radius: 9999px; }
+#ema-modal-container .rounded-md { border-radius: 0.375rem; }
+#ema-modal-container .rounded-lg { border-radius: 0.5rem; }
+#ema-modal-container .rounded-full { border-radius: 9999px; }
 
 /* Padding and margins */
 .p-2 { padding: 0.5rem; }
@@ -125,16 +138,25 @@
 .mb-6 { margin-bottom: 1.5rem; }
 
 /* Shadows */
-.shadow-lg { 
+#ema-modal-container .shadow-lg { 
   box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05); 
 }
-.shadow-md { 
+#ema-modal-container .shadow-md { 
   box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06); 
 }
 
 /* Border */
 .border { border: 1px solid var(--border); }
+.border-2 { border-width: 2px; }
 .border-none { border: none; }
+.border-gray-100 { border-color: #f3f4f6; }
+.border-gray-200 { border-color: #e5e7eb; }
+.border-gray-300 { border-color: #d1d5db; }
+.border-gray-400 { border-color: #9ca3af; }
+.border-gray-500 { border-color: #6b7280; }
+.border-gray-600 { border-color: #4b5563; }
+.border-gray-800 { border-color: #1f2937; }
+.border-input { border-color: var(--input); }
 
 /* Text utilities */
 .whitespace-nowrap { white-space: nowrap; }
@@ -224,6 +246,10 @@
 }
 .hover\:scale-110:hover { transform: scale(1.1); }
 .hover\:bg-white:hover { background-color: #ffffff; }
+.hover\:bg-gray-100:hover { background-color: #f3f4f6; }
+.hover\:border-gray-400:hover { border-color: #9ca3af; }
+.hover\:border-gray-500:hover { border-color: #6b7280; }
+.hover\:border-gray-800:hover { border-color: #1f2937; }
 .hover\:animate-none:hover { animation: none; }
 
 /* Active states */
@@ -241,16 +267,18 @@
 
 /* Responsive utilities for mobile */
 @media (min-width: 640px) {
-  .sm\:bottom-5 { bottom: 1.25rem; }
-  .sm\:right-5 { right: 1.25rem; }
-  .sm\:gap-3 { gap: 0.75rem; }
-  .sm\:px-4 { padding-left: 1rem; padding-right: 1rem; }
-  .sm\:py-2 { padding-top: 0.5rem; padding-bottom: 0.5rem; }
-  .sm\:text-sm { font-size: 0.875rem; line-height: 1.25rem; }
-  .sm\:h-16 { height: 4rem; }
-  .sm\:w-16 { width: 4rem; }
-  .sm\:h-24 { height: 6rem; }
-  .sm\:w-24 { width: 6rem; }
+  #ema-modal-container .sm\:bottom-5 { bottom: 1.25rem; }
+  #ema-modal-container .sm\:bottom-20 { bottom: 5rem; }
+  #ema-modal-container .sm\:right-5 { right: 1.25rem; }
+  #ema-modal-container .sm\:left-5 { left: 1.25rem; }
+  #ema-modal-container .sm\:gap-3 { gap: 0.75rem; }
+  #ema-modal-container .sm\:px-4 { padding-left: 1rem; padding-right: 1rem; }
+  #ema-modal-container .sm\:py-2 { padding-top: 0.5rem; padding-bottom: 0.5rem; }
+  #ema-modal-container .sm\:text-sm { font-size: 0.875rem; line-height: 1.25rem; }
+  #ema-modal-container .sm\:h-16 { height: 4rem; }
+  #ema-modal-container .sm\:w-16 { width: 4rem; }
+  #ema-modal-container .sm\:h-24 { height: 6rem; }
+  #ema-modal-container .sm\:w-24 { width: 6rem; }
 }
 
 /* Responsive utilities for desktop */
