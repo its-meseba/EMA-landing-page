@@ -424,6 +424,16 @@
         "submit": "Envoyer",
         "sending": "Envoi en cours...",
         "success": "Votre message a été envoyé avec succès !",
-        "error": "Une erreur s'est produite. Veuillez réessayer."
+        "error": "Une erreur s'est produite. Veuillez réessayer.",
+        "fillAllFieldsError": "Veuillez remplir tous les champs.",
+        "invalidEmailError": "Veuillez entrer une adresse e-mail valide.",
+        "apiError": "Une erreur s'est produite lors de l'envoi de votre message. Veuillez réessayer plus tard.",
+        "connectionError": "Impossible de se connecter au serveur. Veuillez vérifier votre connexion internet.",
+        "toastSuccess": "Votre demande a été reçue. Nous vous contacterons bientôt !",
+        "successTitle": "Succès !",
+        "successSubtitle": "Nous vous recontacterons sous peu.",
+        "submitSuccess": "Succès",
+        "orSeparator": "Ou",
+        "whatsappButton": "Discutez avec nous sur WhatsApp"
     }
 }
