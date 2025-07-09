@@ -398,7 +398,6 @@
         "submit": "Envoyer",
         "sending": "Envoi en cours...",
         "success": "Votre message a été envoyé avec succès !",
-<<<<<<< HEAD
         "error": "Une erreur s'est produite. Veuillez réessayer."
     },
     "integrationSection": {
@@ -469,8 +468,7 @@
             "email": "info-ema@solace.com.tr",
             "phone": "+90 212 222 2222"
         },
-        "copyright": "© 2024 EMA. Tous droits réservés."
-=======
+        "copyright": "© 2024 EMA. Tous droits réservés.",
         "error": "Une erreur s'est produite. Veuillez réessayer.",
         "fillAllFieldsError": "Veuillez remplir tous les champs.",
         "invalidEmailError": "Veuillez entrer une adresse e-mail valide.",
@@ -482,6 +480,5 @@
         "submitSuccess": "Succès",
         "orSeparator": "Ou",
         "whatsappButton": "Discutez avec nous sur WhatsApp"
->>>>>>> 631a9120f95d4a5f97cf40ac5f04290cae718051
     }
 }
