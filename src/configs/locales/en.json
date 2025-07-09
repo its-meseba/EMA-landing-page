@@ -467,6 +467,16 @@
         "submit": "Submit",
         "sending": "Sending...",
         "success": "Your message has been sent successfully!",
-        "error": "An error occurred. Please try again."
+        "error": "An error occurred. Please try again.",
+        "fillAllFieldsError": "Please fill in all fields.",
+        "invalidEmailError": "Please enter a valid email address.",
+        "apiError": "An error occurred while sending your message. Please try again later.",
+        "connectionError": "Could not connect to the server. Please check your internet connection.",
+        "toastSuccess": "Your request has been received. We will contact you soon!",
+        "successTitle": "Success!",
+        "successSubtitle": "We'll be in touch shortly.",
+        "submitSuccess": "Success",
+        "orSeparator": "Or",
+        "whatsappButton": "Chat with us on WhatsApp"
     }
 }

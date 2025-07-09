@@ -1,0 +1,25 @@
+# This file stores configurations for your Shopify app.
+
+name = "EMA Modal"
+client_id = "your_app_client_id"
+application_url = "https://your-app-domain.com"
+embedded = true
+
+[access_scopes]
+# Learn more at https://shopify.dev/docs/apps/tools/cli/configuration#access_scopes
+scopes = "read_themes,write_themes,read_script_tags,write_script_tags"
+
+[auth]
+redirect_urls = [
+  "https://your-app-domain.com/auth/callback"
+]
+
+[webhooks]
+api_version = "2024-01"
+
+  [[webhooks.subscriptions]]
+  topics = [ "app/uninstalled" ]
+  uri = "/api/webhooks"
+
+[pos]
+embedded = false 

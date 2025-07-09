@@ -389,7 +389,17 @@
         "submit": "Gönder",
         "sending": "Gönderiliyor...",
         "success": "Mesajınız başarıyla gönderildi!",
-        "error": "Bir hata oluştu. Lütfen tekrar deneyin."
+        "error": "Bir hata oluştu. Lütfen tekrar deneyin.",
+        "fillAllFieldsError": "Lütfen tüm alanları doldurun.",
+        "invalidEmailError": "Lütfen geçerli bir e-posta adresi girin.",
+        "apiError": "Mesajınız gönderilirken bir hata oluştu. Lütfen daha sonra tekrar deneyin.",
+        "connectionError": "Sunucuya bağlanılamadı. Lütfen internet bağlantınızı kontrol edin.",
+        "toastSuccess": "Talebiniz alınmıştır. En kısa sürede sizinle iletişime geçeceğiz!",
+        "successTitle": "Başarılı!",
+        "successSubtitle": "Size en kısa zamanda geri döneceğiz.",
+        "submitSuccess": "Başarılı",
+        "orSeparator": "Veya",
+        "whatsappButton": "WhatsApp'ta bizimle sohbet edin"
     },
     "faq": {
         "title": "Sıkça Sorulan",

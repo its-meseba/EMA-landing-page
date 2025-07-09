@@ -31,12 +31,15 @@ import { AnimatePresence, motion } from 'framer-motion';
 import { Check, Loader2, Mail, User } from 'lucide-react';
 import { toast } from 'sonner';
 
+import { WhatsAppIcon } from '@/components/icons/whatsapp-icon';
+
 interface ContactModalProps {
     open: boolean;
     onOpenChange: (open: boolean) => void;
 }
 
 export function ContactModal({ open, onOpenChange }: ContactModalProps) {
+    const WHATSAPP_NUMBER = "905354213531"
     const { t } = useLanguage();
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
@@ -196,12 +199,38 @@ export function ContactModal({ open, onOpenChange }: ContactModalProps) {
 
                         {/* Form area */}
                         <form onSubmit={handleSubmit} className='relative px-8 pt-6 pb-6'>
-                            <div className='space-y-5'>
+                            {/* Primary WhatsApp CTA - Most prominent */}
+                            <div className='mb-8'>
+                                {/* Please replace "1234567890" with Solace Technology's WhatsApp Business number. */}
+                                <a
+                                    href={`https://wa.me/${WHATSAPP_NUMBER}`} // ← Replace with your WhatsApp number in international format, e.g. 905xxxxxxxxx for Turkey (no + or spaces)
+                                    target='_blank'
+                                    rel='noopener noreferrer'
+                                    className='block'>
+                                    <Button
+                                        type='button'
+                                        className='w-full rounded-full bg-green-500 py-8 text-lg font-bold text-white shadow-lg transition-all hover:bg-green-600 hover:shadow-xl focus:ring-4 focus:ring-green-500/30 dark:bg-green-600 dark:hover:bg-green-700'>
+                                        <WhatsAppIcon className='mr-3 h-8 w-8' />
+                                        {t('contactModal.whatsappButton') as string}
+                                    </Button>
+                                </a>
+                            </div>
+
+                            <div className='relative my-6 flex items-center'>
+                                <div className='flex-grow border-t border-gray-200 dark:border-slate-800' />
+                                <span className='mx-4 flex-shrink text-sm text-gray-400 dark:text-gray-500'>
+                                    {t('contactModal.orSeparator') as string}
+                                </span>
+                                <div className='flex-grow border-t border-gray-200 dark:border-slate-800' />
+                            </div>
+
+                            {/* Secondary form section */}
+                            <div className='space-y-4'>
                                 <div>
                                     <Label
                                         htmlFor='name'
-                                        className='flex items-center gap-2 text-sm font-medium text-gray-700 dark:text-gray-300'>
-                                        <User className='h-4 w-4 text-blue-500' />
+                                        className='flex items-center gap-2 text-sm font-medium text-gray-600 dark:text-gray-400'>
+                                        <User className='h-4 w-4 text-gray-400' />
                                         {t('contactModal.name') as string}
                                     </Label>
                                     <Input
@@ -210,14 +239,14 @@ export function ContactModal({ open, onOpenChange }: ContactModalProps) {
                                         value={name}
                                         onChange={(e) => setName(e.target.value)}
                                         disabled={isLoading || isSuccess}
-                                        className='mt-2 rounded-xl border-gray-200 bg-gray-50 py-6 pr-3 pl-3 focus:border-blue-500 focus:ring-blue-500/20 dark:border-slate-800 dark:bg-slate-900'
+                                        className='mt-2 rounded-xl border-gray-200 bg-gray-50 py-5 pr-3 pl-3 text-sm focus:border-blue-500 focus:ring-blue-500/20 dark:border-slate-800 dark:bg-slate-900'
                                     />
                                 </div>
                                 <div>
                                     <Label
                                         htmlFor='email'
-                                        className='flex items-center gap-2 text-sm font-medium text-gray-700 dark:text-gray-300'>
-                                        <Mail className='h-4 w-4 text-blue-500' />
+                                        className='flex items-center gap-2 text-sm font-medium text-gray-600 dark:text-gray-400'>
+                                        <Mail className='h-4 w-4 text-gray-400' />
                                         {t('contactModal.email') as string}
                                     </Label>
                                     <Input
@@ -227,16 +256,17 @@ export function ContactModal({ open, onOpenChange }: ContactModalProps) {
                                         value={email}
                                         onChange={(e) => setEmail(e.target.value)}
                                         disabled={isLoading || isSuccess}
-                                        className='mt-2 rounded-xl border-gray-200 bg-gray-50 py-6 pr-3 pl-3 focus:border-blue-500 focus:ring-blue-500/20 dark:border-slate-800 dark:bg-slate-900'
+                                        className='mt-2 rounded-xl border-gray-200 bg-gray-50 py-5 pr-3 pl-3 text-sm focus:border-blue-500 focus:ring-blue-500/20 dark:border-slate-800 dark:bg-slate-900'
                                     />
                                 </div>
                             </div>
 
-                            <div className='mt-8'>
+                            <div className='mt-6'>
                                 <Button
                                     type='submit'
                                     disabled={isLoading || isSuccess}
-                                    className='w-full rounded-full border-0 bg-blue-500 py-6 text-white shadow-md transition-all hover:bg-blue-600 focus:ring-4 focus:ring-blue-500/30'>
+                                    variant='outline'
+                                    className='w-full rounded-full border-gray-300 bg-transparent py-5 text-sm text-gray-600 transition-all hover:bg-gray-50 focus:ring-2 focus:ring-gray-300/30 dark:border-slate-700 dark:text-gray-400 dark:hover:bg-slate-800'>
                                     {isLoading ? (
                                         <>
                                             <Loader2 className='mr-2 h-4 w-4 animate-spin' />

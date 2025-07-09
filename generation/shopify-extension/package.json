@@ -1,0 +1,49 @@
+{
+    "name": "ema-modal-shopify-app",
+    "version": "1.0.0",
+    "description": "EMA Modal - Interactive Customer Assistant for Shopify",
+    "author": "EMA Team",
+    "license": "MIT",
+    "keywords": [
+        "shopify",
+        "app",
+        "extension",
+        "ema",
+        "voice-assistant",
+        "customer-service",
+        "ai",
+        "chat"
+    ],
+    "scripts": {
+        "shopify": "shopify",
+        "build": "shopify app build",
+        "dev": "shopify app dev",
+        "info": "shopify app info",
+        "deploy": "shopify app deploy",
+        "generate": "shopify app generate",
+        "build:extension": "cd extensions/ema-modal-theme-extension && npm run build",
+        "dev:extension": "cd extensions/ema-modal-theme-extension && npm run dev",
+        "install:extension": "cd extensions/ema-modal-theme-extension && npm install",
+        "setup": "npm install && npm run install:extension && npm run build:extension",
+        "clean": "rm -rf node_modules extensions/ema-modal-theme-extension/node_modules extensions/ema-modal-theme-extension/assets/*.js extensions/ema-modal-theme-extension/assets/*.css",
+        "lint": "cd extensions/ema-modal-theme-extension && npm run type-check"
+    },
+    "dependencies": {
+        "@shopify/app": "^3.58.2",
+        "@shopify/cli": "^3.58.2"
+    },
+    "devDependencies": {
+        "@types/node": "^20.14.10"
+    },
+    "engines": {
+        "node": ">=18.0.0"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/your-org/ema-modal-shopify"
+    },
+    "bugs": {
+        "url": "https://github.com/your-org/ema-modal-shopify/issues"
+    },
+    "homepage": "https://github.com/your-org/ema-modal-shopify#readme"
+}
