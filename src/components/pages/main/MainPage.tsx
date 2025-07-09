@@ -15,6 +15,7 @@ import PartnersSection from './sections/PartnersSection';
 import PlanSection from './sections/PlanSection';
 import ProblemSection from './sections/ProblemSection';
 import SuccessSection from './sections/SuccessSection';
+import IntegrationSection from './sections/IntegrationSection';
 
 export default function MainPage() {
     const [contactModalOpen, setContactModalOpen] = useState(false);
@@ -26,6 +27,7 @@ export default function MainPage() {
         };
         checkMobile();
         window.addEventListener('resize', checkMobile);
+
         return () => window.removeEventListener('resize', checkMobile);
     }, []);
 
@@ -40,6 +42,7 @@ export default function MainPage() {
             <PlanSection />
             <PartnersSection />
             <FeatureShowcaseSection />
+            <IntegrationSection />
             <ComparisonSection />
             <FaqSection setContactModalOpen={setContactModalOpen} />
             <CtaSection setContactModalOpen={setContactModalOpen} />

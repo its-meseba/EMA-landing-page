@@ -382,32 +382,6 @@
             "you": "Vous gagnerez."
         }
     },
-    "footer": {
-        "slogan": "Nous Livrons la Technologie avec la Facilité de la Conversation.",
-        "legal": "Légal",
-        "legalLinks": [
-            {
-                "name": "RGPD",
-                "href": "/legal/data-protection"
-            },
-            {
-                "name": "Politique de Confidentialité",
-                "href": "/legal/privacy-policy"
-            },
-            {
-                "name": "Politique des Cookies",
-                "href": "/legal/cookie-policy"
-            }
-        ],
-        "contact": "Contact",
-        "email": "info-ema@solace.com.tr",
-        "socials": [
-            "LinkedIn",
-            "Instagram",
-            "YouTube"
-        ],
-        "copyright": "© 2025 EMA, Solace Technology. Tous droits réservés."
-    },
     "contactModal": {
         "title": "Nous Contacter",
         "subtitle": "Partagez vos informations pour faire connaissance avec EMA, et nous vous contacterons.",
@@ -425,5 +399,75 @@
         "sending": "Envoi en cours...",
         "success": "Votre message a été envoyé avec succès !",
         "error": "Une erreur s'est produite. Veuillez réessayer."
+    },
+    "integrationSection": {
+        "title": "Intégrez",
+        "titleHighlight": "EMA",
+        "titleSuffix": "n'importe où",
+        "description": "Que ce soit sur votre site web, en tant que plugin, ou via un lien direct, EMA est conçu pour être flexible. Choisissez l'intégration qui correspond à vos besoins.",
+        "previewsTitle": "Aperçus de l'intégration",
+        "npmPackage": {
+            "title": "Paquet NPM",
+            "description": "Pour que votre équipe informatique l'intègre en tant que bouton modal sur votre site web."
+        },
+        "npmPackageCta": "Cliquez sur le bouton pour le voir en action.",
+        "fullScreen": {
+            "title": "Section Plein Écran",
+            "description": "Intégrez EMA directement dans votre site comme une expérience en pleine page."
+        },
+        "fullScreenLoading": "Chargement de l'EMA en plein écran...",
+        "wordpress": {
+            "title": "Plugin WordPress",
+            "description": "Ajoutez facilement EMA à votre site WordPress avec notre plugin officiel."
+        },
+        "wordpressBubbleText": "💬 Parlez, peu importe ce que vous cherchez.",
+        "shopify": {
+            "title": "Application Shopify",
+            "description": "Intégrez EMA dans votre boutique Shopify pour aider les clients."
+        },
+        "ikas": {
+            "title": "Intégration Ikas",
+            "description": "Ajoutez le modal EMA à votre plateforme e-commerce Ikas."
+        },
+        "directLink": {
+            "title": "Lien Direct",
+            "description": "Partagez un lien direct vers l'application EMA dédiée de votre entreprise.",
+            "explanation": "Vous pouvez placer ce lien sur vos profils de réseaux sociaux, sur n'importe quel bouton de votre site web, ou le partager directement avec vos clients.",
+            "copyLink": "Copier le lien",
+            "openLink": "Ouvrir dans un nouvel onglet",
+            "copied": "Copié !"
+        },
+        "comingSoon": "Bientôt disponible !",
+        "contactSupport": "Contacter le support",
+        "fullScreenTitle": "Expérience",
+        "fullScreenTitleHighlight": "EMA",
+        "fullScreenTitleSuffix": "en Plein Écran",
+        "fullScreenSubtitle": "Présentation en direct de notre démo Greyder"
+    },
+    "footer": {
+        "slogan": "La technologie avec la facilité d'une conversation.",
+        "legal": {
+            "title": "Légal",
+            "links": [
+                {
+                    "name": "RGPD",
+                    "href": "/legal/data-protection"
+                },
+                {
+                    "name": "Politique de Confidentialité",
+                    "href": "/legal/privacy-policy"
+                },
+                {
+                    "name": "Politique des Cookies",
+                    "href": "/legal/cookie-policy"
+                }
+            ]
+        },
+        "contact": {
+            "title": "Contact",
+            "email": "info-ema@solace.com.tr",
+            "phone": "+90 212 222 2222"
+        },
+        "copyright": "© 2024 EMA. Tous droits réservés."
     }
 }

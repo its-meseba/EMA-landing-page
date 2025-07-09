@@ -381,31 +381,75 @@
             "you": "You will win."
         }
     },
+    "integrationSection": {
+        "title": "Integrate",
+        "titleHighlight": "EMA",
+        "titleSuffix": "Anywhere",
+        "description": "Whether on your website, as a plugin, or a direct link, EMA is built to be flexible. Choose the integration that fits your needs.",
+        "previewsTitle": "Integration Previews",
+        "npmPackage": {
+            "title": "NPM Package",
+            "description": "For your IT team to integrate as a modal button on your website."
+        },
+        "npmPackageCta": "Click the button to see it in action.",
+        "fullScreen": {
+            "title": "Full Screen Section",
+            "description": "Embed EMA as a full-page experience directly into your site."
+        },
+        "fullScreenLoading": "Loading Full-Screen EMA...",
+        "wordpress": {
+            "title": "WordPress Plugin",
+            "description": "Easily add EMA to your WordPress site with our official plugin."
+        },
+        "wordpressBubbleText": "💬 Just talk, whatever you're looking for.",
+        "shopify": {
+            "title": "Shopify App",
+            "description": "Integrate EMA into your Shopify store to assist customers."
+        },
+        "ikas": {
+            "title": "Ikas Integration",
+            "description": "Add EMA modal to your Ikas e-commerce platform."
+        },
+        "directLink": {
+            "title": "Direct Link",
+            "description": "Share a direct link to your company’s dedicated EMA application.",
+            "explanation": "You can place this link in your social media profiles, on any button on your website, or share it directly with your customers.",
+            "copyLink": "Copy Link",
+            "openLink": "Open in New Tab",
+            "copied": "Copied!"
+        },
+        "comingSoon": "Coming Soon!",
+        "fullScreenTitle": "Full-Screen",
+        "fullScreenTitleHighlight": "EMA",
+        "fullScreenTitleSuffix": "Experience",
+        "fullScreenSubtitle": "Live showcase of our Greyder demo",
+        "contactSupport": "Contact Support"
+    },
     "footer": {
-        "slogan": "We Deliver Technology with the Ease of Conversation.",
-        "legal": "Legal",
-        "legalLinks": [
-            {
-                "name": "GDPR",
-                "href": "/legal/data-protection"
-            },
-            {
-                "name": "Privacy Policy",
-                "href": "/legal/privacy-policy"
-            },
-            {
-                "name": "Cookie Policy",
-                "href": "/legal/cookie-policy"
-            }
-        ],
-        "contact": "Contact",
-        "email": "info-ema@solace.com.tr",
-        "socials": [
-            "LinkedIn",
-            "Instagram",
-            "YouTube"
-        ],
-        "copyright": "© 2025 EMA, Solace Technology. All rights reserved."
+        "slogan": "Delivering Technology with the Ease of Conversation.",
+        "legal": {
+            "title": "Legal",
+            "links": [
+                {
+                    "name": "GDPR",
+                    "href": "/legal/data-protection"
+                },
+                {
+                    "name": "Privacy Policy",
+                    "href": "/legal/privacy-policy"
+                },
+                {
+                    "name": "Cookie Policy",
+                    "href": "/legal/cookie-policy"
+                }
+            ]
+        },
+        "contact": {
+            "title": "Contact",
+            "email": "info-ema@solace.com.tr",
+            "phone": "+90 212 222 2222"
+        },
+        "copyright": "© 2024 EMA. All Rights Reserved."
     },
     "contactModal": {
         "title": "Contact Us",

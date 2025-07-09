@@ -304,31 +304,74 @@
             "you": "Siz kazanacaksınız."
         }
     },
+    "integrationSection": {
+        "title": "EMA'yı Her Yere",
+        "titleHighlight": "Entegre",
+        "titleSuffix": "Edin",
+        "description": "Web sitenizde, bir eklenti olarak veya doğrudan bir bağlantıyla; EMA esnek olacak şekilde tasarlanmıştır. İhtiyaçlarınıza uygun entegrasyonu seçin.",
+        "previewsTitle": "Entegrasyon Önizlemeleri",
+        "npmPackage": {
+            "title": "NPM Paketi",
+            "description": "IT ekibinizin web sitenize modal butonu olarak entegre etmesi için."
+        },
+        "npmPackageCta": "Çalışırken görmek için butona tıklayın.",
+        "fullScreen": {
+            "title": "Tam Ekran Bölümü",
+            "description": "EMA'yı doğrudan sitenize tam sayfa bir deneyim olarak yerleştirin."
+        },
+        "fullScreenLoading": "Tam Ekran EMA Yükleniyor...",
+        "wordpress": {
+            "title": "WordPress Eklentisi",
+            "description": "Resmi eklentimizle EMA'yı WordPress sitenize kolayca ekleyin."
+        },
+        "wordpressBubbleText": "💬 Ne arıyorsan, konuş yeter.",
+        "shopify": {
+            "title": "Shopify Uygulaması",
+            "description": "Müşterilere yardımcı olmak için EMA'yı Shopify mağazanıza entegre edin."
+        },
+        "ikas": {
+            "title": "Ikas Entegrasyonu",
+            "description": "EMA modalını Ikas e-ticaret platformunuza ekleyin."
+        },
+        "directLink": {
+            "title": "Doğrudan Bağlantı",
+            "description": "Şirketinize özel EMA uygulamasına doğrudan bir bağlantı paylaşın.",
+            "explanation": "Bu bağlantıyı sosyal medya profillerinize, web sitenizdeki herhangi bir butona veya doğrudan müşterilerinizle paylaşabilirsiniz.",
+            "copyLink": "Bağlantıyı Kopyala",
+            "openLink": "Yeni Sekmede Aç",
+            "copied": "Kopyalandı!"
+        },
+        "comingSoon": "Çok Yakında!",
+        "fullScreenTitle": "Tam Ekran",
+        "fullScreenTitleHighlight": "EMA",
+        "fullScreenTitleSuffix": "Deneyimi",
+        "fullScreenSubtitle": "Greyder demomuzun canlı sunumu"
+    },
     "footer": {
         "slogan": "Teknolojiyi Konuşma Kolaylığında Sunuyoruz.",
-        "legal": "Yasal",
-        "legalLinks": [
-            {
-                "name": "KVKK",
-                "href": "/legal/data-protection"
-            },
-            {
-                "name": "Gizlilik Politikası",
-                "href": "/legal/privacy-policy"
-            },
-            {
-                "name": "Çerez Politikası",
-                "href": "/legal/cookie-policy"
-            }
-        ],
-        "contact": "İletişim",
-        "email": "info-ema@solace.com.tr",
-        "socials": [
-            "LinkedIn",
-            "Instagram",
-            "YouTube"
-        ],
-        "copyright": "© 2025 EMA, Solace Teknoloji. Tüm hakları saklıdır."
+        "legal": {
+            "title": "Yasal",
+            "links": [
+                {
+                    "name": "KVKK",
+                    "href": "/legal/data-protection"
+                },
+                {
+                    "name": "Gizlilik Politikası",
+                    "href": "/legal/privacy-policy"
+                },
+                {
+                    "name": "Çerez Politikası",
+                    "href": "/legal/cookie-policy"
+                }
+            ]
+        },
+        "contact": {
+            "title": "İletişim",
+            "email": "info-ema@solace.com.tr",
+            "phone": "+90 212 222 2222"
+        },
+        "copyright": "© 2024 EMA. Tüm Hakları Saklıdır."
     },
     "contactModal": {
         "title": "İletişime Geçin",
