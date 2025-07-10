@@ -129,7 +129,7 @@ const FacebookLoginPage = () => {
                     console.log('Facebook SDK script has been loaded.');
                 }}
             />
-            <div style={{ padding: '20px', fontFamily: 'sans-serif', color: 'white' }}>
+            <div style={{ padding: '20px', fontFamily: 'sans-serif', color: 'black', minHeight: '100vh' }}>
                 <h1>Facebook Login Example</h1>
                 <p>This page demonstrates a simple Facebook login integration using a custom button.</p>
 
@@ -137,9 +137,9 @@ const FacebookLoginPage = () => {
 
                 {isSdkLoaded && (
                     <div>
-                        <button onClick={handleLogin} disabled={status === 'connected'} style={{ marginRight: '10px', padding: '10px', cursor: 'pointer' }}>Login with Facebook</button>
-                        <button onClick={handleLogout} disabled={status !== 'connected'} style={{ marginRight: '10px', padding: '10px', cursor: 'pointer' }}>Logout</button>
-                        <button onClick={handleCheckStatus} style={{ padding: '10px', cursor: 'pointer' }}>Check Login Status</button>
+                        <button onClick={handleLogin} disabled={status === 'connected'} style={{ marginRight: '10px', padding: '10px', cursor: 'pointer', color: 'black', background: 'lightgray', border: '1px solid black' }}>Login with Facebook</button>
+                        <button onClick={handleLogout} disabled={status !== 'connected'} style={{ marginRight: '10px', padding: '10px', cursor: 'pointer', color: 'black', background: 'lightgray', border: '1px solid black' }}>Logout</button>
+                        <button onClick={handleCheckStatus} style={{ padding: '10px', cursor: 'pointer', color: 'black', background: 'lightgray', border: '1px solid black' }}>Check Login Status</button>
                     </div>
                 )}
 
