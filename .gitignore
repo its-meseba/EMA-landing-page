@@ -37,3 +37,7 @@ next-env.d.ts
 
 # Data storage
 /data
+.env*
+
+.open-next
+.wrangler
